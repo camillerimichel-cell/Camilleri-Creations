@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — Camilleri Creations</title>
+    <meta name="description" content="Get help with Camilleri Creations apps. Report bugs, request features, or ask questions. We're here to help.">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <style>
+        :root {
+            --bg: #faf9f7;
+            --card-bg: #ffffff;
+            --accent: #2c6e6a;
+            --accent-hover: #1f524f;
+            --accent-light: #e8f4f3;
+            --text: #1e2a2a;
+            --text-muted: #5a6b6b;
+            --border: #e2e8e8;
+            --shadow: 0 4px 24px rgba(0,0,0,0.06);
+            --radius: 16px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            min-height: 100vh;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Navigation */
+        nav {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .nav-brand img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+        }
+        .nav-brand span {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Content */
+        .content {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .content h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        .content .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Contact Card */
+        .contact-card {
+            background: var(--accent);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            text-align: center;
+            color: white;
+            margin-bottom: 2.5rem;
+        }
+        .contact-card h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .contact-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        .contact-card .email-btn {
+            display: inline-block;
+            background: white;
+            color: var(--accent);
+            padding: 0.85rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .contact-card .email-btn:hover {
+            transform: translateY(-1px);
+            text-decoration: none;
+        }
+        .contact-card .response-time {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            opacity: 0.75;
+        }
+
+        /* Support Cards */
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .support-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+        .support-card .icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        .support-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .support-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            margin-bottom: 2.5rem;
+        }
+        .faq-section h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .faq-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .faq-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .faq-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+        .faq-item p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        /* App Support Links */
+        .app-support {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            margin-bottom: 2.5rem;
+        }
+        .app-support h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+        .app-support-list {
+            list-style: none;
+        }
+        .app-support-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .app-support-list li:last-child {
+            border-bottom: none;
+        }
+        .app-support-list .app-icon-small {
+            font-size: 1.5rem;
+            width: 36px;
+            text-align: center;
+        }
+        .app-support-list .app-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .app-support-list .app-status {
+            margin-left: auto;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+        .status-live {
+            background: #e8f8e8;
+            color: #1b873f;
+        }
+        .status-beta {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        .status-dev {
+            background: #e8f4fd;
+            color: #0071e3;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        footer .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        footer a { color: var(--accent); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content h1 { font-size: 1.8rem; }
+            .content { padding: 3rem 1.5rem; }
+            .support-grid { grid-template-columns: 1fr; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; }
+        }
+        @media (max-width: 480px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/logo.png" alt="Camilleri Creations logo">
+                <span>Camilleri Creations</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="support.html" class="active">Support</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <section class="content">
+        <h1>Support</h1>
+        <p class="subtitle">Got a question, found a bug, or want to suggest a feature? We're here to help.</p>
+
+        <!-- Contact -->
+        <div class="contact-card">
+            <h2>Get in Touch</h2>
+            <p>The quickest way to reach us is by email. We read every message and aim to respond within 48 hours.</p>
+            <a href="mailto:camillericreations@icloud.com" class="email-btn">camillericreations@icloud.com</a>
+            <span class="response-time">Typical response time: within 48 hours</span>
+        </div>
+
+        <!-- Support Types -->
+        <div class="support-grid">
+            <div class="support-card">
+                <div class="icon">&#128027;</div>
+                <h3>Report a Bug</h3>
+                <p>Found something broken? Let us know what happened, which app and version you're using, and your device model. Screenshots help a lot.</p>
+            </div>
+            <div class="support-card">
+                <div class="icon">&#128161;</div>
+                <h3>Request a Feature</h3>
+                <p>Have an idea that would make an app better? We love hearing from users. Every suggestion goes into the hopper and the best ones make it into future releases.</p>
+            </div>
+            <div class="support-card">
+                <div class="icon">&#128274;</div>
+                <h3>Account &amp; Data</h3>
+                <p>Need to delete your account, export your data, or change your subscription? We'll sort it out. Just tell us which app and what you need.</p>
+            </div>
+            <div class="support-card">
+                <div class="icon">&#128588;</div>
+                <h3>General Questions</h3>
+                <p>Not sure which category fits? Just send us a message. We're happy to help with anything — no question is too small.</p>
+            </div>
+        </div>
+
+        <!-- App Status -->
+        <div class="app-support">
+            <h2>App Status</h2>
+            <ul class="app-support-list">
+                <li>
+                    <span class="app-icon-small">&#9917;</span>
+                    <span class="app-name">LionTrack</span>
+                    <span class="app-status status-beta">Beta</span>
+                </li>
+                <li>
+                    <span class="app-icon-small">&#9200;</span>
+                    <span class="app-name">ADHD Morning Routine</span>
+                    <span class="app-status status-dev">In Development</span>
+                </li>
+                <li>
+                    <span class="app-icon-small">&#128218;</span>
+                    <span class="app-name">StudyTrack</span>
+                    <span class="app-status status-dev">In Development</span>
+                </li>
+                <li>
+                    <span class="app-icon-small">&#128106;</span>
+                    <span class="app-name">FamilyHub</span>
+                    <span class="app-status status-dev">In Development</span>
+                </li>
+                <li>
+                    <span class="app-icon-small">&#127939;</span>
+                    <span class="app-name">Odyssey</span>
+                    <span class="app-status status-dev">In Development</span>
+                </li>
+                <li>
+                    <span class="app-icon-small">&#9992;&#65039;</span>
+                    <span class="app-name">FirstSolo</span>
+                    <span class="app-status status-dev">In Development</span>
+                </li>
+                <li>
+                    <span class="app-icon-small">&#128200;</span>
+                    <span class="app-name">Provenance</span>
+                    <span class="app-status status-dev">In Development</span>
+                </li>
+                <li>
+                    <span class="app-icon-small">&#128149;</span>
+                    <span class="app-name">Fancy That</span>
+                    <span class="app-status status-dev">In Development</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h3>How do I restore my subscription on a new device?</h3>
+                <p>Open the app, go to Settings, and tap "Restore Purchases." This will check your Apple ID or Google Play account for existing subscriptions and re-activate them.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I delete my account and data?</h3>
+                <p>You can delete your account from within the app (Settings &gt; Account &gt; Delete Account). Alternatively, email us at camillericreations@icloud.com and we'll process it within 30 days.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Which devices are supported?</h3>
+                <p>Our iOS apps require iOS 17 or later and work on iPhone. Some apps (FirstSolo, FamilyHub) have optimised iPad layouts. Android apps require Android 10 or later.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I cancel my subscription?</h3>
+                <p>Subscriptions are managed through the App Store or Google Play Store — not through our apps directly. Go to your device Settings &gt; Apple ID &gt; Subscriptions (iOS) or Google Play &gt; Payments &amp; subscriptions (Android).</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Is my data backed up?</h3>
+                <p>Apps that use Firebase (LionTrack, FamilyHub, StudyTrack, Odyssey, FirstSolo, Provenance, Fancy That) sync data to the cloud automatically. Your data is available on any device you sign into. ADHD Morning Routine stores data locally with optional iCloud/Firebase sync for family features.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I use the app offline?</h3>
+                <p>Yes. All our apps work offline for core functionality. Data will sync when you reconnect to the internet. Some features (family race, team sync, AI-generated content) require an active connection.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>I have a billing issue. Who do I contact?</h3>
+                <p>All billing is handled by Apple (App Store) or Google (Play Store). For refunds or payment issues, contact <a href="https://reportaproblem.apple.com">Apple Support</a> or <a href="https://support.google.com/googleplay/answer/2479637">Google Play Support</a> directly. We don't have access to payment information.</p>
+            </div>
+        </div>
+
+        <!-- Helpful Tips -->
+        <div class="faq-section">
+            <h2>Tips for Reporting Bugs</h2>
+            <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.25rem;">The more detail you include, the faster we can fix the issue. Here's what helps:</p>
+
+            <div class="faq-item">
+                <h3>Include in your email:</h3>
+                <p>1. Which app and version (found in Settings &gt; About)<br>
+                2. Your device model and OS version (e.g., iPhone 15, iOS 17.5)<br>
+                3. What you were doing when the problem occurred<br>
+                4. What you expected to happen vs what actually happened<br>
+                5. Screenshots or screen recordings if possible</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="apps.html">Apps</a>
+            <a href="about.html">About</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="https://github.com/camillerimichel-cell">GitHub</a>
+        </div>
+        <p>&copy; 2026 Camilleri Creations. All rights reserved.</p>
+    </footer>
+</body>
+</html>

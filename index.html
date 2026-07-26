@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camilleri Creations — Smart Apps, Family Focused</title>
+    <meta name="description" content="Camilleri Creations builds thoughtful, family-focused mobile apps for iOS and Android. From grassroots football to ADHD routines, aviation learning to fitness journeys.">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <style>
+        :root {
+            --bg: #faf9f7;
+            --card-bg: #ffffff;
+            --accent: #2c6e6a;
+            --accent-hover: #1f524f;
+            --accent-light: #e8f4f3;
+            --text: #1e2a2a;
+            --text-muted: #5a6b6b;
+            --border: #e2e8e8;
+            --shadow: 0 4px 24px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 32px rgba(0,0,0,0.1);
+            --radius: 16px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            min-height: 100vh;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Navigation */
+        nav {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .nav-brand img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+        }
+        .nav-brand span {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero-logo {
+            width: 140px;
+            height: 140px;
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        .hero .tagline {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        .hero .cta-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+            text-decoration: none;
+        }
+        .btn-secondary {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+        .btn-secondary:hover {
+            background: #d4ece9;
+            transform: translateY(-1px);
+            text-decoration: none;
+        }
+
+        /* Section */
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* App Grid */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        .app-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: var(--text);
+            display: block;
+        }
+        .app-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            text-decoration: none;
+        }
+        .app-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .app-card-icon {
+            font-size: 2.5rem;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            background: var(--accent-light);
+        }
+        .app-card-header h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+        .app-card-header .platforms {
+            display: flex;
+            gap: 0.4rem;
+            margin-top: 0.25rem;
+        }
+        .badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.15rem 0.5rem;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-ios { background: #e8f4fd; color: #0071e3; }
+        .badge-android { background: #e8f8e8; color: #1b873f; }
+        .badge-web { background: #f3e8fd; color: #7c3aed; }
+        .badge-coming { background: #fef3c7; color: #92400e; }
+        .app-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Values */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .value-item {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+        .value-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .value-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        footer .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        footer a { color: var(--accent); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero { padding: 3rem 1.5rem 2rem; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; }
+            .app-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/logo.png" alt="Camilleri Creations logo">
+                <span>Camilleri Creations</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <img src="assets/logo.png" alt="Camilleri Creations" class="hero-logo">
+        <h1>Camilleri Creations</h1>
+        <p class="tagline">Smart apps for real life. Built with care for families, learners, coaches, and curious minds.</p>
+        <div class="cta-row">
+            <a href="apps.html" class="btn btn-primary">View Our Apps</a>
+            <a href="support.html" class="btn btn-secondary">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Apps Portfolio -->
+    <section class="section">
+        <h2 class="section-title">Our Apps</h2>
+        <p class="section-subtitle">A growing portfolio of thoughtful, family-focused mobile applications.</p>
+
+        <div class="app-grid">
+            <!-- LionTrack -->
+            <a href="apps.html#liontrack" class="app-card">
+                <div class="app-card-header">
+                    <div class="app-card-icon">&#9917;</div>
+                    <div>
+                        <h3>LionTrack</h3>
+                        <div class="platforms">
+                            <span class="badge badge-ios">iOS</span>
+                            <span class="badge badge-android">Android</span>
+                        </div>
+                    </div>
+                </div>
+                <p>Grassroots youth football team management. Track attendance, record match stats, manage squads, award XP and badges, and keep parents in the loop.</p>
+            </a>
+
+            <!-- ADHD Morning Routine -->
+            <a href="apps.html#adhd-morning-routine" class="app-card">
+                <div class="app-card-header">
+                    <div class="app-card-icon">&#9200;</div>
+                    <div>
+                        <h3>ADHD Morning Routine</h3>
+                        <div class="platforms">
+                            <span class="badge badge-ios">iOS</span>
+                            <span class="badge badge-android">Android</span>
+                        </div>
+                    </div>
+                </div>
+                <p>A guided morning routine app for children and adults with ADHD. Visual timers, audio prompts, gamification, and family race features make mornings manageable.</p>
+            </a>
+
+            <!-- StudyTrack -->
+            <a href="apps.html#studytrack" class="app-card">
+                <div class="app-card-header">
+                    <div class="app-card-icon">&#128218;</div>
+                    <div>
+                        <h3>StudyTrack</h3>
+                        <div class="platforms">
+                            <span class="badge badge-ios">iOS</span>
+                            <span class="badge badge-android">Android</span>
+                        </div>
+                    </div>
+                </div>
+                <p>Academic workload management for UK students (Year 10+). Plan revision, track scores, manage deadlines, and visualise performance across subjects.</p>
+            </a>
+
+            <!-- FamilyHub -->
+            <a href="apps.html#familyhub" class="app-card">
+                <div class="app-card-header">
+                    <div class="app-card-icon">&#128106;</div>
+                    <div>
+                        <h3>FamilyHub</h3>
+                        <div class="platforms">
+                            <span class="badge badge-ios">iOS</span>
+                        </div>
+                    </div>
+                </div>
+                <p>Family organisation for busy households. Shared calendar, task management, meal planning, wellness features, and adaptive reminders designed for ADHD brains.</p>
+            </a>
+
+            <!-- Odyssey -->
+            <a href="apps.html#odyssey" class="app-card">
+                <div class="app-card-header">
+                    <div class="app-card-icon">&#127939;</div>
+                    <div>
+                        <h3>Odyssey</h3>
+                        <div class="platforms">
+                            <span class="badge badge-ios">iOS</span>
+                        </div>
+                    </div>
+                </div>
+                <p>Turn your exercise into an epic adventure. Map your cumulative distance onto historical journey routes with RPG-style progression, XP, and waypoint unlocks.</p>
+            </a>
+
+            <!-- FirstSolo -->
+            <a href="apps.html#firstsolo" class="app-card">
+                <div class="app-card-header">
+                    <div class="app-card-icon">&#9992;&#65039;</div>
+                    <div>
+                        <h3>FirstSolo</h3>
+                        <div class="platforms">
+                            <span class="badge badge-ios">iOS</span>
+                        </div>
+                    </div>
+                </div>
+                <p>Gamified aviation learning for RAF Air Cadets. Work through the Air Pilot's Manual in a narrative campaign from first parade night to first solo flight.</p>
+            </a>
+
+            <!-- Provenance -->
+            <a href="apps.html#provenance" class="app-card">
+                <div class="app-card-header">
+                    <div class="app-card-icon">&#128200;</div>
+                    <div>
+                        <h3>Provenance</h3>
+                        <div class="platforms">
+                            <span class="badge badge-ios">iOS</span>
+                        </div>
+                    </div>
+                </div>
+                <p>Invest in what you know. A personal discovery engine that connects your passions, spending, and convictions to investable opportunities.</p>
+            </a>
+
+            <!-- Fancy That -->
+            <a href="apps.html#fancythat" class="app-card">
+                <div class="app-card-header">
+                    <div class="app-card-icon">&#128149;</div>
+                    <div>
+                        <h3>Fancy That</h3>
+                        <div class="platforms">
+                            <span class="badge badge-ios">iOS</span>
+                        </div>
+                    </div>
+                </div>
+                <p>A private, AI-powered comedy-romance couples app. Unexpected delight, playful affirmation, and quiet intimacy delivered throughout an ordinary day.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section">
+        <h2 class="section-title">How We Build</h2>
+        <p class="section-subtitle">Every app we make is guided by the people who use it.</p>
+
+        <div class="values-grid">
+            <div class="value-item">
+                <h3>Family First</h3>
+                <p>Built by a parent, for families. We understand the chaos of daily life with children and design apps that reduce friction, not add to it.</p>
+            </div>
+            <div class="value-item">
+                <h3>Neurodiversity Aware</h3>
+                <p>ADHD-friendly design runs through everything we build. Clear visual cues, one-thing-at-a-time focus, and no-pressure interactions.</p>
+            </div>
+            <div class="value-item">
+                <h3>Privacy Respecting</h3>
+                <p>Data stays on your device wherever possible. No selling user data, no invasive tracking. Simple, transparent privacy policies.</p>
+            </div>
+            <div class="value-item">
+                <h3>Accessible by Default</h3>
+                <p>High contrast options, reduced motion, VoiceOver support, and simplified UI modes are built in from day one — not bolted on later.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="apps.html">Apps</a>
+            <a href="about.html">About</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="support.html">Support</a>
+            <a href="https://github.com/camillerimichel-cell">GitHub</a>
+        </div>
+        <p>&copy; 2026 Camilleri Creations. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">Glass Art &bull; Smart Apps &bull; Family Focused</p>
+    </footer>
+</body>
+</html>

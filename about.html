@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Camilleri Creations</title>
+    <meta name="description" content="About Camilleri Creations — a small, independent app studio building thoughtful mobile apps for families, learners, and communities.">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <style>
+        :root {
+            --bg: #faf9f7;
+            --card-bg: #ffffff;
+            --accent: #2c6e6a;
+            --accent-hover: #1f524f;
+            --accent-light: #e8f4f3;
+            --text: #1e2a2a;
+            --text-muted: #5a6b6b;
+            --border: #e2e8e8;
+            --shadow: 0 4px 24px rgba(0,0,0,0.06);
+            --radius: 16px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            min-height: 100vh;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Navigation */
+        nav {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .nav-brand img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+        }
+        .nav-brand span {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Content */
+        .content {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .content h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* About Card */
+        .about-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            margin-bottom: 2.5rem;
+        }
+        .about-card h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .about-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .about-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Stats */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+        .stat-card .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Tech list */
+        .tech-section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            margin-bottom: 2.5rem;
+        }
+        .tech-section h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .tech-item {
+            background: var(--accent-light);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+        }
+        .tech-item h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+        .tech-item p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Contact CTA */
+        .cta-card {
+            background: var(--accent);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            text-align: center;
+            color: white;
+        }
+        .cta-card h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .cta-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        .cta-card a {
+            display: inline-block;
+            background: white;
+            color: var(--accent);
+            padding: 0.8rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .cta-card a:hover {
+            transform: translateY(-1px);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        footer .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        footer a { color: var(--accent); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content h1 { font-size: 1.8rem; }
+            .content { padding: 3rem 1.5rem; }
+            .about-card { padding: 1.75rem; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; }
+        }
+        @media (max-width: 480px) {
+            .nav-links { display: none; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/logo.png" alt="Camilleri Creations logo">
+                <span>Camilleri Creations</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <section class="content">
+        <h1>About Camilleri Creations</h1>
+
+        <!-- Stats -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="number">8</div>
+                <div class="label">Apps in Development</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">2</div>
+                <div class="label">Platforms (iOS + Android)</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">3</div>
+                <div class="label">Categories</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">2026</div>
+                <div class="label">Founded</div>
+            </div>
+        </div>
+
+        <!-- Story -->
+        <div class="about-card">
+            <h2>The Story</h2>
+            <p>Camilleri Creations is a small, independent app studio founded in 2026. We build thoughtful mobile applications for families, learners, coaches, and curious minds.</p>
+            <p>It started with a simple problem: mornings with ADHD children were chaos. No app on the market truly understood time blindness, task overwhelm, or the way neurodivergent brains need structure without pressure. So we built one. Then another. And another.</p>
+            <p>Each app in our portfolio solves a real problem experienced first-hand — whether that's a football coach drowning in spreadsheets, a student overwhelmed by exam revision, or a family trying to coordinate five busy lives from one kitchen.</p>
+            <p>We believe the best software comes from lived experience. Every feature is tested in the real world before it ships, guided by feedback from the families and communities who use our apps.</p>
+        </div>
+
+        <!-- Mission -->
+        <div class="about-card">
+            <h2>Our Mission</h2>
+            <p>To build software that makes everyday life a little easier for people who think differently. We focus on three areas:</p>
+            <p><strong>Family &amp; Wellbeing</strong> — Apps that help families organise, connect, and support each other. Designed for busy households where not everyone's brain works the same way.</p>
+            <p><strong>Learning &amp; Development</strong> — Tools that make education engaging and accessible. From aviation theory to academic revision, we believe learning should be an adventure.</p>
+            <p><strong>Personal Growth</strong> — Apps that help individuals track progress, build habits, discover passions, and celebrate small wins.</p>
+        </div>
+
+        <!-- Approach -->
+        <div class="about-card">
+            <h2>How We Work</h2>
+            <p>We're an independent studio working with modern tools and frameworks. Every app is designed mobile-first, built with privacy in mind, and tested by real users before release.</p>
+            <p>We follow a structured development process: requirements-first design, accessibility audits at every stage, and iterative releases driven by user feedback. Our apps are built to be simple on the surface with depth underneath for those who want it.</p>
+            <p>We actively support neurodivergent design: high contrast modes, reduced motion, simplified interfaces, audio prompts, and sensory-aware interactions are never afterthoughts — they're foundational.</p>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="tech-section">
+            <h2>Our Technology</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h3>Swift / SwiftUI</h3>
+                    <p>Native iOS development</p>
+                </div>
+                <div class="tech-item">
+                    <h3>Flutter</h3>
+                    <p>Cross-platform mobile</p>
+                </div>
+                <div class="tech-item">
+                    <h3>Firebase</h3>
+                    <p>Auth, Firestore, Functions, Hosting</p>
+                </div>
+                <div class="tech-item">
+                    <h3>Kotlin</h3>
+                    <p>Native Android development</p>
+                </div>
+                <div class="tech-item">
+                    <h3>TypeScript</h3>
+                    <p>Cloud Functions &amp; tooling</p>
+                </div>
+                <div class="tech-item">
+                    <h3>AI APIs</h3>
+                    <p>Claude, ChatGPT, Gemini</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-card">
+            <h2>Get in Touch</h2>
+            <p>Have a question, feedback, or just want to say hello? We'd love to hear from you.</p>
+            <a href="mailto:camillericreations@icloud.com">camillericreations@icloud.com</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="apps.html">Apps</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="support.html">Support</a>
+            <a href="https://github.com/camillerimichel-cell">GitHub</a>
+        </div>
+        <p>&copy; 2026 Camilleri Creations. All rights reserved.</p>
+    </footer>
+</body>
+</html>

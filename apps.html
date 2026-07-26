@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Apps — Camilleri Creations</title>
+    <meta name="description" content="Explore the full portfolio of Camilleri Creations apps. From grassroots football management to ADHD-friendly routines, aviation learning, fitness adventures, and more.">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <style>
+        :root {
+            --bg: #faf9f7;
+            --card-bg: #ffffff;
+            --accent: #2c6e6a;
+            --accent-hover: #1f524f;
+            --accent-light: #e8f4f3;
+            --text: #1e2a2a;
+            --text-muted: #5a6b6b;
+            --border: #e2e8e8;
+            --shadow: 0 4px 24px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 32px rgba(0,0,0,0.1);
+            --radius: 16px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            min-height: 100vh;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Navigation */
+        nav {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .nav-brand img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+        }
+        .nav-brand span {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+        }
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* App Detail Cards */
+        .apps-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem;
+        }
+        .app-detail {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            margin-bottom: 2.5rem;
+            scroll-margin-top: 80px;
+        }
+        .app-detail-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+        .app-detail-icon {
+            font-size: 2.8rem;
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: var(--accent-light);
+            flex-shrink: 0;
+        }
+        .app-detail-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+        .app-detail-header .tagline {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+        .app-detail-header .platforms {
+            display: flex;
+            gap: 0.4rem;
+            margin-top: 0.4rem;
+        }
+        .badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.15rem 0.5rem;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-ios { background: #e8f4fd; color: #0071e3; }
+        .badge-android { background: #e8f8e8; color: #1b873f; }
+        .badge-web { background: #f3e8fd; color: #7c3aed; }
+        .app-detail .description {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .app-detail .description p {
+            margin-bottom: 0.75rem;
+        }
+        .app-detail .description p:last-child {
+            margin-bottom: 0;
+        }
+        .features-heading {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            list-style: none;
+        }
+        .features-grid li {
+            font-size: 0.82rem;
+            background: var(--accent-light);
+            padding: 0.35rem 0.8rem;
+            border-radius: 8px;
+            color: var(--text-muted);
+        }
+        .app-detail .tech-stack {
+            margin-top: 1.25rem;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+        .app-detail .tech-stack strong {
+            color: var(--text);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        footer .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        footer a { color: var(--accent); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 1.8rem; }
+            .page-header { padding: 3rem 1.5rem 1.5rem; }
+            .app-detail { padding: 1.75rem; }
+            .app-detail-header { flex-direction: column; align-items: flex-start; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; }
+        }
+        @media (max-width: 480px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/logo.png" alt="Camilleri Creations logo">
+                <span>Camilleri Creations</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps.html" class="active">Apps</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Our Apps</h1>
+        <p>A growing collection of thoughtful apps built for families, learners, coaches, and curious minds.</p>
+    </section>
+
+    <!-- App Details -->
+    <section class="apps-container">
+
+        <!-- LionTrack -->
+        <article class="app-detail" id="liontrack">
+            <div class="app-detail-header">
+                <div class="app-detail-icon">&#9917;</div>
+                <div>
+                    <h2>LionTrack</h2>
+                    <p class="tagline">Grassroots youth football team management — built by a coach, for coaches.</p>
+                    <div class="platforms">
+                        <span class="badge badge-ios">iOS</span>
+                        <span class="badge badge-android">Android</span>
+                    </div>
+                </div>
+            </div>
+            <div class="description">
+                <p>LionTrack is built for grassroots youth football coaches who want to focus on what matters: developing young players, not wrestling with spreadsheets.</p>
+                <p>Track attendance, record live match stats, manage squads, award XP and badges, and share progress with parents — all from one app that fits in your pocket on the touchline. When siblings race through their routines at the same time, a live Family Race makes mornings fun instead of frustrating.</p>
+                <p>Designed with accessibility in mind, including a neurodivergent mode with high contrast, reduced motion, and simplified UI options. Parents link to their child's profile and get a read-only dashboard showing XP, badges, match highlights, attendance, and streaks.</p>
+            </div>
+            <p class="features-heading">Key Features</p>
+            <ul class="features-grid">
+                <li>&#9917; Live match tracking</li>
+                <li>&#128200; Player stats &amp; XP</li>
+                <li>&#127942; Badges &amp; rewards</li>
+                <li>&#128101; Squad management</li>
+                <li>&#128197; Training attendance</li>
+                <li>&#128104;&#128105;&#128103; Parent dashboard</li>
+                <li>&#127918; Player dashboard</li>
+                <li>&#128241; Home screen widgets</li>
+                <li>&#128274; Safeguarding tools</li>
+                <li>&#128196; Season PDF export</li>
+                <li>&#127912; 5 colour themes</li>
+                <li>&#9855; Neurodivergent mode</li>
+                <li>&#11088; Pro player comparison</li>
+                <li>&#128293; Match streaks</li>
+            </ul>
+            <p class="tech-stack"><strong>Built with:</strong> Swift/SwiftUI (iOS), Flutter (Android) &bull; Firebase &bull; RevenueCat</p>
+        </article>
+
+        <!-- ADHD Morning Routine -->
+        <article class="app-detail" id="adhd-morning-routine">
+            <div class="app-detail-header">
+                <div class="app-detail-icon">&#9200;</div>
+                <div>
+                    <h2>ADHD Morning Routine</h2>
+                    <p class="tagline">Making mornings manageable — one task at a time.</p>
+                    <div class="platforms">
+                        <span class="badge badge-ios">iOS</span>
+                        <span class="badge badge-android">Android</span>
+                    </div>
+                </div>
+            </div>
+            <div class="description">
+                <p>A guided morning routine app that helps children (and adults) with ADHD get through their mornings one task at a time. Visual countdown timers, audio prompts, and gamification keep things on track without the overwhelm.</p>
+                <p>Supports multiple family profiles, so everyone gets their own routines, streaks, and rewards. When multiple profiles run routines at the same time, a live Family Race appears showing everyone's progress in real time.</p>
+                <p>Designed with neurodiversity in mind: clear visual cues, one-thing-at-a-time focus, gamification that motivates without pressuring, and family features that make mornings feel less like a battle and more like a team effort.</p>
+            </div>
+            <p class="features-heading">Key Features</p>
+            <ul class="features-grid">
+                <li>&#9201;&#65039; Task-by-task timers</li>
+                <li>&#127939; Ghost Race (vs your best)</li>
+                <li>&#128106; Family Race</li>
+                <li>&#128293; Weekday streaks</li>
+                <li>&#127942; Badges &amp; rewards</li>
+                <li>&#127912; 5 colour themes</li>
+                <li>&#128276; Smart nudges</li>
+                <li>&#9200; Alarm scheduling</li>
+                <li>&#128200; Statistics</li>
+                <li>&#128241; Home screen widgets</li>
+                <li>&#128483;&#65039; Audio prompts (TTS)</li>
+                <li>&#127917; Unlockable avatars</li>
+            </ul>
+            <p class="tech-stack"><strong>Built with:</strong> Swift/SwiftUI (iOS), Kotlin (Android) &bull; Firebase &bull; HealthKit</p>
+        </article>
+
+        <!-- StudyTrack -->
+        <article class="app-detail" id="studytrack">
+            <div class="app-detail-header">
+                <div class="app-detail-icon">&#128218;</div>
+                <div>
+                    <h2>StudyTrack</h2>
+                    <p class="tagline">Academic workload management for UK students.</p>
+                    <div class="platforms">
+                        <span class="badge badge-ios">iOS</span>
+                        <span class="badge badge-android">Android</span>
+                    </div>
+                </div>
+            </div>
+            <div class="description">
+                <p>StudyTrack is designed for students from Year 10 and above to manage academic workload, track progress, and stay organised throughout the school year. It combines planning, performance tracking, and revision management within a simple and engaging interface.</p>
+                <p>The primary goal is to reduce student stress, improve time management, and provide clear insights into academic performance across different subjects. Smart revision suggestions identify weak areas and upcoming exams to help students focus where it matters most.</p>
+            </div>
+            <p class="features-heading">Key Features</p>
+            <ul class="features-grid">
+                <li>&#128197; Academic calendar</li>
+                <li>&#128200; Score tracking &amp; trends</li>
+                <li>&#128214; Revision planner</li>
+                <li>&#128161; Smart suggestions</li>
+                <li>&#128293; Study streaks</li>
+                <li>&#128203; Past paper tracker</li>
+                <li>&#127891; Subject topics</li>
+                <li>&#128247; Wellbeing check-ins</li>
+                <li>&#128101; Parent/tutor view</li>
+                <li>&#128260; Offline sync</li>
+            </ul>
+            <p class="tech-stack"><strong>Built with:</strong> Flutter &bull; Firebase &bull; Hive (local storage)</p>
+        </article>
+
+        <!-- FamilyHub -->
+        <article class="app-detail" id="familyhub">
+            <div class="app-detail-header">
+                <div class="app-detail-icon">&#128106;</div>
+                <div>
+                    <h2>FamilyHub</h2>
+                    <p class="tagline">Family organisation that works with your brain, not against it.</p>
+                    <div class="platforms">
+                        <span class="badge badge-ios">iOS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="description">
+                <p>Family Hub is a family organisation app designed for a household of 5 members. The app reduces decision fatigue, automates recurring tasks, syncs with calendars, and supports emotional regulation.</p>
+                <p>The interface is designed for ADHD brains and menopause-related memory fog, offering a gentle, low-friction experience. A global mode toggle allows switching between "Fun &amp; Motivating" and "Calming &amp; Gentle" modes, adapting visuals, notifications, task behaviour, and wellness features.</p>
+            </div>
+            <p class="features-heading">Key Features</p>
+            <ul class="features-grid">
+                <li>&#128197; Shared family calendar</li>
+                <li>&#9989; Task management &amp; chunking</li>
+                <li>&#127860; Meal planner &amp; shopping list</li>
+                <li>&#128156; Wellness &amp; breathing</li>
+                <li>&#128276; Adaptive reminders</li>
+                <li>&#127774; Energy level tracking</li>
+                <li>&#128483;&#65039; Voice commands</li>
+                <li>&#127912; Fun &amp; Calm modes</li>
+                <li>&#128187; Home Hub tablet mode</li>
+                <li>&#128274; Permission roles</li>
+            </ul>
+            <p class="tech-stack"><strong>Built with:</strong> Swift/SwiftUI &bull; Firebase (Firestore, Auth, Functions) &bull; Calendar API</p>
+        </article>
+
+        <!-- Odyssey -->
+        <article class="app-detail" id="odyssey">
+            <div class="app-detail-header">
+                <div class="app-detail-icon">&#127939;</div>
+                <div>
+                    <h2>Odyssey</h2>
+                    <p class="tagline">Your fitness. Your epic journey.</p>
+                    <div class="platforms">
+                        <span class="badge badge-ios">iOS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="description">
+                <p>Odyssey maps your cumulative exercise distance onto epic historical journey routes. The app integrates with Apple HealthKit for distance and vitals data, uses Firebase for backend persistence, and implements RPG-style progression including an avatar system, XP levelling, and streak tracking.</p>
+                <p>The MVP delivers the Ancient Rome route (Land's End to Rome, approximately 1,400 miles) with a Roman Legionary avatar. Distance from running, cycling, swimming, walking, and rowing is automatically pulled from HealthKit and summed into progress along the route.</p>
+                <p>Your health metrics (sleep, heart rate, weight) are displayed as RPG character stats in the Vitals Saga dashboard, turning everyday fitness data into an engaging adventure.</p>
+            </div>
+            <p class="features-heading">Key Features</p>
+            <ul class="features-grid">
+                <li>&#128506;&#65039; Historical journey routes</li>
+                <li>&#127939; HealthKit distance integration</li>
+                <li>&#128150; Vitals Saga RPG stats</li>
+                <li>&#11088; XP &amp; levelling</li>
+                <li>&#128293; Streak tracking</li>
+                <li>&#128205; Waypoint unlocks</li>
+                <li>&#129399; Avatar system</li>
+                <li>&#128247; Background sync</li>
+            </ul>
+            <p class="tech-stack"><strong>Built with:</strong> Swift/SwiftUI &bull; HealthKit &bull; Firebase (Firestore, Auth)</p>
+        </article>
+
+        <!-- FirstSolo -->
+        <article class="app-detail" id="firstsolo">
+            <div class="app-detail-header">
+                <div class="app-detail-icon">&#9992;&#65039;</div>
+                <div>
+                    <h2>FirstSolo</h2>
+                    <p class="tagline">Every pilot starts somewhere. Yours starts here.</p>
+                    <div class="platforms">
+                        <span class="badge badge-ios">iOS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="description">
+                <p>FirstSolo is a gamified aviation learning app built specifically for RAF Air Cadets. It transforms the dense technical content of the Air Pilot's Manual (all seven volumes) into an engaging, structured journey from a cadet's first parade night to their first solo flight.</p>
+                <p>The app has two interlocking purposes: to make aviation theory genuinely enjoyable to learn, and to give cadets a real head start toward their Private Pilot's Licence (PPL). It is designed to complement the existing ATC syllabus, reinforcing classifications, scholarship preparation, and real-world milestones.</p>
+                <p>Seven narrative chapters map to the seven APM volumes, culminating in a FirstSolo finale — a full simulated solo flight that tests knowledge from all volumes in a single integrated scenario.</p>
+            </div>
+            <p class="features-heading">Key Features</p>
+            <ul class="features-grid">
+                <li>&#128218; 7 narrative chapters (APM Vols 1-7)</li>
+                <li>&#127942; Classification badges</li>
+                <li>&#9992;&#65039; Simulated solo flight finale</li>
+                <li>&#127891; CAA PPL exam alignment</li>
+                <li>&#128302; Gamified learning</li>
+                <li>&#128101; Squadron leaderboards</li>
+                <li>&#9855; Neurodivergent-friendly design</li>
+                <li>&#128274; Squadron/wing subscriptions</li>
+            </ul>
+            <p class="tech-stack"><strong>Built with:</strong> Swift/SwiftUI &bull; Firebase (Firestore, Auth, Functions, Analytics)</p>
+        </article>
+
+        <!-- Provenance -->
+        <article class="app-detail" id="provenance">
+            <div class="app-detail-header">
+                <div class="app-detail-icon">&#128200;</div>
+                <div>
+                    <h2>Provenance</h2>
+                    <p class="tagline">Invest in what you know. Discover what you don't.</p>
+                    <div class="platforms">
+                        <span class="badge badge-ios">iOS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="description">
+                <p>Provenance is an investment discovery and education app that starts with what users already know — the products they buy, the brands they love, the sports teams they follow, the hobbies they pursue — and traces the financial thread from personal passion to investable opportunity.</p>
+                <p>Most investment apps assume you already know what you want to buy. Provenance assumes you know what you love — and works backwards from there. It is not a brokerage. It is not a financial advisor. It is a personal discovery engine that makes investing feel connected to real life.</p>
+                <p>The app is driven by five personal signals: Passion Profile, Spend Intelligence (via Open Banking), Conviction Score, Ethics Rating (MSCI ESG, Sustainalytics), and a Living Portfolio that evolves with the user's life.</p>
+            </div>
+            <p class="features-heading">Key Features</p>
+            <ul class="features-grid">
+                <li>&#128161; Passion-to-investment mapping</li>
+                <li>&#128179; Spend Intelligence (Open Banking)</li>
+                <li>&#128175; Personal Conviction Score</li>
+                <li>&#127807; Ethics &amp; ESG ratings</li>
+                <li>&#128202; Paper portfolio tracking</li>
+                <li>&#128214; Investment education</li>
+                <li>&#128276; Price alerts</li>
+                <li>&#128274; Privacy-first design</li>
+            </ul>
+            <p class="tech-stack"><strong>Built with:</strong> Swift/SwiftUI &bull; Firebase &bull; Polygon.io / Alpha Vantage &bull; TrueLayer (Open Banking)</p>
+        </article>
+
+        <!-- Fancy That -->
+        <article class="app-detail" id="fancythat">
+            <div class="app-detail-header">
+                <div class="app-detail-icon">&#128149;</div>
+                <div>
+                    <h2>Fancy That</h2>
+                    <p class="tagline">Humour is the vehicle. Love is the payload.</p>
+                    <div class="platforms">
+                        <span class="badge badge-ios">iOS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="description">
+                <p>Fancy That is a private, AI-powered comedy-romance app designed for two people. It delivers moments of unexpected delight, playful affirmation, and quiet intimacy throughout an ordinary day.</p>
+                <p>Every interaction takes under 20 seconds, content is specific to the couple's real life, and the app is forgiving by design — no streaks, no pressure. Features include The Dispatch (AI-generated daily cards styled as fake headlines), The Paparazzi (candid photo reveals), Roast &amp; Toast (gentle teases paired with genuine compliments), and The Jar (a private collection of saved moments).</p>
+            </div>
+            <p class="features-heading">Key Features</p>
+            <ul class="features-grid">
+                <li>&#128240; The Dispatch (daily AI cards)</li>
+                <li>&#128247; The Paparazzi</li>
+                <li>&#128293; Roast &amp; Toast</li>
+                <li>&#127871; The Jar (saved moments)</li>
+                <li>&#9997;&#65039; Unsent Drafts</li>
+                <li>&#11088; Spark Score</li>
+                <li>&#128247; Vintage Mode</li>
+                <li>&#127878; Date Night Countdown</li>
+            </ul>
+            <p class="tech-stack"><strong>Built with:</strong> Swift/SwiftUI &bull; Firebase (Firestore, Auth, FCM) &bull; AI (Claude/ChatGPT/Gemini API)</p>
+        </article>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="support.html">Support</a>
+            <a href="https://github.com/camillerimichel-cell">GitHub</a>
+        </div>
+        <p>&copy; 2026 Camilleri Creations. All rights reserved.</p>
+    </footer>
+</body>
+</html>
