@@ -31,254 +31,58 @@
         a { color: var(--accent); text-decoration: none; }
         a:hover { text-decoration: underline; }
 
-        /* Navigation */
-        nav {
-            background: var(--card-bg);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .nav-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            color: var(--text);
-        }
-        .nav-brand img {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-        }
-        .nav-brand span {
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        .nav-links a {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--accent);
-            text-decoration: none;
-        }
+        nav { background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+        .nav-brand img { width: 40px; height: 40px; border-radius: 10px; }
+        .nav-brand span { font-weight: 700; font-size: 1.1rem; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); text-decoration: none; }
 
-        /* Hero */
-        .hero {
-            text-align: center;
-            padding: 5rem 2rem 4rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .hero-logo {
-            width: 140px;
-            height: 140px;
-            border-radius: 28px;
-            box-shadow: var(--shadow);
-            margin-bottom: 1.5rem;
-        }
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
-        .hero .tagline {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-        .hero .cta-row {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.2s;
-            text-decoration: none;
-        }
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-        }
-        .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
-            text-decoration: none;
-        }
-        .btn-secondary {
-            background: var(--accent-light);
-            color: var(--accent);
-        }
-        .btn-secondary:hover {
-            background: #d4ece9;
-            transform: translateY(-1px);
-            text-decoration: none;
-        }
+        .hero { text-align: center; padding: 5rem 2rem 4rem; max-width: 800px; margin: 0 auto; }
+        .hero-logo { width: 140px; height: 140px; border-radius: 28px; box-shadow: var(--shadow); margin-bottom: 1.5rem; }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 0.5rem; }
+        .hero .tagline { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2rem; line-height: 1.6; }
+        .hero .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn { display: inline-block; padding: 0.8rem 1.8rem; border-radius: 12px; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; text-decoration: none; }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); text-decoration: none; }
+        .btn-secondary { background: var(--accent-light); color: var(--accent); }
+        .btn-secondary:hover { background: #d4ece9; transform: translateY(-1px); text-decoration: none; }
 
-        /* Section */
-        .section {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        .section-subtitle {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            margin-bottom: 2.5rem;
-        }
+        .section { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
+        .section-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .section-subtitle { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2.5rem; }
 
-        /* App Grid */
-        .app-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-        .app-card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 1.75rem;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-decoration: none;
-            color: var(--text);
-            display: block;
-        }
-        .app-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-            text-decoration: none;
-        }
-        .app-card-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        .app-card-icon {
-            font-size: 2.5rem;
-            width: 56px;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 14px;
-            background: var(--accent-light);
-        }
-        .app-card-header h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-        }
-        .app-card-header .platforms {
-            display: flex;
-            gap: 0.4rem;
-            margin-top: 0.25rem;
-        }
-        .badge {
-            display: inline-block;
-            font-size: 0.65rem;
-            font-weight: 700;
-            padding: 0.15rem 0.5rem;
-            border-radius: 5px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+        .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+        .app-card { background: var(--card-bg); border-radius: var(--radius); padding: 1.75rem; border: 1px solid var(--border); box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; color: var(--text); display: block; }
+        .app-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); text-decoration: none; }
+        .app-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .app-card-icon { width: 56px; height: 56px; border-radius: 14px; object-fit: cover; }
+        .app-card-header h3 { font-size: 1.15rem; font-weight: 600; }
+        .app-card-header .platforms { display: flex; gap: 0.4rem; margin-top: 0.25rem; }
+        .badge { display: inline-block; font-size: 0.65rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
         .badge-ios { background: #e8f4fd; color: #0071e3; }
         .badge-android { background: #e8f8e8; color: #1b873f; }
-        .badge-web { background: #f3e8fd; color: #7c3aed; }
+        .badge-desktop { background: #f3e8fd; color: #7c3aed; }
         .badge-coming { background: #fef3c7; color: #92400e; }
-        .app-card p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
+        .app-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
 
-        /* Values */
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        .value-item {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            border: 1px solid var(--border);
-        }
-        .value-item h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        .value-item p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .value-item { background: var(--card-bg); border-radius: var(--radius); padding: 1.5rem; border: 1px solid var(--border); }
+        .value-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .value-item p { color: var(--text-muted); font-size: 0.9rem; }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-        footer .footer-links {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
+        footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; }
+        footer .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
         footer a { color: var(--accent); }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .hero { padding: 3rem 1.5rem 2rem; }
-            .nav-links { gap: 1rem; }
-            .nav-links a { font-size: 0.85rem; }
-            .app-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 480px) {
-            .nav-links { display: none; }
-        }
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .hero { padding: 3rem 1.5rem 2rem; } .nav-links { gap: 1rem; } .nav-links a { font-size: 0.85rem; } .app-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 480px) { .nav-links { display: none; } }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-inner">
             <a href="index.html" class="nav-brand">
@@ -295,7 +99,6 @@
         </div>
     </nav>
 
-    <!-- Hero -->
     <section class="hero">
         <img src="assets/logo.png" alt="Camilleri Creations" class="hero-logo">
         <h1>Camilleri Creations</h1>
@@ -306,16 +109,28 @@
         </div>
     </section>
 
-    <!-- Apps Portfolio -->
     <section class="section">
         <h2 class="section-title">Our Apps</h2>
-        <p class="section-subtitle">A growing portfolio of thoughtful, family-focused mobile applications.</p>
+        <p class="section-subtitle">A growing portfolio of thoughtful, family-focused applications.</p>
 
         <div class="app-grid">
-            <!-- LionTrack -->
+            <a href="apps.html#artifact" class="app-card">
+                <div class="app-card-header">
+                    <img src="assets/Artefact.png" alt="Artifact icon" class="app-card-icon">
+                    <div>
+                        <h3>Artifact</h3>
+                        <div class="platforms">
+                            <span class="badge badge-desktop">macOS</span>
+                            <span class="badge badge-desktop">Windows</span>
+                        </div>
+                    </div>
+                </div>
+                <p>A local-first portfolio command center for app developers. Register workspaces, parse Kiro specs, visualise dependencies, track pipeline status, and manage AI generation costs.</p>
+            </a>
+
             <a href="apps.html#liontrack" class="app-card">
                 <div class="app-card-header">
-                    <div class="app-card-icon">&#9917;</div>
+                    <img src="assets/LionTrack.jpeg" alt="LionTrack icon" class="app-card-icon">
                     <div>
                         <h3>LionTrack</h3>
                         <div class="platforms">
@@ -327,12 +142,11 @@
                 <p>Grassroots youth football team management. Track attendance, record match stats, manage squads, award XP and badges, and keep parents in the loop.</p>
             </a>
 
-            <!-- ADHD Morning Routine -->
-            <a href="apps.html#adhd-morning-routine" class="app-card">
+            <a href="apps.html#adhdolist" class="app-card">
                 <div class="app-card-header">
-                    <div class="app-card-icon">&#9200;</div>
+                    <img src="assets/ADHDOList.png" alt="ADHDOList icon" class="app-card-icon">
                     <div>
-                        <h3>ADHD Morning Routine</h3>
+                        <h3>ADHDOList</h3>
                         <div class="platforms">
                             <span class="badge badge-ios">iOS</span>
                             <span class="badge badge-android">Android</span>
@@ -342,10 +156,9 @@
                 <p>A guided morning routine app for children and adults with ADHD. Visual timers, audio prompts, gamification, and family race features make mornings manageable.</p>
             </a>
 
-            <!-- StudyTrack -->
             <a href="apps.html#studytrack" class="app-card">
                 <div class="app-card-header">
-                    <div class="app-card-icon">&#128218;</div>
+                    <img src="assets/StudyTrack.jpeg" alt="StudyTrack icon" class="app-card-icon">
                     <div>
                         <h3>StudyTrack</h3>
                         <div class="platforms">
@@ -357,10 +170,9 @@
                 <p>Academic workload management for UK students (Year 10+). Plan revision, track scores, manage deadlines, and visualise performance across subjects.</p>
             </a>
 
-            <!-- FamilyHub -->
             <a href="apps.html#familyhub" class="app-card">
                 <div class="app-card-header">
-                    <div class="app-card-icon">&#128106;</div>
+                    <img src="assets/FamilyHub.png" alt="FamilyHub icon" class="app-card-icon">
                     <div>
                         <h3>FamilyHub</h3>
                         <div class="platforms">
@@ -371,10 +183,9 @@
                 <p>Family organisation for busy households. Shared calendar, task management, meal planning, wellness features, and adaptive reminders designed for ADHD brains.</p>
             </a>
 
-            <!-- Odyssey -->
             <a href="apps.html#odyssey" class="app-card">
                 <div class="app-card-header">
-                    <div class="app-card-icon">&#127939;</div>
+                    <img src="assets/Odyssey.jpeg" alt="Odyssey icon" class="app-card-icon">
                     <div>
                         <h3>Odyssey</h3>
                         <div class="platforms">
@@ -385,10 +196,9 @@
                 <p>Turn your exercise into an epic adventure. Map your cumulative distance onto historical journey routes with RPG-style progression, XP, and waypoint unlocks.</p>
             </a>
 
-            <!-- FirstSolo -->
             <a href="apps.html#firstsolo" class="app-card">
                 <div class="app-card-header">
-                    <div class="app-card-icon">&#9992;&#65039;</div>
+                    <img src="assets/FirstSolo.png" alt="FirstSolo icon" class="app-card-icon">
                     <div>
                         <h3>FirstSolo</h3>
                         <div class="platforms">
@@ -399,10 +209,9 @@
                 <p>Gamified aviation learning for RAF Air Cadets. Work through the Air Pilot's Manual in a narrative campaign from first parade night to first solo flight.</p>
             </a>
 
-            <!-- Provenance -->
             <a href="apps.html#provenance" class="app-card">
                 <div class="app-card-header">
-                    <div class="app-card-icon">&#128200;</div>
+                    <img src="assets/Provenance.png" alt="Provenance icon" class="app-card-icon">
                     <div>
                         <h3>Provenance</h3>
                         <div class="platforms">
@@ -413,10 +222,9 @@
                 <p>Invest in what you know. A personal discovery engine that connects your passions, spending, and convictions to investable opportunities.</p>
             </a>
 
-            <!-- Fancy That -->
             <a href="apps.html#fancythat" class="app-card">
                 <div class="app-card-header">
-                    <div class="app-card-icon">&#128149;</div>
+                    <img src="assets/logo.png" alt="Fancy That icon" class="app-card-icon">
                     <div>
                         <h3>Fancy That</h3>
                         <div class="platforms">
@@ -429,11 +237,9 @@
         </div>
     </section>
 
-    <!-- Values -->
     <section class="section">
         <h2 class="section-title">How We Build</h2>
         <p class="section-subtitle">Every app we make is guided by the people who use it.</p>
-
         <div class="values-grid">
             <div class="value-item">
                 <h3>Family First</h3>
@@ -454,9 +260,9 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-links">
+            <a href="index.html">Home</a>
             <a href="apps.html">Apps</a>
             <a href="about.html">About</a>
             <a href="privacy.html">Privacy Policy</a>
