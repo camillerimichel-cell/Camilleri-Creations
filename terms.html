@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — Camilleri Creations</title>
+    <meta name="description" content="Terms of Service for all Camilleri Creations apps. Please read these terms carefully before using our apps.">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <style>
+        :root {
+            --bg: #faf9f7;
+            --card-bg: #ffffff;
+            --accent: #2c6e6a;
+            --accent-hover: #1f524f;
+            --accent-light: #e8f4f3;
+            --text: #1e2a2a;
+            --text-muted: #5a6b6b;
+            --border: #e2e8e8;
+            --shadow: 0 4px 24px rgba(0,0,0,0.06);
+            --radius: 16px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            min-height: 100vh;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Navigation */
+        nav {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .nav-brand img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+        }
+        .nav-brand span {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Content */
+        .content {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .content h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+        }
+        .last-updated {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Policy sections */
+        .policy-section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+        }
+        .policy-section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .policy-section h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .policy-section p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+        }
+        .policy-section p:last-child {
+            margin-bottom: 0;
+        }
+        .policy-section ul {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .policy-section ul:last-child {
+            margin-bottom: 0;
+        }
+        .policy-section li {
+            margin-bottom: 0.35rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        footer .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        footer a { color: var(--accent); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content h1 { font-size: 1.8rem; }
+            .content { padding: 3rem 1.5rem; }
+            .policy-section { padding: 1.5rem; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; }
+        }
+        @media (max-width: 480px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/logo.png" alt="Camilleri Creations logo">
+                <span>Camilleri Creations</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html" class="active">Terms</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <section class="content">
+        <h1>Terms of Service</h1>
+        <p class="last-updated">Last updated: August 2026</p>
+
+        <!-- Acceptance -->
+        <div class="policy-section">
+            <h2>1. Acceptance of Terms</h2>
+            <p>By downloading, installing, or using any app published by Camilleri Creations ("we", "us", "our"), you agree to be bound by these Terms of Service. If you do not agree to these terms, do not use our apps.</p>
+            <p>These terms apply to all apps we publish, including but not limited to: ADHD Morning Routine, LionTrack, StudyTrack, FamilyHub, Odyssey, FirstSolo, Provenance, and Fancy That.</p>
+        </div>
+
+        <!-- Description -->
+        <div class="policy-section">
+            <h2>2. Description of Services</h2>
+            <p>Camilleri Creations develops and operates mobile applications for iOS and Android. Our apps provide various features including:</p>
+            <ul>
+                <li>Task management, habit tracking, and routine planning</li>
+                <li>Team and squad management with statistics tracking</li>
+                <li>Study planning and progress monitoring</li>
+                <li>Family organisation, calendars, and meal planning</li>
+                <li>Health, fitness, and wellness tracking</li>
+                <li>Financial awareness and spending insights</li>
+                <li>Relationship-focused content and activities</li>
+            </ul>
+            <p>Features vary by app. See each app's store listing for specific functionality.</p>
+        </div>
+
+        <!-- Accounts -->
+        <div class="policy-section">
+            <h2>3. User Accounts</h2>
+            <ul>
+                <li>Some apps require you to sign in with a valid Google or Apple account. Others can be used without an account.</li>
+                <li>You are responsible for maintaining the security of your account credentials.</li>
+                <li>You must be at least 13 years old to create an account, or have parental consent.</li>
+                <li>Children may use our apps within a parent-managed group (e.g., family groups, team rosters) with appropriate parental oversight.</li>
+                <li>You agree to provide accurate information when creating an account and to keep it up to date.</li>
+            </ul>
+        </div>
+
+        <!-- User Content -->
+        <div class="policy-section">
+            <h2>4. User Content</h2>
+            <ul>
+                <li>You retain full ownership of all content you create in our apps (tasks, events, notes, photos, records, data entries).</li>
+                <li>You grant us a limited licence to store, process, and display your content solely to provide the app's services to you.</li>
+                <li>You are responsible for the content you create and share within any group features (family groups, teams, couples).</li>
+                <li>We do not claim ownership of, monetise, or share your content with third parties except as needed to operate the service.</li>
+            </ul>
+        </div>
+
+        <!-- Acceptable Use -->
+        <div class="policy-section">
+            <h2>5. Acceptable Use</h2>
+            <p>You agree not to:</p>
+            <ul>
+                <li>Use our apps for any unlawful purpose</li>
+                <li>Attempt to gain unauthorised access to other users' data or accounts</li>
+                <li>Interfere with or disrupt the operation of our apps or infrastructure</li>
+                <li>Use our apps to harass, abuse, threaten, or harm others</li>
+                <li>Reverse-engineer, decompile, or attempt to extract source code from our apps</li>
+                <li>Use automated tools to access or scrape data from our services</li>
+                <li>Upload content that is illegal, harmful, or infringes on others' intellectual property</li>
+            </ul>
+        </div>
+
+        <!-- Subscriptions -->
+        <div class="policy-section">
+            <h2>6. Subscriptions and Purchases</h2>
+            <ul>
+                <li>Some apps offer premium features via in-app subscriptions or one-time purchases, managed through the Apple App Store or Google Play Store.</li>
+                <li>Subscription billing, renewals, and cancellations are handled by Apple or Google according to their respective terms.</li>
+                <li>You can manage or cancel subscriptions at any time through your device's subscription settings.</li>
+                <li>Refund requests should be directed to Apple or Google, as they process all payments.</li>
+                <li>Free trial periods, where offered, convert to paid subscriptions at the end of the trial unless cancelled.</li>
+            </ul>
+        </div>
+
+        <!-- Third-Party Services -->
+        <div class="policy-section">
+            <h2>7. Third-Party Services</h2>
+            <p>Our apps integrate with third-party services including Google, Apple, Firebase, RevenueCat, TrueLayer, and AI APIs (Claude, ChatGPT, Gemini). Your use of these services is subject to their respective terms and privacy policies.</p>
+            <p>We are not responsible for the availability, accuracy, or changes to third-party services. If a third-party service becomes unavailable, features relying on it may be temporarily or permanently affected.</p>
+        </div>
+
+        <!-- Intellectual Property -->
+        <div class="policy-section">
+            <h2>8. Intellectual Property</h2>
+            <ul>
+                <li>All app designs, code, branding, icons, illustrations, and documentation are the intellectual property of Camilleri Creations.</li>
+                <li>You may not reproduce, distribute, or create derivative works from our apps without written permission.</li>
+                <li>App names, logos, and trademarks may not be used without our prior consent.</li>
+            </ul>
+        </div>
+
+        <!-- Data and Privacy -->
+        <div class="policy-section">
+            <h2>9. Data and Privacy</h2>
+            <p>Your use of our apps is also governed by our <a href="privacy.html">Privacy Policy</a>, which describes how we collect, use, and protect your data.</p>
+            <p>By using our apps, you consent to the data practices described in the Privacy Policy.</p>
+        </div>
+
+        <!-- Availability -->
+        <div class="policy-section">
+            <h2>10. Availability and Updates</h2>
+            <ul>
+                <li>We aim to keep our apps available and functional at all times but do not guarantee uninterrupted service.</li>
+                <li>We may release updates that modify, add, or remove features at our discretion.</li>
+                <li>We reserve the right to discontinue any app with reasonable notice to users.</li>
+                <li>Certain features may require a minimum OS version or device capability to function.</li>
+            </ul>
+        </div>
+
+        <!-- Limitation of Liability -->
+        <div class="policy-section">
+            <h2>11. Limitation of Liability</h2>
+            <p>Our apps are provided "as is" and "as available" without warranties of any kind, express or implied.</p>
+            <p>To the maximum extent permitted by law, Camilleri Creations shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our apps, including but not limited to:</p>
+            <ul>
+                <li>Loss of data or content</li>
+                <li>Inability to access the service</li>
+                <li>Reliance on information provided by the apps</li>
+                <li>Actions taken based on AI-generated content</li>
+                <li>Financial decisions made using data displayed in our apps</li>
+            </ul>
+            <p>Our apps are tools to assist with organisation and tracking. They are not substitutes for professional medical, financial, or legal advice.</p>
+        </div>
+
+        <!-- Termination -->
+        <div class="policy-section">
+            <h2>12. Termination</h2>
+            <ul>
+                <li>You may stop using our apps at any time by uninstalling them.</li>
+                <li>Where an account exists, you can delete your account and all associated data from the app's settings (typically under Settings → Privacy → Delete All My Data, or equivalent).</li>
+                <li>We may suspend or terminate accounts that violate these terms, with notice where practicable.</li>
+                <li>Upon termination, your right to use the app ceases. Data deletion follows the timeline described in our Privacy Policy.</li>
+            </ul>
+        </div>
+
+        <!-- Disclaimer for Health/Finance -->
+        <div class="policy-section">
+            <h2>13. Health and Financial Disclaimers</h2>
+            <p>Some of our apps provide features related to health, wellness, and financial tracking. Please note:</p>
+            <ul>
+                <li>Health and wellness features (mood tracking, breathing exercises, symptom logs) are for informational purposes only and do not constitute medical advice.</li>
+                <li>Financial tracking features (spending analysis, budget insights) are for personal awareness and do not constitute financial advice.</li>
+                <li>ADHD-related features are supportive tools and do not replace professional diagnosis or treatment.</li>
+                <li>Always consult qualified professionals for medical, mental health, or financial decisions.</li>
+            </ul>
+        </div>
+
+        <!-- Changes -->
+        <div class="policy-section">
+            <h2>14. Changes to These Terms</h2>
+            <p>We may update these terms from time to time. When we make significant changes, we will update the "Last updated" date at the top of this page.</p>
+            <p>Continued use of our apps after changes constitutes acceptance of the updated terms. If you do not agree with the changes, please stop using the apps.</p>
+        </div>
+
+        <!-- Governing Law -->
+        <div class="policy-section">
+            <h2>15. Governing Law</h2>
+            <p>These terms are governed by and construed in accordance with the laws of England and Wales. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+        </div>
+
+        <!-- Contact -->
+        <div class="policy-section">
+            <h2>16. Contact Us</h2>
+            <p>If you have any questions about these terms, please contact us:</p>
+            <p><strong>Camilleri Creations</strong><br>
+            Email: <a href="mailto:camillericreations@icloud.com">camillericreations@icloud.com</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="apps.html">Apps</a>
+            <a href="about.html">About</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="support.html">Support</a>
+            <a href="https://github.com/camillerimichel-cell">GitHub</a>
+        </div>
+        <p>&copy; 2026 Camilleri Creations. All rights reserved.</p>
+    </footer>
+</body>
+</html>
