@@ -1,0 +1,69 @@
+My daughter asked me to build her an app, so I did and now it's live on Android.
+
+It started with a single, seemingly simple question from my 14-year-old daughter Catherine during another chaotic school morning:
+
+"Is there an app on the phone that helps me do my morning stuff? Like a race?"
+
+Catherine has ADHD. Mornings have always been a battleground. The routine of brushing of teeth, getting dressed, eating breakfast, packing her bag and so on, isn't complicated. She knows exactly what to do. But with ADHD, knowing and doing are separated by an invisible wall that is extremely tricky to break through. Time blindness makes minutes simply disappear. The mental load of sequencing daily tasks is unfortunately anything but simple.
+
+If you're a parent of a teenager with ADHD, you know the cycle. The reminders that become nagging. The frustration building on both sides. The guilt when you lose patience over something you know they're not really doing on purpose.
+
+So when Catherine told me exactly what her brain needed; something visual, something urgent, something like a race, I decided to build it.
+
+The problem: I'm NOT an app developer.
+
+I use various coding languages in my day to day work but nothing related to mobile/app development. The challenge is roughly the same as saying I can speak French, Spanish and Italian but now I need to learn both Korean and Swahili at the same time! However, I had a clear request from Catherine and thanks to Kiro (an agentic AI-powered developer built by AWS), I managed to bring her idea to life.
+
+Kiro didn't design the app for me so it is not the silver bullet to all my problems. I still had to think through every requirement, plan every decision, design and test every feature and shape the product around what Catherine actually needed. However, by handling the underlying code and helping me through the administrative steps needed to place the app onto the respective stores, I could focus on the what and the why instead of getting stuck on the how.
+
+For someone with zero development background in this space, it felt like having an expert collaborator sitting beside me. What started as a simple, throw away request from my daughter turned into a real product.
+
+What We Built: ADHDO List
+
+The app Catherine and I designed together is called ADHDO List and today it's live on both iOS and Android:
+Download on the App Store
+Download on Google Play
+
+Here's roughly how it works:
+Timed Routines — Add tasks with time allocations and the app guides you through them visually. No more guessing how long something should take. The structure is external so an ADHD brain doesn't have to hold it all in.
+
+Ghost Races — Race against your "ghost"; a virtual version of yourself based on your average pace. It creates that sense of urgency that ADHD brains crave but can't generate internally.
+
+Family Race — When multiple family members run routines at the same time, everyone sees each other's progress live on screen. Getting ready became something we do together, not something I nag Catherine about.
+
+Streaks — Complete your routine on time and your streak grows. Catherine is fiercely protective of hers. That counter became the external accountability her brain needed.
+
+What Changed at Home
+The mornings are genuinely different now. Not perfect, she's still a teenager after all but different (better even I would say). Catherine wants to start her routine because it's her system. She asked for it and helped design it. And beating her ghost or racing the rest of us gives her brain that dopamine hit to start her day on the right foot.
+
+The nagging has dropped dramatically.
+
+Why Android?
+The original version was iOS only as I am (or was) staunchly Apple based. But I kept hearing from parents: "We'd love this but we're on Android." In the end, since ADHD doesn't care what phone you use, neither should the app.
+
+Today, ADHDO List is officially live on Google Play. Same features, same privacy-first approach, now available to many more families who need it.
+
+
+Privacy: Zero Data Collected
+As a parent, this was non-negotiable. ADHDO List collects zero personal data. No analytics, no trackers, no third-party SDKs. Everything stays on your device. I wouldn't ship something for my own daughter that I wasn't completely comfortable with.
+
+What lessons did I learned?
+You don't need to be a developer to build something meaningful. Tools like Kiro made it possible for me to ship a real app to both app stores in (what feels to me) record times.
+
+Teenagers with ADHD know what they need so listen to them and talk through the problem. Catherine couldn't write a fully-fledged product spec but "make it a race" was a better brief than most.
+
+Gamification isn't a gimmick, it's accessibility. For ADHD brains, making something urgent, visual and rewarding isn't a nice-to-have. It's the difference between doing and procrastinating.
+
+If you've got an idea that could help someone you care about, build it. The tools exist now. The barrier isn't technical anymore.
+
+Download ADHDO List
+If your family has someone with ADHD who could use more structure and less nagging:
+
+Download on the App Store
+Download on Google Play
+
+I would love to hear if it helps your household get through the morning the way it's helped ours.
+
+camillericreations@icloud.com
+
+Suggested hashtags: #ADHD #ADHDParenting #Android #NowOnGooglePlay #BuildInPublic #Kiro #IndieApps #ExecutiveFunction #Neurodiversity #FamilyTech #ParentingTeens #ADHDTeen

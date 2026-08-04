@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADHDOList — Morning Routines, Finally Done | Camilleri Creations</title>
+    <meta name="description" content="ADHDOList helps kids and adults with ADHD nail their morning routine. Visual timers, ghost races, family competitions, and streak rewards turn daily tasks into a game.">
+    <meta property="og:title" content="ADHDOList — Morning Routines, Finally Done">
+    <meta property="og:description" content="Help kids with ADHD nail their morning routine. Visual timers, ghost races & family competitions.">
+    <meta property="og:image" content="assets/ADHDOList.png">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <style>
+        :root {
+            --bg: #faf9f7;
+            --card-bg: #ffffff;
+            --accent: #2c6e6a;
+            --accent-hover: #1f524f;
+            --accent-light: #e8f4f3;
+            --text: #1e2a2a;
+            --text-muted: #5a6b6b;
+            --border: #e2e8e8;
+            --shadow: 0 4px 24px rgba(0,0,0,0.06);
+            --radius: 16px;
+            --gradient-start: #6366f1;
+            --gradient-mid: #a855f7;
+            --gradient-end: #ec4899;
+            --blue: #3b82f6;
+            --purple: #8b5cf6;
+            --green: #10b981;
+            --red: #ef4444;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7; color: var(--text); background: var(--bg); min-height: 100vh;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        nav { background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+        .nav-brand img { width: 40px; height: 40px; border-radius: 10px; }
+        .nav-brand span { font-weight: 700; font-size: 1.1rem; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); text-decoration: none; }
+
+        /* App Hero */
+        .app-hero {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        .app-hero .app-icon { width: 100px; height: 100px; border-radius: 22px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); margin-bottom: 1.5rem; }
+        .app-hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 0.5rem; text-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+        .app-hero .subtitle { font-size: 1.2rem; opacity: 0.9; margin-bottom: 0.5rem; }
+        .app-hero .platforms-row { display: flex; gap: 0.5rem; justify-content: center; margin-top: 1rem; }
+        .app-hero .store-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+            padding: 0.7rem 1.5rem; border-radius: 12px; color: white; font-weight: 600;
+            font-size: 0.9rem; backdrop-filter: blur(4px); transition: all 0.2s;
+        }
+        .app-hero .store-btn:hover { background: rgba(255,255,255,0.25); transform: translateY(-1px); text-decoration: none; }
+
+        /* Screenshots gallery */
+        .screenshots { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
+        .screenshots h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; text-align: center; }
+        .screenshot-scroll {
+            display: flex; gap: 1rem; overflow-x: auto; padding: 1rem 0;
+            scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+        }
+        .screenshot-scroll::-webkit-scrollbar { height: 6px; }
+        .screenshot-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+        .screenshot-scroll img {
+            height: 500px; width: auto; border-radius: 16px;
+            box-shadow: var(--shadow); scroll-snap-align: start; flex-shrink: 0;
+        }
+
+        /* App info section */
+        .app-info { max-width: 900px; margin: 0 auto; padding: 2rem 2rem 3rem; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+        .info-card { background: var(--card-bg); border-radius: var(--radius); padding: 1.5rem; border: 1px solid var(--border); text-align: center; }
+        .info-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .info-card h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .info-card p { color: var(--text-muted); font-size: 0.85rem; }
+
+        /* Features */
+        .features { max-width: 900px; margin: 0 auto; padding: 0 2rem 3rem; }
+        .features h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .features-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
+        .feature-item {
+            background: var(--card-bg); border-radius: 12px; padding: 1.25rem;
+            border: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.75rem;
+        }
+        .feature-item .feat-icon { font-size: 1.5rem; flex-shrink: 0; }
+        .feature-item h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
+        .feature-item p { color: var(--text-muted); font-size: 0.82rem; line-height: 1.5; }
+
+        /* Article section */
+        .article-section { max-width: 760px; margin: 0 auto; padding: 3rem 2rem; }
+        .article-section .article-header {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid));
+            border-radius: var(--radius) var(--radius) 0 0;
+            padding: 2rem 2rem 1.5rem; color: white;
+        }
+        .article-section .article-header h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .article-section .article-header p { opacity: 0.85; font-size: 0.9rem; }
+        .article-body {
+            background: var(--card-bg); border-radius: 0 0 var(--radius) var(--radius);
+            padding: 2.5rem; border: 1px solid var(--border); border-top: none;
+            box-shadow: var(--shadow);
+        }
+        .article-body h3 { font-size: 1.15rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--text); }
+        .article-body h3:first-child { margin-top: 0; }
+        .article-body p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.9; margin-bottom: 1rem; }
+        .article-body p:last-child { margin-bottom: 0; }
+        .article-body strong { color: var(--text); }
+        .article-body .hashtags { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .article-body .hashtag { font-size: 0.75rem; background: var(--accent-light); color: var(--accent); padding: 0.25rem 0.6rem; border-radius: 6px; font-weight: 500; }
+        .article-body .download-cta {
+            margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(168,85,247,0.08));
+            border-radius: 12px; border: 1px solid rgba(139,92,246,0.2); text-align: center;
+        }
+        .article-body .download-cta p { color: var(--text); font-weight: 600; margin-bottom: 0.75rem; }
+        .article-body .download-cta .cta-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .article-body .download-cta .cta-links a { font-weight: 600; font-size: 0.9rem; }
+
+        footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; }
+        footer .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+        footer a { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .app-hero h1 { font-size: 2rem; }
+            .app-hero { padding: 3rem 1.5rem; }
+            .screenshot-scroll img { height: 380px; }
+            .article-body { padding: 1.75rem; }
+            .nav-links { gap: 1rem; } .nav-links a { font-size: 0.85rem; }
+        }
+        @media (max-width: 480px) { .nav-links { display: none; } .screenshot-scroll img { height: 320px; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/logo.png" alt="Camilleri Creations logo">
+                <span>Camilleri Creations</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- App Hero -->
+    <section class="app-hero">
+        <img src="assets/ADHDOList.png" alt="ADHDOList app icon" class="app-icon">
+        <h1>ADHDOList</h1>
+        <p class="subtitle">Morning routines, finally done.</p>
+        <p style="opacity:0.8; font-size:0.95rem;">Help kids with ADHD nail their morning routine. Visual timers, ghost races &amp; family competitions turn daily tasks into a game they want to play.</p>
+        <div class="platforms-row">
+            <a href="https://apps.apple.com/no/app/adhdolist/id6776557276" class="store-btn">&#63743; App Store</a>
+            <a href="https://play.google.com/store/apps/details?id=co.uk.camillericreations.ADHDOList" class="store-btn">&#9654; Google Play</a>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="screenshots">
+        <h2>Screenshots</h2>
+        <div class="screenshot-scroll">
+            <img src="assets/ADHDOList/1.webp" alt="ADHDOList screenshot 1" loading="lazy">
+            <img src="assets/ADHDOList/2.webp" alt="ADHDOList screenshot 2" loading="lazy">
+            <img src="assets/ADHDOList/3.webp" alt="ADHDOList screenshot 3" loading="lazy">
+            <img src="assets/ADHDOList/4.webp" alt="ADHDOList screenshot 4" loading="lazy">
+            <img src="assets/ADHDOList/5.webp" alt="ADHDOList screenshot 5" loading="lazy">
+            <img src="assets/ADHDOList/6.webp" alt="ADHDOList screenshot 6" loading="lazy">
+        </div>
+    </section>
+
+    <!-- Quick Info -->
+    <section class="app-info">
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="icon">&#128241;</div>
+                <h3>Platforms</h3>
+                <p>iOS 17+ &amp; Android 10+</p>
+            </div>
+            <div class="info-card">
+                <div class="icon">&#128274;</div>
+                <h3>Privacy</h3>
+                <p>Zero data collected</p>
+            </div>
+            <div class="info-card">
+                <div class="icon">&#127891;</div>
+                <h3>Age Rating</h3>
+                <p>4+ (suitable for all)</p>
+            </div>
+            <div class="info-card">
+                <div class="icon">&#128176;</div>
+                <h3>Price</h3>
+                <p>One-time purchase</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <h2>Key Features</h2>
+        <div class="features-list">
+            <div class="feature-item">
+                <span class="feat-icon">&#9201;&#65039;</span>
+                <div>
+                    <h4>Timed Routines</h4>
+                    <p>Set time allocations for each task. The app guides you through them visually, one at a time.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <span class="feat-icon">&#128123;</span>
+                <div>
+                    <h4>Ghost Races</h4>
+                    <p>Race against your average pace. Creates urgency that ADHD brains crave but can't generate internally.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <span class="feat-icon">&#128106;</span>
+                <div>
+                    <h4>Family Race</h4>
+                    <p>Everyone sees each other's progress live. Getting ready becomes something you do together.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <span class="feat-icon">&#128293;</span>
+                <div>
+                    <h4>Streaks</h4>
+                    <p>Complete your routine on time and your streak grows. External accountability that motivates.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <span class="feat-icon">&#127917;</span>
+                <div>
+                    <h4>Unlockable Avatars</h4>
+                    <p>Special avatars unlock over time. Visual rewards that keep engagement high.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <span class="feat-icon">&#128276;</span>
+                <div>
+                    <h4>Smart Nudges</h4>
+                    <p>If you stall or get distracted, an alarm nudges you until you tick off the task and move on.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article -->
+    <section class="article-section" id="article">
+        <div class="article-header">
+            <h2>My daughter asked me to build her an app, so I did</h2>
+            <p>The story behind ADHDOList — from a chaotic morning to both app stores.</p>
+        </div>
+        <div class="article-body">
+            <p>It started with a single, seemingly simple question from my 14-year-old daughter Catherine during another chaotic school morning:</p>
+            <p><strong>"Is there an app on the phone that helps me do my morning stuff? Like a race?"</strong></p>
+            <p>Catherine has ADHD. Mornings have always been a battleground. The routine of brushing teeth, getting dressed, eating breakfast, packing her bag — isn't complicated. She knows exactly what to do. But with ADHD, knowing and doing are separated by an invisible wall that is extremely tricky to break through. Time blindness makes minutes simply disappear. The mental load of sequencing daily tasks is anything but simple.</p>
+            <p>If you're a parent of a teenager with ADHD, you know the cycle. The reminders that become nagging. The frustration building on both sides. The guilt when you lose patience over something you know they're not really doing on purpose.</p>
+            <p>So when Catherine told me exactly what her brain needed — something visual, something urgent, something like a race — I decided to build it.</p>
+
+            <h3>The problem: I'm NOT an app developer</h3>
+            <p>I use various coding languages in my day to day work but nothing related to mobile/app development. However, I had a clear request from Catherine and thanks to <strong>Kiro</strong> (an agentic AI-powered developer built by AWS), I managed to bring her idea to life.</p>
+            <p>Kiro didn't design the app for me. I still had to think through every requirement, plan every decision, design and test every feature and shape the product around what Catherine actually needed. However, by handling the underlying code, I could focus on the <em>what</em> and the <em>why</em> instead of getting stuck on the <em>how</em>.</p>
+            <p>For someone with zero development background in this space, it felt like having an expert collaborator sitting beside me. What started as a simple, throw away request from my daughter turned into a real product.</p>
+
+            <h3>What We Built</h3>
+            <p>The app Catherine and I designed together is called <strong>ADHDOList</strong> and today it's live on both iOS and Android. Here's how it works:</p>
+            <p><strong>Timed Routines</strong> — Add tasks with time allocations and the app guides you through them visually. No more guessing how long something should take.</p>
+            <p><strong>Ghost Races</strong> — Race against your "ghost" — a virtual version of yourself based on your average pace. It creates that sense of urgency that ADHD brains crave but can't generate internally.</p>
+            <p><strong>Family Race</strong> — When multiple family members run routines at the same time, everyone sees each other's progress live on screen. Getting ready became something we do together.</p>
+            <p><strong>Streaks</strong> — Complete your routine on time and your streak grows. Catherine is fiercely protective of hers.</p>
+
+            <h3>What Changed at Home</h3>
+            <p>The mornings are genuinely different now. Not perfect — she's still a teenager after all — but different. Catherine <em>wants</em> to start her routine because it's her system. She asked for it and helped design it. And beating her ghost or racing the rest of us gives her brain that dopamine hit to start her day on the right foot.</p>
+            <p>The nagging has dropped dramatically.</p>
+
+            <h3>Why Android?</h3>
+            <p>The original version was iOS only. But I kept hearing from parents: "We'd love this but we're on Android." In the end, since ADHD doesn't care what phone you use, neither should the app. Today, ADHDOList is officially live on Google Play.</p>
+
+            <h3>Privacy: Zero Data Collected</h3>
+            <p>As a parent, this was non-negotiable. ADHDOList collects zero personal data. No analytics, no trackers, no third-party SDKs. Everything stays on your device. I wouldn't ship something for my own daughter that I wasn't completely comfortable with.</p>
+
+            <h3>What I Learned</h3>
+            <p><strong>You don't need to be a developer to build something meaningful.</strong> Tools like Kiro made it possible for me to ship a real app to both app stores.</p>
+            <p><strong>Teenagers with ADHD know what they need — listen to them.</strong> Catherine couldn't write a product spec, but "make it a race" was a better brief than most.</p>
+            <p><strong>Gamification isn't a gimmick, it's accessibility.</strong> For ADHD brains, making something urgent, visual, and rewarding isn't a nice-to-have. It's the difference between doing and procrastinating.</p>
+            <p>If you've got an idea that could help someone you care about, build it. The tools exist now. The barrier isn't technical anymore.</p>
+
+            <div class="download-cta">
+                <p>If your family could use more structure and less nagging:</p>
+                <div class="cta-links">
+                    <a href="https://apps.apple.com/no/app/adhdolist/id6776557276">&#63743; Download on the App Store</a>
+                    <a href="https://play.google.com/store/apps/details?id=co.uk.camillericreations.ADHDOList">&#9654; Download on Google Play</a>
+                </div>
+            </div>
+
+            <div class="hashtags">
+                <span class="hashtag">#ADHD</span>
+                <span class="hashtag">#ADHDParenting</span>
+                <span class="hashtag">#Android</span>
+                <span class="hashtag">#NowOnGooglePlay</span>
+                <span class="hashtag">#BuildInPublic</span>
+                <span class="hashtag">#Kiro</span>
+                <span class="hashtag">#IndieApps</span>
+                <span class="hashtag">#ExecutiveFunction</span>
+                <span class="hashtag">#Neurodiversity</span>
+                <span class="hashtag">#FamilyTech</span>
+                <span class="hashtag">#ParentingTeens</span>
+                <span class="hashtag">#ADHDTeen</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="apps.html">Apps</a>
+            <a href="about.html">About</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms</a>
+            <a href="support.html">Support</a>
+            <a href="https://github.com/camillerimichel-cell">GitHub</a>
+        </div>
+        <p>&copy; 2026 Camilleri Creations. All rights reserved.</p>
+    </footer>
+</body>
+</html>

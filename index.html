@@ -19,6 +19,14 @@
             --shadow: 0 4px 24px rgba(0,0,0,0.06);
             --shadow-hover: 0 8px 32px rgba(0,0,0,0.1);
             --radius: 16px;
+            /* New colour accents */
+            --gradient-start: #6366f1;
+            --gradient-mid: #a855f7;
+            --gradient-end: #ec4899;
+            --blue: #3b82f6;
+            --purple: #8b5cf6;
+            --green: #10b981;
+            --red: #ef4444;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -40,24 +48,77 @@
         .nav-links a { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
         .nav-links a:hover, .nav-links a.active { color: var(--accent); text-decoration: none; }
 
-        .hero { text-align: center; padding: 5rem 2rem 4rem; max-width: 800px; margin: 0 auto; }
-        .hero-logo { width: 140px; height: 140px; border-radius: 28px; box-shadow: var(--shadow); margin-bottom: 1.5rem; }
-        .hero h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 0.5rem; }
-        .hero .tagline { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2rem; line-height: 1.6; }
-        .hero .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        /* Hero with video background */
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-banner video {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        .hero-banner .overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(99,102,241,0.7) 0%, rgba(168,85,247,0.6) 50%, rgba(236,72,153,0.5) 100%);
+            z-index: 2;
+        }
+        .hero-banner .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+        .hero-banner .hero-content img {
+            width: 100px;
+            height: 100px;
+            border-radius: 22px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            margin-bottom: 1.5rem;
+        }
+        .hero-banner .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .hero-banner .hero-content .tagline {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        }
+        .hero-banner .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
         .btn { display: inline-block; padding: 0.8rem 1.8rem; border-radius: 12px; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; text-decoration: none; }
-        .btn-primary { background: var(--accent); color: white; }
-        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); text-decoration: none; }
-        .btn-secondary { background: var(--accent-light); color: var(--accent); }
-        .btn-secondary:hover { background: #d4ece9; transform: translateY(-1px); text-decoration: none; }
+        .btn-primary { background: white; color: var(--gradient-start); }
+        .btn-primary:hover { background: #f0f0ff; transform: translateY(-1px); text-decoration: none; }
+        .btn-secondary { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(4px); }
+        .btn-secondary:hover { background: rgba(255,255,255,0.25); transform: translateY(-1px); text-decoration: none; }
 
         .section { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
         .section-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .section-title-gradient {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
         .section-subtitle { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2.5rem; }
 
         .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
-        .app-card { background: var(--card-bg); border-radius: var(--radius); padding: 1.75rem; border: 1px solid var(--border); box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; color: var(--text); display: block; }
-        .app-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); text-decoration: none; }
+        .app-card { background: var(--card-bg); border-radius: var(--radius); padding: 1.75rem; border: 1px solid var(--border); box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; text-decoration: none; color: var(--text); display: block; }
+        .app-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); text-decoration: none; border-color: var(--purple); }
         .app-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
         .app-card-icon { width: 56px; height: 56px; border-radius: 14px; object-fit: cover; }
         .app-card-header h3 { font-size: 1.15rem; font-weight: 600; }
@@ -66,11 +127,15 @@
         .badge-ios { background: #e8f4fd; color: #0071e3; }
         .badge-android { background: #e8f8e8; color: #1b873f; }
         .badge-desktop { background: #f3e8fd; color: #7c3aed; }
-        .badge-coming { background: #fef3c7; color: #92400e; }
         .app-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
 
         .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .value-item { background: var(--card-bg); border-radius: var(--radius); padding: 1.5rem; border: 1px solid var(--border); }
+        .value-item { background: var(--card-bg); border-radius: var(--radius); padding: 1.5rem; border: 1px solid var(--border); position: relative; overflow: hidden; }
+        .value-item::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+        .value-item:nth-child(1)::before { background: var(--purple); }
+        .value-item:nth-child(2)::before { background: var(--blue); }
+        .value-item:nth-child(3)::before { background: var(--green); }
+        .value-item:nth-child(4)::before { background: var(--red); }
         .value-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
         .value-item p { color: var(--text-muted); font-size: 0.9rem; }
 
@@ -78,8 +143,18 @@
         footer .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
         footer a { color: var(--accent); }
 
-        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .hero { padding: 3rem 1.5rem 2rem; } .nav-links { gap: 1rem; } .nav-links a { font-size: 0.85rem; } .app-grid { grid-template-columns: 1fr; } }
-        @media (max-width: 480px) { .nav-links { display: none; } }
+        @media (max-width: 768px) {
+            .hero-banner { height: 400px; }
+            .hero-banner .hero-content h1 { font-size: 2rem; }
+            .hero-banner .hero-content .tagline { font-size: 1rem; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; }
+            .app-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .nav-links { display: none; }
+            .hero-banner { height: 350px; }
+        }
     </style>
 </head>
 <body>
@@ -100,21 +175,42 @@
         </div>
     </nav>
 
-    <section class="hero">
-        <img src="assets/logo.png" alt="Camilleri Creations" class="hero-logo">
-        <h1>Camilleri Creations</h1>
-        <p class="tagline">Smart apps for real life. Built with care for families, learners, coaches, and curious minds.</p>
-        <div class="cta-row">
-            <a href="apps.html" class="btn btn-primary">View Our Apps</a>
-            <a href="support.html" class="btn btn-secondary">Get in Touch</a>
+    <!-- Hero with video -->
+    <section class="hero-banner">
+        <video autoplay muted loop playsinline>
+            <source src="assets/Starting_Video.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <img src="assets/logo.png" alt="Camilleri Creations">
+            <h1>Camilleri Creations</h1>
+            <p class="tagline">Smart apps for real life. Built with care for families, learners, coaches, and curious minds.</p>
+            <div class="cta-row">
+                <a href="apps.html" class="btn btn-primary">View Our Apps</a>
+                <a href="support.html" class="btn btn-secondary">Get in Touch</a>
+            </div>
         </div>
     </section>
 
     <section class="section">
-        <h2 class="section-title">Our Apps</h2>
+        <h2 class="section-title"><span class="section-title-gradient">Our Apps</span></h2>
         <p class="section-subtitle">A growing portfolio of thoughtful, family-focused applications.</p>
 
         <div class="app-grid">
+            <a href="adhdolist.html" class="app-card">
+                <div class="app-card-header">
+                    <img src="assets/ADHDOList.png" alt="ADHDOList icon" class="app-card-icon">
+                    <div>
+                        <h3>ADHDOList</h3>
+                        <div class="platforms">
+                            <span class="badge badge-ios">iOS</span>
+                            <span class="badge badge-android">Android</span>
+                        </div>
+                    </div>
+                </div>
+                <p>A guided morning routine app for children and adults with ADHD. Visual timers, audio prompts, gamification, and family race features make mornings manageable.</p>
+            </a>
+
             <a href="apps.html#artifact" class="app-card">
                 <div class="app-card-header">
                     <img src="assets/Artefact.png" alt="Artifact icon" class="app-card-icon">
@@ -141,20 +237,6 @@
                     </div>
                 </div>
                 <p>Grassroots youth football team management. Track attendance, record match stats, manage squads, award XP and badges, and keep parents in the loop.</p>
-            </a>
-
-            <a href="apps.html#adhdolist" class="app-card">
-                <div class="app-card-header">
-                    <img src="assets/ADHDOList.png" alt="ADHDOList icon" class="app-card-icon">
-                    <div>
-                        <h3>ADHDOList</h3>
-                        <div class="platforms">
-                            <span class="badge badge-ios">iOS</span>
-                            <span class="badge badge-android">Android</span>
-                        </div>
-                    </div>
-                </div>
-                <p>A guided morning routine app for children and adults with ADHD. Visual timers, audio prompts, gamification, and family race features make mornings manageable.</p>
             </a>
 
             <a href="apps.html#studytrack" class="app-card">
@@ -239,7 +321,7 @@
     </section>
 
     <section class="section">
-        <h2 class="section-title">How We Build</h2>
+        <h2 class="section-title"><span class="section-title-gradient">How We Build</span></h2>
         <p class="section-subtitle">Every app we make is guided by the people who use it.</p>
         <div class="values-grid">
             <div class="value-item">
