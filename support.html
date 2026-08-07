@@ -203,6 +203,93 @@
             font-size: 0.92rem;
         }
 
+        /* Data Deletion */
+        .data-deletion {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            margin-bottom: 2.5rem;
+        }
+        .data-deletion h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .data-deletion .section-intro {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        .data-deletion h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+        }
+        .data-deletion h3:first-of-type {
+            margin-top: 0;
+        }
+        .deletion-steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+        .deletion-steps li {
+            counter-increment: step-counter;
+            position: relative;
+            padding-left: 2.5rem;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        .deletion-steps li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .deletion-steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.6rem;
+            height: 1.6rem;
+            background: var(--accent-light);
+            color: var(--accent);
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .deletion-steps li strong {
+            color: var(--text);
+        }
+        .in-app-note {
+            background: var(--accent-light);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-top: 1.5rem;
+            font-size: 0.92rem;
+            color: var(--text);
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+        .in-app-note .note-icon {
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .in-app-note p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
         /* App Support Links */
         .app-support {
             background: var(--card-bg);
@@ -346,6 +433,44 @@
             </div>
         </div>
 
+        <!-- Data Deletion -->
+        <div class="data-deletion" id="data-deletion">
+            <h2>&#128465;&#65039; Request Data Deletion</h2>
+            <p class="section-intro">You have the right to request that your personal data be deleted at any time. There are two ways to do this:</p>
+
+            <h3>Option 1: Delete from Within the App</h3>
+            <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 0.75rem;">All our apps that require an account provide a built-in data deletion option. You can delete your account and all associated data directly from the app without needing to contact us:</p>
+            <ol class="deletion-steps">
+                <li><strong>Open the app</strong> and navigate to <strong>Settings</strong></li>
+                <li>Tap <strong>Account</strong> (or <strong>Profile</strong>)</li>
+                <li>Tap <strong>Delete Account</strong></li>
+                <li>Confirm the deletion when prompted</li>
+            </ol>
+            <div class="in-app-note">
+                <span class="note-icon">&#9989;</span>
+                <p>This is the fastest method. Your account and all stored data will be permanently removed immediately. This action cannot be undone.</p>
+            </div>
+
+            <h3>Option 2: Request Deletion by Email</h3>
+            <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 0.75rem;">If you're unable to access the app or prefer to make the request manually, you can email us directly:</p>
+            <ol class="deletion-steps">
+                <li><strong>Send an email</strong> to <a href="mailto:camillericreations@icloud.com">camillericreations@icloud.com</a> with the subject line: <strong>"Data Deletion Request"</strong></li>
+                <li><strong>Include in your email:</strong> your full name, the email address associated with your account, and which app(s) you want data deleted from</li>
+                <li><strong>We will verify your identity</strong> by responding to the email address on file, or asking a follow-up question to confirm ownership</li>
+                <li><strong>Your data will be deleted within 30 days</strong> of a verified request. You will receive a confirmation email once deletion is complete</li>
+            </ol>
+
+            <h3>What Gets Deleted</h3>
+            <p style="color: var(--text-muted); font-size: 0.92rem;">When you request data deletion — either from within the app or by email — the following data is permanently removed:</p>
+            <ul style="color: var(--text-muted); font-size: 0.92rem; margin-top: 0.5rem; padding-left: 1.25rem;">
+                <li>Your user account and profile information</li>
+                <li>All content you have created within the app (entries, routines, preferences, etc.)</li>
+                <li>Any cloud-synced data stored in Firebase</li>
+                <li>Analytics data linked to your account</li>
+            </ul>
+            <p style="color: var(--text-muted); font-size: 0.92rem; margin-top: 0.75rem;"><strong>Note:</strong> Subscription billing records held by Apple or Google are not affected, as we do not control those. You may also need to cancel your subscription separately through the App Store or Play Store.</p>
+        </div>
+
         <!-- App Status -->
         <div class="app-support">
             <h2>App Status</h2>
@@ -404,7 +529,7 @@
 
             <div class="faq-item">
                 <h3>How do I delete my account and data?</h3>
-                <p>You can delete your account from within the app (Settings &gt; Account &gt; Delete Account). Alternatively, email us at camillericreations@icloud.com and we'll process it within 30 days.</p>
+                <p>You can delete your account directly from within any of our apps (Settings &gt; Account &gt; Delete Account), or by emailing us. See the full <a href="#data-deletion">Data Deletion</a> section above for a step-by-step guide.</p>
             </div>
 
             <div class="faq-item">
