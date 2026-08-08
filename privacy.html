@@ -214,7 +214,7 @@
     <!-- Content -->
     <section class="content">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: July 2026</p>
+        <p class="last-updated">Last updated: August 2026</p>
 
         <!-- Overview -->
         <div class="policy-section">
@@ -280,9 +280,9 @@
                     </tr>
                     <tr>
                         <td><strong>StudyTrack</strong></td>
-                        <td>Local + Firebase sync</td>
+                        <td>Local + Firebase (selective sync: sessions, scores, schedules, settings)</td>
                         <td>Yes</td>
-                        <td>Notifications</td>
+                        <td>Notifications, AI (Gemini default; BYOK multi-provider)</td>
                     </tr>
                     <tr>
                         <td><strong>FamilyHub</strong></td>
@@ -328,7 +328,60 @@
                 <li><strong>RevenueCat</strong> — Subscription management. Processes purchase receipts only. <a href="https://www.revenuecat.com/privacy">RevenueCat Privacy Policy</a></li>
                 <li><strong>TrueLayer</strong> — Open Banking (Provenance only). Read-only spend data, processed on-device where possible, requires explicit consent. <a href="https://truelayer.com/privacy">TrueLayer Privacy Policy</a></li>
                 <li><strong>AI APIs (Claude, ChatGPT, Gemini)</strong> — Used in Fancy That for content generation. Couple profile data is sent to generate personalised content. No conversation data is stored by us beyond delivery.</li>
+                <li><strong>Google Gemini API</strong> — Used in StudyTrack for AI-powered revision suggestions. Only anonymised performance data (subject IDs, topic IDs, scores, timestamps) is sent — no PII. When using BYOK mode, requests route directly to the user's chosen provider (Gemini, Claude, ChatGPT, or Copilot) via their personal API key. See the StudyTrack AI section below for full details.</li>
             </ul>
+        </div>
+
+        <!-- StudyTrack AI Data Processing -->
+        <div class="policy-section">
+            <h2>StudyTrack — AI Data Processing</h2>
+            <p>StudyTrack uses AI (Google Gemini by default) to provide revision suggestions based on your academic performance. This section explains exactly what data is involved and how it flows.</p>
+
+            <h3>What data is sent to the AI provider</h3>
+            <p>When AI features generate a revision suggestion, the app sends an anonymised performance context containing only:</p>
+            <ul>
+                <li>Subject identifiers (opaque IDs such as "maths" — not display names you have set)</li>
+                <li>Topic identifiers (internal IDs, not human-readable titles)</li>
+                <li>Recent scores: topic ID, percentage, and UTC date</li>
+                <li>A fixed system prompt requesting a focused revision suggestion</li>
+            </ul>
+            <p><strong>Not sent:</strong> your name, email address, study notes, free-text content, or any personally identifiable information. The data models are explicitly designed as anonymised structures to enforce this boundary.</p>
+
+            <h3>Cross-device sync</h3>
+            <p>StudyTrack offers selective cloud sync for premium users via Firebase Firestore. Exactly four collections are synced:</p>
+            <ul>
+                <li>Study sessions</li>
+                <li>Scores</li>
+                <li>Revision schedules</li>
+                <li>Settings</li>
+            </ul>
+            <p>Data is stored under your user account and propagated across devices via real-time listeners. Conflict resolution uses a last-modified-wins strategy.</p>
+            <p><strong>Not synced:</strong> BYOK API keys, local caches, AI call history, rate limit counters, or device-specific notification tokens.</p>
+
+            <h3>BYOK (Bring Your Own Key)</h3>
+            <p>StudyTrack supports a "Bring Your Own Key" mode that lets you connect your own AI provider. Supported providers include Google Gemini, Claude, ChatGPT, and Copilot.</p>
+            <ul>
+                <li>Your API key is stored in encrypted platform secure storage (Android Keystore / iOS Keychain) — device-only, never synced to the cloud</li>
+                <li>Only provider metadata (name, validity flag, timestamp) is stored locally for fast lookups — never the key itself</li>
+                <li>When BYOK is configured, all AI requests route exclusively to your chosen provider — there is no silent fallback to our default key</li>
+                <li>BYOK users bypass the standard rate limit (5 requests/day for premium users)</li>
+                <li>Deleting a BYOK key clears both secure storage and metadata, reverting you to your tier's default behaviour (premium = rate-limited Gemini, free = no AI access)</li>
+            </ul>
+
+            <h3>Third-party data sharing</h3>
+            <p>The following table summarises what data is shared with each third-party service:</p>
+            <ul>
+                <li><strong>Gemini (default, premium users)</strong> — Anonymised scores, topic IDs, and timestamps only. No PII.</li>
+                <li><strong>BYOK provider (Claude/ChatGPT/Gemini/Copilot)</strong> — The same anonymised data, routed directly to your chosen provider using your personal API key</li>
+                <li><strong>Firebase Firestore</strong> — Study sessions, scores, revision schedules, and settings (premium sync only)</li>
+                <li><strong>Firebase Auth</strong> — Authentication credentials and email address</li>
+                <li><strong>RevenueCat</strong> — Purchase/entitlement state and an anonymous user ID (no study data)</li>
+                <li><strong>Firebase Messaging</strong> — Push notification device tokens</li>
+            </ul>
+            <p><strong>No analytics SDK</strong> is used in StudyTrack. There is no Firebase Analytics, Crashlytics, or any third-party analytics or crash reporting service.</p>
+
+            <h3>Data retention (AI)</h3>
+            <p>AI-generated revision suggestions are cached locally on your device. If you are a premium user with sync enabled, suggestions may be included as part of your synced data. Deleting your account removes all cloud-stored data. Local data is removed when you uninstall the app.</p>
         </div>
 
         <!-- Children's Privacy -->
