@@ -478,48 +478,81 @@
         <!-- App Status -->
         <div class="app-support">
             <h2>App Status</h2>
-            <ul class="app-support-list">
-                <li>
-                    <span class="app-icon-small">&#9200;</span>
-                    <span class="app-name">ADHDOList</span>
-                    <span class="app-status status-live">Live</span>
-                </li>
-                <li>
-                    <span class="app-icon-small">&#9917;</span>
-                    <span class="app-name">LionTrack</span>
-                    <span class="app-status status-uat">UAT</span>
-                </li>
-                <li>
-                    <span class="app-icon-small">&#128106;</span>
-                    <span class="app-name">FamilyHub</span>
-                    <span class="app-status status-uat">UAT</span>
-                </li>
-                <li>
-                    <span class="app-icon-small">&#128218;</span>
-                    <span class="app-name">StudyTrack</span>
-                    <span class="app-status status-uat">UAT</span>
-                </li>
-                <li>
-                    <span class="app-icon-small">&#127939;</span>
-                    <span class="app-name">Odyssey</span>
-                    <span class="app-status status-dev">In Development</span>
-                </li>
-                <li>
-                    <span class="app-icon-small">&#9992;&#65039;</span>
-                    <span class="app-name">FirstSolo</span>
-                    <span class="app-status status-dev">In Development</span>
-                </li>
-                <li>
-                    <span class="app-icon-small">&#128200;</span>
-                    <span class="app-name">Provenance</span>
-                    <span class="app-status status-dev">In Development</span>
-                </li>
-                <li>
-                    <span class="app-icon-small">&#128149;</span>
-                    <span class="app-name">Fancy That</span>
-                    <span class="app-status status-dev">In Development</span>
-                </li>
-            </ul>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                <thead>
+                    <tr style="border-bottom: 2px solid var(--border);">
+                        <th style="text-align: left; padding: 0.6rem 0.5rem; font-weight: 600;">App</th>
+                        <th style="text-align: center; padding: 0.6rem 0.5rem; font-weight: 600;">iOS</th>
+                        <th style="text-align: center; padding: 0.6rem 0.5rem; font-weight: 600;">Android</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.5rem;">&#9200;</span>
+                            <span style="font-weight: 600;">ADHDOList</span>
+                        </td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-live">Live</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-live">Live</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.5rem;">&#9917;</span>
+                            <span style="font-weight: 600;">LionTrack</span>
+                        </td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-live">Live</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.5rem;">&#128106;</span>
+                            <span style="font-weight: 600;">FamilyHub</span>
+                        </td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.5rem;">&#128218;</span>
+                            <span style="font-weight: 600;">StudyTrack</span>
+                        </td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.5rem;">&#127939;</span>
+                            <span style="font-weight: 600;">Odyssey</span>
+                        </td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In Development</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In Development</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.5rem;">&#9992;&#65039;</span>
+                            <span style="font-weight: 600;">FirstSolo</span>
+                        </td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In Development</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In Development</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.5rem;">&#128200;</span>
+                            <span style="font-weight: 600;">Provenance</span>
+                        </td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In Development</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In Development</span></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.5rem;">&#128149;</span>
+                            <span style="font-weight: 600;">Fancy That</span>
+                        </td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In Development</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In Development</span></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- FAQ -->
