@@ -59,6 +59,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            /* Mediterranean fallback behind the video (navy -> sea blue -> turquoise) */
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 55%, var(--gradient-end) 100%);
         }
         .hero-banner video {
             position: absolute;
@@ -71,7 +73,7 @@
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(0,32,80,0.72) 0%, rgba(24,96,144,0.6) 55%, rgba(24,120,120,0.5) 100%);
+            background: linear-gradient(135deg, rgba(0,32,80,0.82) 0%, rgba(24,96,144,0.7) 55%, rgba(24,120,120,0.62) 100%);
             z-index: 2;
         }
         .hero-banner .hero-content {
@@ -132,10 +134,12 @@
         .section-subtitle { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2.5rem; }
 
         .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
-        .app-card { background: var(--card-bg); border-radius: var(--radius); padding: 1.75rem; border: 1px solid var(--border); box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; text-decoration: none; color: var(--text); display: block; }
-        .app-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); text-decoration: none; border-color: var(--purple); }
+        .app-card { position: relative; overflow: hidden; background: linear-gradient(160deg, var(--accent-light) 0%, var(--card-bg) 55%); border-radius: var(--radius); padding: 1.75rem; border: 1px solid var(--border); box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; text-decoration: none; color: var(--text); display: block; }
+        .app-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end)); opacity: 0; transition: opacity 0.2s; }
+        .app-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); text-decoration: none; border-color: var(--accent); }
+        .app-card:hover::before { opacity: 1; }
         .app-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
-        .app-card-icon { width: 56px; height: 56px; border-radius: 14px; object-fit: cover; }
+        .app-card-icon { width: 56px; height: 56px; border-radius: 14px; object-fit: cover; background: #fff; padding: 2px; box-shadow: 0 2px 8px rgba(24,120,120,0.15); }
         .app-card-header h3 { font-size: 1.15rem; font-weight: 600; }
         .app-card-header .platforms { display: flex; gap: 0.4rem; margin-top: 0.25rem; }
         .badge { display: inline-block; font-size: 0.65rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
