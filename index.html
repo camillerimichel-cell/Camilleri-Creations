@@ -174,6 +174,14 @@
             .nav-links { display: none; }
             .hero-banner { height: 350px; }
         }
+
+        /* ===== Red gradient nav (Maltese red palette) ===== */
+        :root { --nav-red-start: #A81818; --nav-red-mid: #900000; --nav-red-end: #C03018; }
+        nav { background: linear-gradient(135deg, var(--nav-red-start) 0%, var(--nav-red-mid) 55%, var(--nav-red-end) 100%); border-bottom: none; box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
+        .nav-brand { color: #fff; }
+        .nav-brand img { background: #fff; padding: 3px; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+        .nav-links a { color: rgba(255,255,255,0.85); }
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
     </style>
 </head>
 <body>
