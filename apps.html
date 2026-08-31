@@ -69,6 +69,20 @@
         footer .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
         footer a { color: var(--accent); }
 
+        /* ===== Mothballed app styling ===== */
+        .app-detail.mothballed { filter: grayscale(1); opacity: 0.72; }
+        .app-detail.mothballed::before { background: #9aa0a6; }
+        .app-detail.mothballed .app-detail-icon { filter: grayscale(1); }
+        .badge-mothballed { background: #e8e8e8; color: #5A6472; border: 1px solid #cfcfcf; }
+        .mothball-notice { background: #f1f1f1; border-left: 4px solid #9aa0a6; border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+        .mothball-notice strong { color: var(--text); }
+        .mothball-notice p { color: var(--text-muted); font-size: 0.92rem; margin: 0.35rem 0 0; }
+        .mothball-notice .mothball-title { font-size: 0.95rem; font-weight: 700; }
+        .mothball-notice details { margin-top: 0.6rem; }
+        .mothball-notice summary { cursor: pointer; font-weight: 600; color: var(--accent); font-size: 0.9rem; }
+        .mothball-notice details[open] summary { margin-bottom: 0.5rem; }
+        .mothball-notice details p { margin-top: 0.5rem; }
+
         @media (max-width: 768px) { .page-header h1 { font-size: 1.8rem; } .page-header { padding: 3rem 1.5rem 1.5rem; } .app-detail { padding: 1.75rem; } .app-detail-header { flex-direction: column; align-items: flex-start; } .nav-links { gap: 1rem; } .nav-links a { font-size: 0.85rem; } }
         @media (max-width: 480px) { .nav-links { display: none; } }
 
@@ -338,23 +352,36 @@
             <p class="tech-stack"><strong>Built with:</strong> Swift/SwiftUI &bull; Firebase (Firestore, Auth, Functions, Analytics)</p>
         </article>
 
-        <!-- Provenance -->
-        <article class="app-detail" id="provenance">
+        <!-- Provenance (mothballed) -->
+        <article class="app-detail mothballed" id="provenance">
             <div class="app-detail-header">
                 <img src="assets/Provenance.png" alt="Provenance icon" class="app-detail-icon">
                 <div>
                     <h2>Provenance</h2>
                     <p class="tagline">Invest in what you know. Discover what you don't.</p>
                     <div class="platforms">
-                        <span class="badge badge-ios">iOS</span>
+                        <span class="badge badge-mothballed">Mothballed</span>
                     </div>
                 </div>
             </div>
-            <div class="description">
-                <p>Provenance is an investment discovery and education app that starts with what users already know — the products they buy, the brands they love, the hobbies they pursue — and traces the financial thread from personal passion to investable opportunity.</p>
-                <p>The app is driven by five personal signals: Passion Profile, Spend Intelligence (via Open Banking), Conviction Score, Ethics Rating, and a Living Portfolio that evolves with the user's life.</p>
+
+            <div class="mothball-notice">
+                <div class="mothball-title">Project Mothballed</div>
+                <p>Provenance was designed to do something no investment app had done before: start with what you love, and trace the financial thread from personal passion to investable opportunity. Not "here are some stocks." More like — you spend &pound;200 a month at Zara, Inditex shareholders made 18% last year, and you funded part of that. Did you benefit?</p>
+                <details>
+                    <summary>Why we mothballed it</summary>
+                    <p>The concept was strong. The execution ran into walls we couldn't build around.</p>
+                    <p>The paper portfolio required market data with redistribution rights — which isn't free. The supply chain intelligence that made the passion angle genuinely interesting turned out to be expensive to source, hard to verify, and dangerous to get wrong in a finance context. The spend intelligence angle — connecting your real banking transactions to investable companies — is compelling, but your bank already has your data and better infrastructure to surface it. And without those three pillars, what remained wasn't distinctive enough to justify building.</p>
+                    <p>So we've mothballed Provenance rather than ship something that didn't live up to the idea behind it.</p>
+                    <p>The thinking isn't wasted. If you're building something in this space and want to talk through the concept, <a href="support.html">get in touch</a>.</p>
+                </details>
             </div>
-            <p class="features-heading">Key Features</p>
+
+            <div class="description">
+                <p>Provenance was an investment discovery and education app that started with what users already knew — the products they buy, the brands they love, the hobbies they pursue — and traced the financial thread from personal passion to investable opportunity.</p>
+                <p>The app was driven by five personal signals: Passion Profile, Spend Intelligence (via Open Banking), Conviction Score, Ethics Rating, and a Living Portfolio that evolved with the user's life.</p>
+            </div>
+            <p class="features-heading">Intended Features</p>
             <ul class="features-grid">
                 <li>&#128161; Passion-to-investment mapping</li>
                 <li>&#128179; Spend Intelligence (Open Banking)</li>
@@ -365,7 +392,7 @@
                 <li>&#128276; Price alerts</li>
                 <li>&#128274; Privacy-first design</li>
             </ul>
-            <p class="tech-stack"><strong>Built with:</strong> Swift/SwiftUI &bull; Firebase &bull; Polygon.io / Alpha Vantage &bull; TrueLayer (Open Banking)</p>
+            <p class="tech-stack"><strong>Was built with:</strong> Swift/SwiftUI &bull; Firebase &bull; Polygon.io / Alpha Vantage &bull; TrueLayer (Open Banking)</p>
         </article>
 
         <!-- Fancy That -->
