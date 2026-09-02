@@ -260,12 +260,11 @@
 
             <h3>Data we never collect</h3>
             <ul>
-                <li>We do not track your location</li>
                 <li>We do not access your contacts</li>
-                <li>We do not read your messages or emails</li>
                 <li>We do not use advertising SDKs or sell data to advertisers</li>
                 <li>We do not create behavioural profiles for marketing</li>
             </ul>
+            <p>Most of our apps do not access your location or your emails. <strong>FamilyHub</strong> is the exception: it offers optional location-based reminders and optional email scanning for calendar events. These features are off until you turn them on, and they are fully described in the <a href="#familyhub-privacy">FamilyHub — Location &amp; Email Data</a> section below.</p>
         </div>
 
         <!-- App-Specific Details -->
@@ -303,7 +302,7 @@
                         <td><strong>FamilyHub</strong></td>
                         <td>Firebase (family data)</td>
                         <td>Yes</td>
-                        <td>Calendar, Notifications</td>
+                        <td>Calendar, Notifications, Location (optional, incl. background for reminders), Email scanning (optional, read-only)</td>
                     </tr>
                     <tr>
                         <td><strong>Odyssey</strong></td>
@@ -396,6 +395,42 @@
 
             <h3>Data retention (AI)</h3>
             <p>AI-generated revision suggestions are cached locally on your device. If you are a premium user with sync enabled, suggestions may be included as part of your synced data. Deleting your account removes all cloud-stored data. Local data is removed when you uninstall the app.</p>
+        </div>
+
+        <!-- FamilyHub Location & Email Data -->
+        <div class="policy-section" id="familyhub-privacy">
+            <h2>FamilyHub — Location &amp; Email Data</h2>
+            <p>FamilyHub is an ADHD-friendly family organiser. In addition to the data described in the general sections above, it offers two optional features that access sensitive data: location-based reminders and email scanning for calendar events. Both are turned off by default, require your explicit in-app consent before any system permission is requested, and can be disabled at any time. This section discloses exactly how FamilyHub accesses, collects, uses, and shares this data.</p>
+
+            <h3>Location data</h3>
+            <p>FamilyHub uses location only to power features you choose to enable:</p>
+            <ul>
+                <li><strong>Location search:</strong> When you attach a place to a task or event, your search text is used to look up matching locations.</li>
+                <li><strong>Location-based reminders (geofencing):</strong> When you attach a location to a reminder, FamilyHub registers a geofence so it can notify you when you arrive at or leave that place — for example, a shopping reminder when you reach the shops.</li>
+                <li><strong>Background location:</strong> Geofence reminders require background location access ("Allow all the time" on Android) so they can trigger while the app is closed. FamilyHub requests this permission only after an in-app explanation, and only if you use location reminders.</li>
+            </ul>
+            <p><strong>What we do with it:</strong> Location is used on your device to evaluate geofences and to search for places. We do <strong>not</strong> store a history of your location, we do <strong>not</strong> track your movements, and we do <strong>not</strong> share or sell location data to any third party. Geofence definitions you create (a coordinate and radius linked to your reminder) are stored with your family data so reminders work across your devices.</p>
+            <p><strong>Permissions used (Android):</strong> Approximate location (<code>ACCESS_COARSE_LOCATION</code>), precise location (<code>ACCESS_FINE_LOCATION</code>), and background location (<code>ACCESS_BACKGROUND_LOCATION</code>). Location processing on Android uses Google Play Services location and geofencing APIs. You can revoke these permissions at any time in your device settings; doing so disables location reminders but leaves the rest of the app working.</p>
+
+            <h3>Email scanning (optional)</h3>
+            <p>If you enable email scanning, FamilyHub reads your inbox in <strong>read-only</strong> mode to detect event invitations and ICS calendar attachments, then suggests matching events for your calendar.</p>
+            <ul>
+                <li>Access uses the Gmail API or Microsoft Graph API in read-only scope, and requires your explicit consent.</li>
+                <li>We extract only event details (title, date, time, and location) needed to suggest an event.</li>
+                <li>Email content is processed in memory and is never stored on our servers.</li>
+                <li>You can disable email scanning and revoke access at any time in the app settings or your Google/Microsoft account.</li>
+            </ul>
+
+            <h3>Health &amp; wellness data</h3>
+            <p>FamilyHub includes wellness features: mood check-ins, symptom logging (such as brain fog, hot flushes, and sleep quality), guided breathing exercises, and focus timers. You can export your symptom data as CSV or PDF to share with a healthcare provider. This data is created by you, used for your own personal tracking, stored with your family data in Firebase, and is never sold or shared with third parties for advertising.</p>
+
+            <h3>What FamilyHub shares with third parties</h3>
+            <ul>
+                <li><strong>Firebase (Firestore, Auth, Cloud Messaging):</strong> Account, family, task, calendar, meal, wellness, and geofence-definition data for sync and notifications.</li>
+                <li><strong>Google Calendar API / Microsoft Graph API:</strong> Read-only calendar sync and, if enabled, email scanning.</li>
+                <li><strong>Google Play Services:</strong> Location and geofencing (Android).</li>
+            </ul>
+            <p>FamilyHub contains no advertising SDKs and does not sell personal data. You can delete all your FamilyHub data at any time from Settings &rarr; Privacy &rarr; Delete All My Data.</p>
         </div>
 
         <!-- Children's Privacy -->
