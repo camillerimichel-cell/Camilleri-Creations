@@ -229,7 +229,7 @@
     <!-- Content -->
     <section class="content">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: August 2026</p>
+        <p class="last-updated">Last updated: September 2026</p>
 
         <!-- Overview -->
         <div class="policy-section">
@@ -337,12 +337,44 @@
             <h2>Third-Party Services</h2>
             <p>Our apps may use the following third-party services:</p>
             <ul>
-                <li><strong>Firebase (Google)</strong> — Authentication, database, cloud functions, analytics, crash reporting. <a href="https://firebase.google.com/support/privacy">Firebase Privacy Policy</a></li>
+                <li><strong>Firebase (Google)</strong> — Authentication, database, cloud functions, and analytics. <a href="https://firebase.google.com/support/privacy">Firebase Privacy Policy</a></li>
+                <li><strong>Firebase Crashlytics (Google)</strong> — Crash and stability reporting. Collects diagnostic data (stack traces, device model, OS version, and an anonymous installation identifier) when the app crashes or logs a non-fatal error, so we can find and fix bugs. It does not collect the content you create or your personal profile data. See the Crash Reporting section below. <a href="https://firebase.google.com/support/privacy">Firebase Privacy Policy</a></li>
                 <li><strong>Apple HealthKit</strong> — Read-only access to health data. Data is never uploaded to external servers. <a href="https://www.apple.com/privacy/">Apple Privacy Policy</a></li>
                 <li><strong>RevenueCat</strong> — Subscription management. Processes purchase receipts only. <a href="https://www.revenuecat.com/privacy">RevenueCat Privacy Policy</a></li>
                 <li><strong>AI APIs (Claude, ChatGPT, Gemini)</strong> — Used in Fancy That for content generation. Couple profile data is sent to generate personalised content. No conversation data is stored by us beyond delivery.</li>
                 <li><strong>Google Gemini API</strong> — Used in StudyTrack for AI-powered revision suggestions. Only anonymised performance data (subject IDs, topic IDs, scores, timestamps) is sent — no PII. When using BYOK mode, requests route directly to the user's chosen provider (Gemini, Claude, ChatGPT, or Copilot) via their personal API key. See the StudyTrack AI section below for full details.</li>
             </ul>
+        </div>
+
+        <!-- Crash Reporting -->
+        <div class="policy-section">
+            <h2>Crash Reporting &amp; Diagnostics</h2>
+            <p>To keep our apps stable and fix problems quickly, we use <strong>Firebase Crashlytics</strong> (a Google service) for crash and error reporting. When an app crashes or records a handled error, Crashlytics sends us a diagnostic report.</p>
+
+            <h3>What crash reports contain</h3>
+            <ul>
+                <li>The stack trace and error type that caused the crash</li>
+                <li>Device model, operating system version, and app version</li>
+                <li>Whether the device was rooted/jailbroken, available memory, and orientation at the time</li>
+                <li>An anonymous, Crashlytics-generated installation identifier (not linked to your name or email)</li>
+            </ul>
+
+            <h3>What crash reports do <em>not</em> contain</h3>
+            <ul>
+                <li>Your name, email address, or account credentials</li>
+                <li>The content you create (tasks, routines, study notes, journal/couple content, team data, etc.)</li>
+                <li>Location, contacts, messages, or photos</li>
+            </ul>
+
+            <h3>How we use it</h3>
+            <ul>
+                <li>Crash and diagnostic data is used solely to diagnose and fix bugs and improve app stability.</li>
+                <li>Collection is <strong>disabled in development/debug builds</strong> so testing does not pollute production data.</li>
+                <li>We do not use crash data for advertising or to build marketing profiles.</li>
+            </ul>
+
+            <h3>Which apps use it</h3>
+            <p>Crash reporting via Crashlytics is used across our Firebase-backed apps, including <strong>FamilyHub</strong>, <strong>StudyTrack</strong>, <strong>LionTrack</strong>, <strong>Odyssey</strong>, <strong>FirstSolo</strong>, <strong>ADHD Morning Routine</strong>, and <strong>Fancy That</strong>. Apps that store all data on-device and do not use Firebase do not include crash reporting.</p>
         </div>
 
         <!-- StudyTrack AI Data Processing -->
@@ -390,8 +422,9 @@
                 <li><strong>Firebase Auth</strong> — Authentication credentials and email address</li>
                 <li><strong>RevenueCat</strong> — Purchase/entitlement state and an anonymous user ID (no study data)</li>
                 <li><strong>Firebase Messaging</strong> — Push notification device tokens</li>
+                <li><strong>Firebase Crashlytics</strong> — Crash and error diagnostics only (see the Crash Reporting section below). No behavioural analytics.</li>
             </ul>
-            <p><strong>No analytics SDK</strong> is used in StudyTrack. There is no Firebase Analytics, Crashlytics, or any third-party analytics or crash reporting service.</p>
+            <p><strong>No behavioural analytics SDK</strong> is used in StudyTrack. There is no Firebase Analytics or any advertising/behavioural profiling. StudyTrack does use <strong>Firebase Crashlytics</strong> for crash and stability diagnostics; this collects technical crash data only (never your study content or personal data) and is disabled in development builds.</p>
 
             <h3>Data retention (AI)</h3>
             <p>AI-generated revision suggestions are cached locally on your device. If you are a premium user with sync enabled, suggestions may be included as part of your synced data. Deleting your account removes all cloud-stored data. Local data is removed when you uninstall the app.</p>
