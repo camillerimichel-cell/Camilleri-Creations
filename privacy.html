@@ -265,7 +265,7 @@
                 <li>We do not use advertising SDKs or sell data to advertisers</li>
                 <li>We do not create behavioural profiles for marketing</li>
             </ul>
-            <p>Most of our apps do not access your location or your emails. <strong>FamilyHub</strong> is the exception: it offers optional location-based reminders and optional email scanning for calendar events. These features are off until you turn them on, and they are fully described in the <a href="#familyhub-privacy">FamilyHub — Location &amp; Email Data</a> section below.</p>
+            <p>Our apps do not access your device location. <strong>FamilyHub</strong> offers optional email scanning for calendar events; this is off until you turn it on, and is fully described in the <a href="#familyhub-privacy">FamilyHub — Email &amp; Wellness Data</a> section below.</p>
         </div>
 
         <!-- App-Specific Details -->
@@ -303,7 +303,7 @@
                         <td><strong>FamilyHub</strong></td>
                         <td>Firebase (family data)</td>
                         <td>Yes</td>
-                        <td>Calendar, Notifications, Location (optional, incl. background for reminders), Email scanning (optional, read-only)</td>
+                        <td>Calendar, Notifications, Email scanning (optional, read-only)</td>
                     </tr>
                     <tr>
                         <td><strong>Odyssey</strong></td>
@@ -392,7 +392,7 @@
         </div>
 
         <!-- Crash Reporting -->
-        <div class="policy-section">
+        <div class="policy-section" id="crash-reporting">
             <h2>Crash Reporting &amp; Diagnostics</h2>
             <p>To keep our apps stable and fix problems quickly, we use <strong>Firebase Crashlytics</strong> (a Google service) for crash and error reporting. When an app crashes or records a handled error, Crashlytics sends us a diagnostic report.</p>
 
@@ -420,6 +420,7 @@
 
             <h3>Which apps use it</h3>
             <p>Crash reporting via Crashlytics is used across our Firebase-backed apps, including <strong>FamilyHub</strong>, <strong>StudyTrack</strong>, <strong>LionTrack</strong>, <strong>Odyssey</strong>, <strong>FirstSolo</strong>, <strong>ADHD Morning Routine</strong>, and <strong>Fancy That</strong>. Apps that store all data on-device and do not use Firebase do not include crash reporting.</p>
+            <p>In our apps that are used by children — <strong>FamilyHub</strong>, <strong>LionTrack</strong>, and <strong>ADHD Morning Routine</strong> — crash reporting is <strong>opt-in and off by default</strong>: nothing is collected unless you turn on "Share crash reports" in Settings &rarr; Privacy.</p>
         </div>
 
         <!-- StudyTrack AI Data Processing -->
@@ -475,20 +476,14 @@
             <p>AI-generated revision suggestions are cached locally on your device. If you are a premium user with sync enabled, suggestions may be included as part of your synced data. Deleting your account removes all cloud-stored data. Local data is removed when you uninstall the app.</p>
         </div>
 
-        <!-- FamilyHub Location & Email Data -->
+        <!-- FamilyHub Email & Wellness Data -->
         <div class="policy-section" id="familyhub-privacy">
-            <h2>FamilyHub — Location &amp; Email Data</h2>
-            <p>FamilyHub is an ADHD-friendly family organiser. In addition to the data described in the general sections above, it offers two optional features that access sensitive data: location-based reminders and email scanning for calendar events. Both are turned off by default, require your explicit in-app consent before any system permission is requested, and can be disabled at any time. This section discloses exactly how FamilyHub accesses, collects, uses, and shares this data.</p>
+            <h2>FamilyHub — Email &amp; Wellness Data</h2>
+            <p>FamilyHub is an ADHD-friendly family organiser. In addition to the data described in the general sections above, it offers an optional email-scanning feature for calendar events. It is turned off by default, requires your explicit in-app consent before access is requested, and can be disabled at any time. This section discloses exactly how FamilyHub accesses, collects, uses, and shares this data.</p>
 
-            <h3>Location data</h3>
-            <p>FamilyHub uses location only to power features you choose to enable:</p>
-            <ul>
-                <li><strong>Location search:</strong> When you attach a place to a task or event, your search text is used to look up matching locations.</li>
-                <li><strong>Location-based reminders (geofencing):</strong> When you attach a location to a reminder, FamilyHub registers a geofence so it can notify you when you arrive at or leave that place — for example, a shopping reminder when you reach the shops.</li>
-                <li><strong>Background location:</strong> Geofence reminders require background location access ("Allow all the time" on Android) so they can trigger while the app is closed. FamilyHub requests this permission only after an in-app explanation, and only if you use location reminders.</li>
-            </ul>
-            <p><strong>What we do with it:</strong> Location is used on your device to evaluate geofences and to search for places. We do <strong>not</strong> store a history of your location, we do <strong>not</strong> track your movements, and we do <strong>not</strong> share or sell location data to any third party. Geofence definitions you create (a coordinate and radius linked to your reminder) are stored with your family data so reminders work across your devices.</p>
-            <p><strong>Permissions used (Android):</strong> Approximate location (<code>ACCESS_COARSE_LOCATION</code>), precise location (<code>ACCESS_FINE_LOCATION</code>), and background location (<code>ACCESS_BACKGROUND_LOCATION</code>). Location processing on Android uses Google Play Services location and geofencing APIs. You can revoke these permissions at any time in your device settings; doing so disables location reminders but leaves the rest of the app working.</p>
+            <h3>Location (place labels only — no device location)</h3>
+            <p>FamilyHub does <strong>not</strong> access, collect, track, or monitor your device's location on any platform. It requests no location permissions and includes no GPS, geofencing, or background-location features.</p>
+            <p>When you attach a place to a task, event, or reminder, you type a place name and pick a matching result from a text search. FamilyHub stores that place only as a descriptive label (a name and coordinates you selected) so it can show a static map preview or open the address in your maps app. This is reference information you enter — it is never derived from where your device actually is.</p>
 
             <h3>Email scanning (optional)</h3>
             <p>If you enable email scanning, FamilyHub reads your inbox in <strong>read-only</strong> mode to detect event invitations and ICS calendar attachments, then suggests matching events for your calendar.</p>
@@ -502,13 +497,16 @@
             <h3>Health &amp; wellness data</h3>
             <p>FamilyHub includes wellness features: mood check-ins, symptom logging (such as brain fog, hot flushes, and sleep quality), guided breathing exercises, and focus timers. You can export your symptom data as CSV or PDF to share with a healthcare provider. This data is created by you, used for your own personal tracking, stored with your family data in Firebase, and is never sold or shared with third parties for advertising.</p>
 
+            <h3>Crash reporting is off by default</h3>
+            <p>Because FamilyHub is a family app that may be used by children, crash and diagnostics reporting (Firebase Crashlytics) is <strong>opt-in and turned off by default</strong>. Nothing is sent unless you turn on "Share Crash &amp; Diagnostics Reports" in Settings &rarr; Privacy. When it is off, no crash or diagnostic data leaves the device. Crash reports never contain your name, account details, or the content you create — see the <a href="#crash-reporting">Crash Reporting &amp; Diagnostics</a> section below.</p>
+
             <h3>What FamilyHub shares with third parties</h3>
             <ul>
-                <li><strong>Firebase (Firestore, Auth, Cloud Messaging):</strong> Account, family, task, calendar, meal, wellness, and geofence-definition data for sync and notifications.</li>
+                <li><strong>Firebase (Firestore, Auth, Cloud Messaging):</strong> Account, family, task, calendar, meal, and wellness data (including any place labels you enter) for sync and notifications.</li>
                 <li><strong>Google Calendar API / Microsoft Graph API:</strong> Read-only calendar sync and, if enabled, email scanning.</li>
-                <li><strong>Google Play Services:</strong> Location and geofencing (Android).</li>
+                <li><strong>Firebase Crashlytics:</strong> Crash and diagnostics data — only if you opt in (off by default).</li>
             </ul>
-            <p>FamilyHub contains no advertising SDKs and does not sell personal data. You can delete all your FamilyHub data at any time from Settings &rarr; Privacy &rarr; Delete All My Data.</p>
+            <p>FamilyHub contains no advertising SDKs, does not use your device location, and does not sell personal data. You can delete all your FamilyHub data at any time from Settings &rarr; Privacy &rarr; Delete All My Data.</p>
         </div>
 
         <!-- LionTrack specifics -->
