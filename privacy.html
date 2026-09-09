@@ -236,6 +236,7 @@
             <h2>Overview</h2>
             <p>Camilleri Creations ("we", "us", "our") builds and operates mobile applications. This privacy policy explains how we collect, use, and protect information across all of our apps.</p>
             <p>We believe in privacy by design. Our apps collect the minimum data necessary to function, store data locally on your device wherever possible, and never sell your personal information to third parties.</p>
+            <p><strong>How to read this policy:</strong> the sections below describe our apps in general, and individual apps differ in what they collect. Where an app-specific section (for example, <a href="#adhd-morning-routine-privacy">ADHD Morning Routine</a> or <a href="#familyhub-privacy">FamilyHub</a>) conflicts with the general text, <strong>the app-specific section applies for that app</strong>.</p>
         </div>
 
         <!-- What We Collect -->
@@ -281,9 +282,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>ADHD Morning Routine</strong></td>
-                        <td>Local + iCloud/Firebase (family sync)</td>
-                        <td>Optional (for Family Race)</td>
+                        <td><strong>ADHD Morning Routine</strong> (<a href="#adhd-morning-routine-privacy">details</a>)</td>
+                        <td>Local by default; Firebase only if a Family Group is used</td>
+                        <td>No account (anonymous). iOS-only optional email backup</td>
                         <td>Notifications</td>
                     </tr>
                     <tr>
@@ -330,6 +331,50 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+
+        <!-- ADHD Morning Routine specifics -->
+        <div class="policy-section" id="adhd-morning-routine-privacy">
+            <h2>ADHD Morning Routine — What We Collect</h2>
+            <p>ADHD Morning Routine is a guided morning-routine app designed for children (and adults) with ADHD. It is built to work with as little data leaving your device as possible, and this section describes exactly what it does — which overrides the more general descriptions above where they differ.</p>
+
+            <h3>Stored only on your device</h3>
+            <p>By default, everything the app creates stays on the device and is never uploaded:</p>
+            <ul>
+                <li>Profiles (the name label and avatar you choose for each family member)</li>
+                <li>Routines, tasks, timers, and schedules</li>
+                <li>Progress, streaks, points, badges, and unlocked avatars</li>
+                <li>App preferences and alarm settings</li>
+            </ul>
+
+            <h3>No account, no sign-in details (Android)</h3>
+            <p>On Android, the app does <strong>not</strong> ask for an email address, password, or any sign-in details, and there is no account to create. To make family sharing work, the app uses an <strong>anonymous</strong> Firebase identifier that is generated automatically on the device — it is not linked to your name, email, or any personal profile.</p>
+            <p>On iOS only, an optional "Link Email" feature lets a parent add an email and password so a child's stats can be backed up and recovered. This is entirely optional and is the only place an email is ever collected; it is not present on Android.</p>
+
+            <h3>What is shared when you use a Family Group</h3>
+            <p>Family sharing (the "Family Race") is optional. It only sends data to the cloud (Google Firebase) if you choose to create or join a family group. When you do, the following is stored in Firebase and made visible to the other members of <em>your</em> family group only:</p>
+            <ul>
+                <li>The <strong>profile name label</strong> you entered (this can be a first name, a nickname, or any label you like — you choose what to type)</li>
+                <li>The chosen <strong>avatar</strong> (a built-in character, never a photo)</li>
+                <li><strong>Routine progress</strong> for the race (how many tasks are done, and whether a routine is active or finished)</li>
+                <li>Optionally, a <strong>routine you choose to share</strong> with the group (its name, tasks, and schedule)</li>
+            </ul>
+            <p>This information is only visible to members of the same family group. It is never public, never sold, and never used for advertising. Names are entered by whoever sets up the profiles (normally a parent or guardian), and you can use non-identifying labels if you prefer.</p>
+
+            <h3>Crash reporting is off by default</h3>
+            <p>Because this app is intended for children, crash and diagnostics reporting (Firebase Crashlytics) is <strong>turned off by default</strong>. Nothing is sent unless an adult explicitly turns on "Share crash reports" in Settings &rarr; Privacy. When it is off, no crash or diagnostic data leaves the device.</p>
+
+            <h3>What ADHD Morning Routine never collects</h3>
+            <ul>
+                <li>No location, contacts, photos, microphone, or phone number</li>
+                <li>No advertising identifiers and no ad SDKs</li>
+                <li>No behavioural analytics (Firebase Analytics is disabled)</li>
+                <li>No purchases or subscription data</li>
+                <li>No date of birth or age (the app performs no age screening)</li>
+            </ul>
+
+            <h3>Children's data and deleting it</h3>
+            <p>The names and routine progress described above may relate to children. They are entered under the control of a parent or guardian, are only shared within your own family group, and can be removed at any time. You can delete everything — all profiles on the device, your family-group data in the cloud, and the anonymous identifier — from <strong>Settings &rarr; Delete All My Data</strong>, or by contacting us to request deletion.</p>
         </div>
 
         <!-- Third-Party Services -->
@@ -471,11 +516,13 @@
             <h2>Children's Privacy</h2>
             <p>Several of our apps are designed for use by children (ADHD Morning Routine, LionTrack, FirstSolo, StudyTrack). We take extra care with data involving minors:</p>
             <ul>
-                <li>We do not knowingly collect personal information from children under 13 without parental consent</li>
-                <li>Parent/guardian accounts control access and visibility for child profiles</li>
-                <li>Child profiles are never exposed publicly or shared outside the family/team unit</li>
+                <li>Our apps are set up and controlled by a parent or guardian, who creates the profiles and decides whether to enable any sharing feature</li>
+                <li>We minimise what we collect from children: profiles, routines, and progress are stored on the device by default, and only a name label, avatar, and routine progress are shared — and only within your own family unit — when a parent chooses to use family sharing</li>
+                <li>The name used for a profile is free text chosen by the parent/guardian, who may use a non-identifying label</li>
+                <li>Child profiles and data are never public and are never shared outside the family/team unit, and are never used for advertising or behavioural profiling</li>
                 <li>Photos of minors (in LionTrack) are stored in Firebase Storage with per-coach quotas and are only visible to authorised team members</li>
-                <li>We comply with COPPA (Children's Online Privacy Protection Act) and UK AADC (Age Appropriate Design Code) requirements</li>
+                <li>A parent or guardian can delete all of a child's data at any time (in ADHD Morning Routine via Settings &rarr; Delete All My Data) or by contacting us</li>
+                <li>We aim to comply with COPPA (Children's Online Privacy Protection Act) and the UK AADC (Age Appropriate Design Code). For questions or to exercise any rights over a child's data, contact us at the address below</li>
             </ul>
         </div>
 
