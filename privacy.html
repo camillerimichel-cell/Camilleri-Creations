@@ -535,6 +535,8 @@
 
             <h3>Safeguarding reports</h3>
             <p>LionTrack includes an FA-aligned safeguarding feature that lets an authorised coach record a welfare concern (a category, free-text notes, and an optional voice recording). Because this can be sensitive information about a child, it is stored securely in Firebase and is restricted to authorised safeguarding roles. It is only created when a coach chooses to report a concern.</p>
+            <p><strong>Microphone:</strong> recording a voice note requires microphone permission. LionTrack only requests microphone access at the point you choose to attach a recording to a safeguarding concern, and the microphone is used for nothing else in the app. You can decline or revoke this permission in your device settings; doing so simply means you cannot attach a voice note.</p>
+            <p><strong>Retention and deletion of safeguarding data:</strong> because safeguarding records (including any voice recording, category, and notes) are special-category data about a child, they are retained only for as long as needed for the welfare purpose for which they were created and are then deleted. Authorised safeguarding roles can delete a concern and its recording from within the app, and you can also request deletion by contacting us. When a concern is deleted, its voice recording is removed from Firebase Storage.</p>
 
             <h3>Notifications and subscriptions</h3>
             <ul>
@@ -619,9 +621,10 @@
             <h2>GDPR Compliance (EEA/UK Users)</h2>
             <p>If you are located in the European Economic Area or the United Kingdom, we process your data under the following legal bases:</p>
             <ul>
-                <li><strong>Consent</strong> — For optional features like HealthKit access and push notifications</li>
+                <li><strong>Consent</strong> — For optional features like HealthKit access, push notifications, and opt-in crash reporting</li>
                 <li><strong>Contract</strong> — To provide the service you signed up for (e.g., storing your team data in LionTrack)</li>
-                <li><strong>Legitimate interest</strong> — For crash reporting and basic analytics to improve app stability</li>
+                <li><strong>Legitimate interest</strong> — For crash and stability diagnostics, only where you have opted in. We do not use behavioural analytics.</li>
+                <li><strong>Substantial public interest / safeguarding</strong> — For LionTrack safeguarding records (a special category of data concerning a child's welfare), we rely on the safeguarding condition for processing special-category data under UK GDPR Article 9(2)(g) and the Data Protection Act 2018 (protecting an individual from neglect or physical, mental, or emotional harm). This data is restricted to authorised safeguarding roles.</li>
             </ul>
             <p>Data is processed within the EEA/UK where possible. Where data is transferred to the US (via Firebase/Google Cloud), it is protected under Google's Standard Contractual Clauses.</p>
         </div>
