@@ -288,10 +288,10 @@
                         <td>Notifications</td>
                     </tr>
                     <tr>
-                        <td><strong>LionTrack</strong></td>
+                        <td><strong>LionTrack</strong> (<a href="#liontrack-privacy">details</a>)</td>
                         <td>Firebase (team data)</td>
                         <td>Yes (coach account)</td>
-                        <td>Camera (optional, team photos)</td>
+                        <td>Camera &amp; photos (optional), Microphone (optional, safeguarding), Notifications</td>
                     </tr>
                     <tr>
                         <td><strong>StudyTrack</strong></td>
@@ -509,6 +509,56 @@
                 <li><strong>Google Play Services:</strong> Location and geofencing (Android).</li>
             </ul>
             <p>FamilyHub contains no advertising SDKs and does not sell personal data. You can delete all your FamilyHub data at any time from Settings &rarr; Privacy &rarr; Delete All My Data.</p>
+        </div>
+
+        <!-- LionTrack specifics -->
+        <div class="policy-section" id="liontrack-privacy">
+            <h2>LionTrack — What We Collect</h2>
+            <p>LionTrack is a grassroots youth-football management app for coaches, parents, and players. Because players are children, we deliberately keep the data we collect to the minimum needed to run a team. This section describes exactly what LionTrack does and overrides the more general descriptions above where they differ.</p>
+
+            <h3>Account and identity</h3>
+            <p>A coach account is required to use LionTrack. When you create or sign in to an account we collect:</p>
+            <ul>
+                <li>Your <strong>email address</strong> and a display name, via Firebase Authentication (email/password, Sign in with Apple, or Google Sign-In)</li>
+                <li>An account user ID used to store and secure your team's data</li>
+            </ul>
+
+            <h3>Team and player data</h3>
+            <p>Coaches create players and record football activity. This is stored in Firebase (Firestore/Storage) and is only visible to authorised members of that team:</p>
+            <ul>
+                <li>Player <strong>name label</strong> and shirt number (the name is entered by the coach and can be a first name or nickname)</li>
+                <li>Playing positions, match and training statistics, attendance, badges, and awards</li>
+                <li>Optional <strong>player and team photos</strong> uploaded by the coach (camera or photo library)</li>
+                <li>Optional <strong>match weather</strong> — the coach taps a weather icon (sunny, cloudy, rain, etc.) when starting a match. This is entered manually and stored with the match; LionTrack does <strong>not</strong> use your device location or GPS to determine weather</li>
+            </ul>
+            <p>We do <strong>not</strong> collect a player's date of birth or age, and we do <strong>not</strong> store medical notes about players.</p>
+
+            <h3>Safeguarding reports</h3>
+            <p>LionTrack includes an FA-aligned safeguarding feature that lets an authorised coach record a welfare concern (a category, free-text notes, and an optional voice recording). Because this can be sensitive information about a child, it is stored securely in Firebase and is restricted to authorised safeguarding roles. It is only created when a coach chooses to report a concern.</p>
+
+            <h3>Notifications and subscriptions</h3>
+            <ul>
+                <li><strong>Push notifications:</strong> LionTrack registers a Firebase Cloud Messaging (FCM) device token so it can send match and team notifications. The token identifies the device install, not you personally, and no message content is collected from you.</li>
+                <li><strong>Subscriptions:</strong> Paid plans are handled by RevenueCat and the App Store / Google Play. LionTrack only sees your entitlement status (which plan is active), never your card details.</li>
+            </ul>
+
+            <h3>Crash reporting is off by default</h3>
+            <p>Because LionTrack is used by children, crash and diagnostics reporting (Firebase Crashlytics) is <strong>turned off by default</strong> and is opt-in. Nothing is sent unless a user turns on "Share crash reports" in Settings &rarr; Privacy. When it is off, no crash or diagnostic data leaves the device. Crash reports never contain names, team content, or the photos and recordings you create — see the Crash Reporting section below.</p>
+
+            <h3>Location</h3>
+            <p>LionTrack does <strong>not</strong> request location permissions and does <strong>not</strong> collect, store, or transmit GPS coordinates. Match venues are entered manually as text, and match weather is chosen manually by the coach.</p>
+
+            <h3>What LionTrack never collects</h3>
+            <ul>
+                <li>No device location or GPS</li>
+                <li>No player date of birth, age, or medical notes</li>
+                <li>No advertising identifiers and no ad SDKs</li>
+                <li>No behavioural analytics (Firebase Analytics is not used)</li>
+                <li>No in-app messaging between adults and children</li>
+            </ul>
+
+            <h3>Deleting your data</h3>
+            <p>You can delete your account and its associated data from within the app (Settings &rarr; Account) or by contacting us. Deletion removes your account and profile data; team media and records are removed in line with the retention and deletion process described below.</p>
         </div>
 
         <!-- Children's Privacy -->
