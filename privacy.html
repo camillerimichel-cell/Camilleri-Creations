@@ -420,7 +420,7 @@
 
             <h3>Which apps use it</h3>
             <p>Crash reporting via Crashlytics is used across our Firebase-backed apps, including <strong>FamilyHub</strong>, <strong>StudyTrack</strong>, <strong>LionTrack</strong>, <strong>Odyssey</strong>, <strong>FirstSolo</strong>, <strong>ADHD Morning Routine</strong>, and <strong>Fancy That</strong>. Apps that store all data on-device and do not use Firebase do not include crash reporting.</p>
-            <p>In our apps that are used by children — <strong>FamilyHub</strong>, <strong>LionTrack</strong>, and <strong>ADHD Morning Routine</strong> — crash reporting is <strong>opt-in and off by default</strong>: nothing is collected unless you turn on "Share crash reports" in Settings &rarr; Privacy.</p>
+            <p>In our apps that are used by children — <strong>FamilyHub</strong>, <strong>LionTrack</strong>, <strong>StudyTrack</strong>, and <strong>ADHD Morning Routine</strong> — crash reporting is <strong>opt-in and off by default</strong>: nothing is collected unless you turn on "Share crash reports" in Settings &rarr; Privacy.</p>
         </div>
 
         <!-- StudyTrack AI Data Processing -->
@@ -468,12 +468,18 @@
                 <li><strong>Firebase Auth</strong> — Authentication credentials and email address</li>
                 <li><strong>RevenueCat</strong> — Purchase/entitlement state and an anonymous user ID (no study data)</li>
                 <li><strong>Firebase Messaging</strong> — Push notification device tokens</li>
-                <li><strong>Firebase Crashlytics</strong> — Crash and error diagnostics only (see the Crash Reporting section below). No behavioural analytics.</li>
+                <li><strong>Firebase Crashlytics</strong> — Crash and error diagnostics only, and <strong>only if you opt in</strong> (off by default; see the Crash Reporting section below). No behavioural analytics.</li>
             </ul>
-            <p><strong>No behavioural analytics SDK</strong> is used in StudyTrack. There is no Firebase Analytics or any advertising/behavioural profiling. StudyTrack does use <strong>Firebase Crashlytics</strong> for crash and stability diagnostics; this collects technical crash data only (never your study content or personal data) and is disabled in development builds.</p>
+            <p><strong>No behavioural analytics SDK</strong> is used in StudyTrack. There is no Firebase Analytics or any advertising/behavioural profiling. StudyTrack can use <strong>Firebase Crashlytics</strong> for crash and stability diagnostics, but this is <strong>opt-in and off by default</strong> — nothing is collected unless you turn on "Share crash reports" in Settings &rarr; Privacy. When enabled it collects technical crash data only (never your study content or personal data), and it is always disabled in development builds.</p>
 
             <h3>Data retention (AI)</h3>
             <p>AI-generated revision suggestions are cached locally on your device. If you are a premium user with sync enabled, suggestions may be included as part of your synced data. Deleting your account removes all cloud-stored data. Local data is removed when you uninstall the app.</p>
+
+            <h3>Crash reporting is off by default</h3>
+            <p>Crash and diagnostics reporting (Firebase Crashlytics) in StudyTrack is <strong>opt-in and turned off by default</strong>. Nothing is sent unless you turn on "Share crash reports" in Settings &rarr; Privacy. When it is off, no crash or diagnostic data leaves the device. Crash reports never contain your name, email, study data, or the content you create — see the <a href="#crash-reporting">Crash Reporting &amp; Diagnostics</a> section above.</p>
+
+            <h3>Account, deletion, and your data</h3>
+            <p>You can export your StudyTrack data or delete your account at any time from <strong>Settings &rarr; Privacy &amp; Account</strong>. Account deletion removes your cloud-stored data within 30 days; data exports are provided in a machine-readable (JSON) format. Third-party data sharing is off unless you enable it.</p>
         </div>
 
         <!-- FamilyHub Email & Wellness Data -->
