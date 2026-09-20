@@ -306,13 +306,13 @@
                         <td>Calendar, Notifications, Email scanning (optional, read-only)</td>
                     </tr>
                     <tr>
-                        <td><strong>Odyssey</strong></td>
+                        <td><strong>Odyssey</strong> (<a href="#odyssey-privacy">details</a>)</td>
                         <td>Local + Firebase</td>
                         <td>Yes</td>
-                        <td>HealthKit (distance, vitals)</td>
+                        <td>HealthKit (iOS) / Health Connect (Android) — read-only, Notifications</td>
                     </tr>
                     <tr>
-                        <td><strong>FirstSolo</strong></td>
+                        <td><strong>FirstSolo</strong> (<a href="#firstsolo-privacy">details</a>)</td>
                         <td>Firebase (progress &amp; squadron)</td>
                         <td>Yes</td>
                         <td>Notifications</td>
@@ -328,6 +328,18 @@
                         <td>Firebase (couple sync)</td>
                         <td>Yes</td>
                         <td>Photos (optional), Notifications</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ariadne</strong> (<a href="#ariadne-privacy">details</a>)</td>
+                        <td>On-device only (no cloud, no Firebase)</td>
+                        <td>No account</td>
+                        <td>Notifications; optional on-device crash log (off by default)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Artefact</strong> (<a href="#artefact-privacy">details</a>)</td>
+                        <td>On-device only (local database; no cloud, no Firebase, no sync)</td>
+                        <td>No account</td>
+                        <td>Optional App Store Connect &amp; Google Play connections (your own developer credentials); optional on-device crash log (off by default)</td>
                     </tr>
                 </tbody>
             </table>
@@ -419,8 +431,8 @@
             </ul>
 
             <h3>Which apps use it</h3>
-            <p>Crash reporting via Crashlytics is used across our Firebase-backed apps, including <strong>FamilyHub</strong>, <strong>StudyTrack</strong>, <strong>LionTrack</strong>, <strong>Odyssey</strong>, <strong>FirstSolo</strong>, <strong>ADHD Morning Routine</strong>, and <strong>Fancy That</strong>. Apps that store all data on-device and do not use Firebase do not include crash reporting.</p>
-            <p>In our apps that are used by children — <strong>FamilyHub</strong>, <strong>LionTrack</strong>, <strong>StudyTrack</strong>, and <strong>ADHD Morning Routine</strong> — crash reporting is <strong>opt-in and off by default</strong>: nothing is collected unless you turn on "Share crash reports" in Settings &rarr; Privacy.</p>
+            <p>Crash reporting via Crashlytics is used across our Firebase-backed apps, including <strong>FamilyHub</strong>, <strong>StudyTrack</strong>, <strong>LionTrack</strong>, <strong>Odyssey</strong>, <strong>FirstSolo</strong>, <strong>ADHD Morning Routine</strong>, and <strong>Fancy That</strong>. Our on-device-only apps (<strong>Ariadne</strong> and <strong>Artefact</strong>) do <strong>not</strong> use Crashlytics; instead they offer an optional <strong>on-device crash log</strong> that is off by default and never leaves your device — see the <a href="#ariadne-privacy">Ariadne</a> and <a href="#artefact-privacy">Artefact</a> sections.</p>
+            <p>In <strong>FamilyHub</strong>, <strong>LionTrack</strong>, <strong>StudyTrack</strong>, <strong>ADHD Morning Routine</strong>, <strong>Odyssey</strong>, <strong>FirstSolo</strong>, and <strong>Fancy That</strong>, crash reporting is <strong>opt-in and off by default</strong>: nothing is collected unless you turn on "Share crash reports" in Settings &rarr; Privacy.</p>
         </div>
 
         <!-- StudyTrack AI Data Processing -->
@@ -567,6 +579,165 @@
             <p>You can delete your account and its associated data from within the app (Settings &rarr; Account) or by contacting us. Deletion removes your account and profile data; team media and records are removed in line with the retention and deletion process described below.</p>
         </div>
 
+        <!-- Odyssey specifics -->
+        <div class="policy-section" id="odyssey-privacy">
+            <h2>Odyssey — What We Collect</h2>
+            <p>Odyssey turns your real-world walking, running, and other activity into progress along a themed journey. It is available on iOS and Android. This section describes exactly what Odyssey does and overrides the more general descriptions above where they differ.</p>
+
+            <h3>Account and identity</h3>
+            <p>An account is required to save your progress and sync it across devices. When you sign in we collect, via Firebase Authentication:</p>
+            <ul>
+                <li>Your <strong>email address</strong> and display name (from Sign in with Apple or Google Sign-In)</li>
+                <li>An account user ID used to store and secure your journey data in Firebase</li>
+            </ul>
+
+            <h3>Journey and progress data</h3>
+            <p>Odyssey stores your progress locally on your device and in Firebase (Firestore) so it is available when you sign in on another device:</p>
+            <ul>
+                <li>Distance covered, active journey, unlocked waypoints, and character/avatar progress</li>
+                <li>Preferences such as your distance unit (miles/kilometres) and notification choices</li>
+                <li>Purchase status for one-off journey unlocks — handled by Apple's App Store and Google Play; we only see whether a purchase is active, never your card details</li>
+            </ul>
+
+            <h3>Health &amp; fitness data (read-only, with your permission)</h3>
+            <p>To measure your journey distance, Odyssey reads activity data from <strong>Apple HealthKit</strong> (on iOS) or <strong>Health Connect</strong> (on Android) — but only after you grant permission. Depending on the platform this may include distance, steps, exercise/workouts, active energy, heart rate, and sleep.</p>
+            <ul>
+                <li>Health data is used on your device to calculate how far you have travelled on your journey.</li>
+                <li>Odyssey reads this data in <strong>read-only</strong> mode; it never writes to HealthKit or Health Connect.</li>
+                <li>Your raw health readings are <strong>not uploaded to our servers</strong> — only your resulting journey distance and progress are stored in Firebase.</li>
+                <li>You can decline or revoke health access at any time in your device's Health/Health Connect settings; Odyssey will simply stop reading new activity.</li>
+            </ul>
+
+            <h3>Crash reporting is off by default</h3>
+            <p>Crash and diagnostics reporting (Firebase Crashlytics) in Odyssey is <strong>opt-in and turned off by default</strong>. Nothing is sent unless you turn on "Share crash reports" in Settings &rarr; Privacy, and the app shows an explanation of what is shared before it is enabled. When it is off, no crash or diagnostic data leaves the device. Crash reports never contain your name, email, health readings, or your journey content — see the <a href="#crash-reporting">Crash Reporting &amp; Diagnostics</a> section above. You can turn it back off at any time.</p>
+
+            <h3>What Odyssey never collects</h3>
+            <ul>
+                <li>No device location or GPS (distance comes from HealthKit/Health Connect, not location tracking)</li>
+                <li>No contacts, photos, or microphone access</li>
+                <li>No advertising identifiers and no ad SDKs</li>
+                <li>No behavioural analytics (Firebase Analytics is not used)</li>
+            </ul>
+
+            <h3>Deleting your data and your account</h3>
+            <p>Odyssey lets you remove your data in two separate ways from <strong>Settings &rarr; Account</strong>:</p>
+            <ul>
+                <li><strong>Delete my data</strong> — erases your journey progress, distance history, and preferences from Firebase and your device, while <em>keeping</em> your account so you can start fresh.</li>
+                <li><strong>Delete my account</strong> — permanently deletes your account together with all associated data (progress, preferences, and your Firebase Authentication record). This cannot be undone.</li>
+            </ul>
+            <p>You can also link to this privacy policy directly from within the app (Settings &rarr; Privacy). Account data is removed from Firebase within 30 days of deletion, and locally stored data is removed when you uninstall the app. You may also request deletion by contacting us at <a href="mailto:camilleri.creations.uk@gmail.com">camilleri.creations.uk@gmail.com</a>.</p>
+        </div>
+
+        <!-- FirstSolo specifics -->
+        <div class="policy-section" id="firstsolo-privacy">
+            <h2>FirstSolo — What We Collect</h2>
+            <p>FirstSolo is a study and progression app that helps air cadets and student pilots prepare for their first solo flight, with lessons, drills, mock exams, and squadron features. It is available on iOS and Android. This section describes exactly what FirstSolo does and overrides the more general descriptions above where they differ.</p>
+
+            <h3>Account and identity</h3>
+            <p>An account is required to save your progress and, for volunteers, to manage a squadron. Using Firebase Authentication (Sign in with Apple or Google Sign-In) we collect:</p>
+            <ul>
+                <li>Your <strong>email address</strong> and display name</li>
+                <li>An account user ID used to store and secure your data in Firebase</li>
+                <li>For cadets under 16, a parental-consent record (see Children's Privacy below)</li>
+            </ul>
+
+            <h3>Learning and squadron data</h3>
+            <p>FirstSolo stores your progress in Firebase (Firestore) so it is available across devices and, where relevant, to your squadron staff:</p>
+            <ul>
+                <li>XP, rank/progression, badges, streaks, and drill/lesson progress</li>
+                <li>Exam history and scores, and any Q&amp;A contributions you make</li>
+                <li>Logbook entries you record</li>
+                <li>Squadron membership and role (cadet, CFAV volunteer, or officer commanding)</li>
+                <li>Accessibility and notification preferences</li>
+                <li>Subscription status for paid tiers — handled by the App Store / Google Play; we only see whether an entitlement is active, never your card details</li>
+            </ul>
+
+            <h3>Crash reporting is off by default</h3>
+            <p>Crash and diagnostics reporting (Firebase Crashlytics) in FirstSolo is <strong>opt-in and turned off by default</strong>. Nothing is sent unless you turn on "Share crash reports" in Settings &rarr; Privacy, and the app shows an explanation of what is shared before it is enabled. When it is off, no crash or diagnostic data leaves the device. Crash reports never contain your name, email, exam answers, logbook entries, or the content you create — see the <a href="#crash-reporting">Crash Reporting &amp; Diagnostics</a> section above. You can turn it back off at any time.</p>
+
+            <h3>What FirstSolo never collects</h3>
+            <ul>
+                <li>No device location or GPS</li>
+                <li>No contacts, photos, or microphone access</li>
+                <li>No advertising identifiers and no ad SDKs</li>
+                <li>No behavioural analytics (Firebase Analytics is not used)</li>
+            </ul>
+
+            <h3>Privacy policy link and deleting your data</h3>
+            <p>You can open this privacy policy from within the app at <strong>Settings &rarr; Privacy</strong>. You can permanently delete your account and all associated data — XP, progress, badges, logbook entries, and exam history — from <strong>Settings &rarr; Delete My Account</strong>, or by contacting us. Account data is removed from Firebase within 30 days of deletion, and locally stored data is removed when you uninstall the app. To exercise any data rights, contact us at <a href="mailto:camilleri.creations.uk@gmail.com">camilleri.creations.uk@gmail.com</a>.</p>
+        </div>
+
+        <!-- Ariadne specifics -->
+        <div class="policy-section" id="ariadne-privacy">
+            <h2>Ariadne — What We Collect</h2>
+            <p>Ariadne is a decision-making aid that helps you weigh options and avoid rumination. It is a fully <strong>on-device</strong> app, and this section describes exactly what it does — which overrides the more general descriptions above where they differ.</p>
+
+            <h3>Everything stays on your device</h3>
+            <p>Ariadne has <strong>no account, no sign-in, and no cloud</strong>. It does <strong>not</strong> use Firebase or any server. Everything you create is stored only in a local database on your device:</p>
+            <ul>
+                <li>Your decisions, options, criteria, and dealbreakers</li>
+                <li>Your decision journal and any recorded outcomes</li>
+                <li>Your settings and preferences</li>
+            </ul>
+            <p>None of this is ever transmitted off your device by the app. Because there is no account, there is nothing for us to hold, access, or delete on a server.</p>
+
+            <h3>Crash logging is off by default (and stays on your device)</h3>
+            <p>Ariadne does <strong>not</strong> use a cloud crash reporter such as Firebase Crashlytics. Instead it offers an <strong>optional, on-device diagnostics log</strong> that is <strong>turned off by default</strong>. If you turn on "Save crash logs on this device" in <strong>Settings &rarr; Diagnostics &amp; privacy</strong>, the app writes details of any errors (what went wrong and where in the code) to a local log file on your device to help diagnose problems. This log is <strong>never uploaded or transmitted</strong> — it stays on your device. You can export it yourself via your device's share sheet if you want to send it to us, clear it, or turn the setting off, at any time.</p>
+
+            <h3>What Ariadne never collects</h3>
+            <ul>
+                <li>No account, email, name, or sign-in of any kind</li>
+                <li>No location, contacts, photos, or microphone access</li>
+                <li>No advertising identifiers and no ad SDKs</li>
+                <li>No analytics and no cloud crash reporting — the app makes no network calls to us</li>
+            </ul>
+
+            <h3>Your data and your control</h3>
+            <p>You can export a copy of your decisions and journal at any time from <strong>Settings &rarr; Download my data</strong>, and permanently erase everything from <strong>Settings &rarr; Delete my data</strong>. Uninstalling the app also removes all on-device data. You can open this privacy policy from within the app at <strong>Settings &rarr; Diagnostics &amp; privacy &rarr; Privacy policy</strong>. For any questions, contact us at <a href="mailto:camilleri.creations.uk@gmail.com">camilleri.creations.uk@gmail.com</a>.</p>
+        </div>
+
+        <!-- Artefact specifics -->
+        <div class="policy-section" id="artefact-privacy">
+            <h2>Artefact — What We Collect</h2>
+            <p>Artefact is a local-first portfolio command center — a <strong>desktop application</strong> for multi-platform app developers. It is a fully <strong>on-device</strong> app, and this section describes exactly what it does — which overrides the more general descriptions above where they differ.</p>
+
+            <h3>Everything stays on your computer</h3>
+            <p>Artefact has <strong>no account, no sign-in, and no cloud sync</strong>. It does <strong>not</strong> use Firebase or any Camilleri Creations server. Everything it holds is stored only in a local SQLite database on your computer (by default in a <code>.artifact</code> folder in your home directory, which you can relocate in Settings):</p>
+            <ul>
+                <li>The developer workspaces (local folder paths) you register</li>
+                <li>Specs, requirements, tasks, and pipeline status parsed from the <code>.kiro</code> files in those workspaces</li>
+                <li>Your cost/credit ledger entries (platform, amount, currency, description, date)</li>
+                <li>Your local asset library (file paths, file names, hashes, tags, and any AI-generation metadata you record)</li>
+                <li>A local search index and your app preferences</li>
+            </ul>
+            <p>None of this is ever transmitted to us. Because there is no account, there is nothing for us to hold, access, or delete on a server. Artefact reads your local git repositories in a strictly <strong>read-only</strong> way (status, branches, and log) and never pushes, pulls, or modifies them.</p>
+
+            <h3>Optional store connections use <em>your</em> developer credentials</h3>
+            <p>Artefact can optionally pull <strong>your own app-store business metrics</strong> (sales, downloads, revenue, and subscriptions) so you can see them in one dashboard. This only happens if you choose to connect a store in <strong>Settings &rarr; Store Connections</strong>, and it uses <strong>your own developer credentials</strong>:</p>
+            <ul>
+                <li><strong>Apple App Store Connect</strong> — Artefact signs a request with your App Store Connect API key and calls Apple's API (<code>api.appstoreconnect.apple.com</code>) to fetch your sales and finance reports.</li>
+                <li><strong>Google Play</strong> — Artefact uses your Google service-account key to obtain an access token from Google and call the Google Play Android Publisher API (<code>androidpublisher.googleapis.com</code>) to fetch your app metrics.</li>
+            </ul>
+            <p>These requests go directly from your computer to Apple and Google, respectively — not through us. They return <strong>your own</strong> store performance figures, which are cached in the local database. This is developer business data about <em>your</em> apps; it is <strong>not</strong> end-user or behavioural analytics, and Artefact does not track how you use Artefact itself.</p>
+
+            <h3>How your store credentials are protected</h3>
+            <p>When you connect a store, your credentials are <strong>encrypted at rest</strong> using your operating system's secure storage (via Electron's <code>safeStorage</code>) before being saved locally; if OS encryption is unavailable, they are not saved. The private key material remains in the <code>.p8</code> / service-account <code>.json</code> files you point to on disk. Credentials are <strong>never included in data exports</strong> — the export feature deliberately skips any credential keys — and you can remove them at any time by disconnecting a store in Settings.</p>
+
+            <h3>Crash logging is off by default (and stays on your computer)</h3>
+            <p>Artefact does <strong>not</strong> use a cloud crash reporter such as Firebase Crashlytics. Instead it offers an <strong>optional, on-device crash log</strong> that is <strong>turned off by default</strong>. If you turn on crash reporting in <strong>Settings &rarr; Privacy &amp; Diagnostics</strong>, the app writes details of any errors (the error type and stack trace) to a local log file (<code>crash.log</code> in the same <code>.artifact</code> folder) to help you diagnose problems. This log is <strong>never uploaded or transmitted</strong> — it stays on your computer. You can open the folder that contains it, or turn the setting off, at any time from Settings.</p>
+
+            <h3>What Artefact never collects</h3>
+            <ul>
+                <li>No account, email, name, or sign-in of any kind</li>
+                <li>No location, contacts, photos, or microphone access</li>
+                <li>No advertising identifiers and no ad SDKs</li>
+                <li>No behavioural analytics and no cloud crash reporting — Artefact makes no network calls to us</li>
+            </ul>
+
+            <h3>Your data and your control</h3>
+            <p>You can back up or export your data at any time from <strong>Settings &rarr; Export &amp; Import</strong> (store credentials are excluded), change where your data is stored, and open the crash log folder from <strong>Settings &rarr; Privacy &amp; Diagnostics</strong>. Because all data is local, deleting the app's data folder or uninstalling the app removes it. You can open this privacy policy from within the app at <strong>Settings &rarr; Privacy &amp; Diagnostics &rarr; Privacy Policy</strong>. For any questions, contact us at <a href="mailto:camilleri.creations.uk@gmail.com">camilleri.creations.uk@gmail.com</a>.</p>
+        </div>
+
         <!-- Children's Privacy -->
         <div class="policy-section">
             <h2>Children's Privacy</h2>
@@ -606,7 +777,7 @@
                 <li><strong>Portability</strong> — Request your data in a machine-readable format</li>
                 <li><strong>Withdraw consent</strong> — Revoke permissions (e.g., HealthKit) at any time via device settings</li>
             </ul>
-            <p>To exercise any of these rights, contact us at <a href="mailto:camillericreations@icloud.com">camillericreations@icloud.com</a>. We will respond within 30 days.</p>
+            <p>To exercise any of these rights, contact us at <a href="mailto:camilleri.creations.uk@gmail.com">camilleri.creations.uk@gmail.com</a>. We will respond within 30 days.</p>
         </div>
 
         <!-- Data Retention -->
@@ -645,7 +816,7 @@
             <h2>Contact</h2>
             <p>If you have any questions about this privacy policy or our data practices, please contact us:</p>
             <p><strong>Camilleri Creations</strong><br>
-            Email: <a href="mailto:camillericreations@icloud.com">camillericreations@icloud.com</a></p>
+            Email: <a href="mailto:camilleri.creations.uk@gmail.com">camilleri.creations.uk@gmail.com</a></p>
         </div>
     </section>
 

@@ -352,6 +352,10 @@
             background: #f3e8fd;
             color: #7c3aed;
         }
+        .status-discontinued {
+            background: #f0f0f0;
+            color: #6b7280;
+        }
 
         /* Footer */
         footer {
@@ -424,7 +428,7 @@
         <div class="contact-card">
             <h2>Get in Touch</h2>
             <p>The quickest way to reach us is by email. We read every message and aim to respond within 48 hours.</p>
-            <a href="mailto:camillericreations@icloud.com" class="email-btn">camillericreations@icloud.com</a>
+            <a href="mailto:camilleri.creations.uk@gmail.com" class="email-btn">camilleri.creations.uk@gmail.com</a>
             <span class="response-time">Typical response time: within 48 hours</span>
         </div>
 
@@ -473,7 +477,7 @@
             <h3>Option 2: Request Deletion by Email</h3>
             <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 0.75rem;">If you're unable to access the app or prefer to make the request manually, you can email us directly:</p>
             <ol class="deletion-steps">
-                <li><strong>Send an email</strong> to <a href="mailto:camillericreations@icloud.com">camillericreations@icloud.com</a> with the subject line: <strong>"Data Deletion Request"</strong></li>
+                <li><strong>Send an email</strong> to <a href="mailto:camilleri.creations.uk@gmail.com">camilleri.creations.uk@gmail.com</a> with the subject line: <strong>"Data Deletion Request"</strong></li>
                 <li><strong>Include in your email:</strong> your full name, the email address associated with your account, and which app(s) you want data deleted from</li>
                 <li><strong>We will verify your identity</strong> by responding to the email address on file, or asking a follow-up question to confirm ownership</li>
                 <li><strong>Your data will be deleted within 30 days</strong> of a verified request. You will receive a confirmation email once deletion is complete</li>
@@ -532,15 +536,23 @@
                             <span style="font-weight: 600;">StudyTrack</span>
                         </td>
                         <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-live">Live</span></td>
                     </tr>
                     <tr style="border-bottom: 1px solid var(--border);">
                         <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
                             <span style="font-size: 1.5rem;">&#127939;</span>
                             <span style="font-weight: 600;">Odyssey</span>
                         </td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In Development</span></td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In Development</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.5rem;">&#129525;</span>
+                            <span style="font-weight: 600;">Ariadne</span>
+                        </td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
                     </tr>
                     <tr style="border-bottom: 1px solid var(--border);">
                         <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
@@ -555,8 +567,8 @@
                             <span style="font-size: 1.5rem;">&#128200;</span>
                             <span style="font-weight: 600;">Provenance</span>
                         </td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In Development</span></td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In Development</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-discontinued">Discontinued</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-discontinued">Discontinued</span></td>
                     </tr>
                     <tr>
                         <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
@@ -596,7 +608,7 @@
 
             <div class="faq-item">
                 <h3>Is my data backed up?</h3>
-                <p>Apps that use Firebase (LionTrack, FamilyHub, StudyTrack, Odyssey, FirstSolo, Provenance, Fancy That) sync data to the cloud automatically. Your data is available on any device you sign into. ADHD Morning Routine stores data locally with optional iCloud/Firebase sync for family features.</p>
+                <p>Apps that use Firebase (LionTrack, FamilyHub, StudyTrack, Odyssey, FirstSolo, Fancy That) sync data to the cloud automatically. Your data is available on any device you sign into. ADHD Morning Routine stores data locally with optional iCloud/Firebase sync for family features. Ariadne is fully on-device — your data is stored privately on your device and is never uploaded to the cloud.</p>
             </div>
 
             <div class="faq-item">

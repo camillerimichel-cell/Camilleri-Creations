@@ -135,8 +135,9 @@
             </div>
             <div class="description">
                 <p>Ariadne is an ADHD-friendly decision helper for the choices that quietly eat your energy — a laptop, a phone, a car, a home, a job offer, a utilities provider, or any everyday call. It replaces spiralling and second-guessing with a paced, one-step-at-a-time flow that lands you on a "good enough" choice you can actually commit to.</p>
-                <p>Pick a category and choose from a curated bank of plain-English criteria — functional ones like price, battery life, or commute, plus sensory ones like noise, glare, and clutter. Nothing is chosen for you, and every criterion has a gentle "explain more" for extra detail. For quantifiable things (RAM, storage, holiday allowance) you pick exact values from a dropdown that feeds the ranking directly.</p>
-                <p>A quiet worst-case reflection heads off catastrophic thinking before the result, and confirmed choices rest under a 24-hour cooling-off period so there is nothing left to re-litigate. Everything is on-device and private, with a full settings screen for high contrast, reduced motion, calm colour schemes, larger text, and neurodivergent-friendly fonts.</p>
+                <p>Pick from 12 ready-made categories — laptop, phone, vehicle, apartment, job offer, insurance, utilities, holiday, investment, school, service provider, or a generic catch-all — and choose from a curated bank of plain-English criteria. Functional ones like price, battery life, or commute sit alongside sensory ones like noise, glare, and clutter, with optional dealbreakers that rule an option out on the spot. For quantifiable things (RAM, storage, holiday allowance) you pick exact values from a dropdown that feeds the ranking directly. Results show a plain-language verdict — Exceeds, Meets Core Needs, Some Gaps, or Does Not Fit — rather than raw scores, so there are no numbers to obsess over.</p>
+                <p>A quiet worst-case reflection heads off catastrophic thinking before the result, and confirmed choices rest under a 24-hour cooling-off period so there is nothing left to re-litigate. A decision journal lets you record how a choice worked out, and you can export or permanently delete all your data at any time. Everything is on-device and private — no account, no cloud, no analytics — with a full settings screen for high contrast, reduced motion, calm colour schemes, larger text, and the OpenDyslexic font.</p>
+                <p class="disclaimer" style="font-size: 0.85rem; color: var(--text-muted); font-style: italic;">Ariadne is a self-help decision-support tool designed with GAD, ADHD, and autistic users in mind. It is not a medical device, therapy, or a substitute for professional care.</p>
             </div>
             <p class="features-heading">Key Features</p>
             <ul class="features-grid">
@@ -146,10 +147,11 @@
                 <li>&#128200; Value dropdowns feed the ranking</li>
                 <li>&#129504; Worst-case reflection gate</li>
                 <li>&#9203; 24-hour cooling-off period</li>
-                <li>&#128220; Decision history &amp; retrospectives</li>
+                <li>&#128220; Decision journal &amp; retrospectives</li>
                 <li>&#9855; Neurodivergent-friendly settings</li>
                 <li>&#128241; Home screen widgets</li>
-                <li>&#128274; Fully on-device &amp; private</li>
+                <li>&#128229; Export &amp; delete your data anytime</li>
+                <li>&#128274; Fully on-device &amp; private — no account</li>
             </ul>
             <p class="tech-stack"><strong>Built with:</strong> Flutter &bull; Riverpod &bull; Drift (SQLite, local-first) &bull; go_router</p>
         </article>
@@ -216,11 +218,13 @@
                 <li>&#127918; Player dashboard</li>
                 <li>&#128241; Home screen widgets</li>
                 <li>&#128274; Safeguarding tools</li>
-                <li>&#128196; Season PDF export</li>
+                <li>&#128196; Season PDF &amp; CSV export</li>
+                <li>&#129504; Match to Pro comparison</li>
+                <li>&#128276; Push notifications</li>
                 <li>&#127912; 5 colour themes</li>
                 <li>&#9855; Neurodivergent mode</li>
             </ul>
-            <p class="tech-stack"><strong>Built with:</strong> Swift/SwiftUI (iOS), Flutter (Android) &bull; Firebase &bull; RevenueCat</p>
+            <p class="tech-stack"><strong>Built with:</strong> Flutter (single codebase, iOS &amp; Android) &bull; Provider &bull; Firebase (Firestore, Auth, Storage, Functions, Messaging) &bull; RevenueCat</p>
         </article>
 
         <!-- ADHDOList -->
@@ -303,6 +307,7 @@
                     <p class="tagline">Family organisation that works with your brain, not against it.</p>
                     <div class="platforms">
                         <span class="badge badge-ios">iOS</span>
+                        <span class="badge badge-android">Android</span>
                     </div>
                 </div>
             </div>
@@ -318,12 +323,13 @@
                 <li>&#128156; Wellness &amp; breathing</li>
                 <li>&#128276; Adaptive reminders</li>
                 <li>&#127774; Energy level tracking</li>
-                <li>&#128483;&#65039; Voice commands</li>
+                <li>&#128149; Mood &amp; symptom tracking</li>
                 <li>&#127912; Fun &amp; Calm modes</li>
                 <li>&#128187; Home Hub tablet mode</li>
                 <li>&#128274; Permission roles</li>
             </ul>
-            <p class="tech-stack"><strong>Built with:</strong> Swift/SwiftUI &bull; Firebase (Firestore, Auth, Functions) &bull; Calendar API</p>
+            <p class="disclaimer" style="font-size: 0.85rem; color: var(--text-muted); font-style: italic;">FamilyHub's wellness features (mood, symptom, and breathing tools) are for personal tracking and do not constitute medical advice. Premium is a storage upgrade only — every feature is available on the free tier.</p>
+            <p class="tech-stack"><strong>Built with:</strong> Swift/SwiftUI (iOS) &bull; Kotlin/Jetpack Compose (Android) &bull; Firebase (Firestore, Auth, Storage, Functions, Messaging) &bull; Google &amp; Outlook Calendar sync</p>
         </article>
 
         <!-- Odyssey -->
@@ -332,28 +338,29 @@
                 <img src="assets/Odyssey.jpeg" alt="Odyssey icon" class="app-detail-icon">
                 <div>
                     <h2>Odyssey</h2>
-                    <p class="tagline">Your fitness. Your epic journey.</p>
+                    <p class="tagline">Every mile tells a story.</p>
                     <div class="platforms">
                         <span class="badge badge-ios">iOS</span>
+                        <span class="badge badge-android">Android</span>
                     </div>
                 </div>
             </div>
             <div class="description">
-                <p>Odyssey maps your cumulative exercise distance onto epic historical journey routes. The app integrates with Apple HealthKit for distance and vitals data, uses Firebase for backend persistence, and implements RPG-style progression including an avatar system, XP levelling, and streak tracking.</p>
-                <p>The MVP delivers the Ancient Rome route (Land's End to Rome, approximately 1,400 miles) with a Roman Legionary avatar. Your health metrics are displayed as RPG character stats in the Vitals Saga dashboard.</p>
+                <p>Odyssey maps your cumulative exercise distance onto epic historical journey routes. It reads distance and vitals from Apple HealthKit (iOS) and Health Connect (Android) — read-only, so your raw health data never leaves your device — and implements RPG-style progression with an avatar system, XP levelling, and streak tracking. Only aggregate progress (total distance and daily vitals scores) syncs to the cloud.</p>
+                <p>Three journeys are available: Ancient Rome (free, around 1,400 miles) plus the Steampunk Orient Express and World War One routes as one-off unlocks. Your health metrics appear as RPG character stats — Spirit, Endurance, and Strength — in the Vitals Saga dashboard, and your avatar evolves as you hit milestones.</p>
             </div>
             <p class="features-heading">Key Features</p>
             <ul class="features-grid">
-                <li>&#128506;&#65039; Historical journey routes</li>
-                <li>&#127939; HealthKit distance integration</li>
+                <li>&#128506;&#65039; 3 historical journey worlds</li>
+                <li>&#127939; HealthKit &amp; Health Connect distance</li>
                 <li>&#128150; Vitals Saga RPG stats</li>
                 <li>&#11088; XP &amp; levelling</li>
                 <li>&#128293; Streak tracking</li>
                 <li>&#128205; Waypoint unlocks</li>
                 <li>&#129399; Avatar system</li>
-                <li>&#128247; Background sync</li>
+                <li>&#128247; Cross-device progress sync</li>
             </ul>
-            <p class="tech-stack"><strong>Built with:</strong> Swift/SwiftUI &bull; HealthKit &bull; Firebase (Firestore, Auth)</p>
+            <p class="tech-stack"><strong>Built with:</strong> Swift/SwiftUI (iOS) &bull; Kotlin/Jetpack Compose (Android) &bull; HealthKit &amp; Health Connect &bull; Firebase (Auth, Firestore, Crashlytics)</p>
         </article>
 
         <!-- FirstSolo -->
