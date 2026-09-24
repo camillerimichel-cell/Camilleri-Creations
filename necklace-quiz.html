@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Necklace Am I? — Camilleri Creations</title>
+    <meta name="description" content="Take the Camilleri Creations necklace quiz — answer a few playful questions and discover which handmade glass necklace matches you.">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+        :root {
+            --bg: #F7F6F3;
+            --card-bg: #ffffff;
+            --accent: #187878;
+            --accent-hover: #00565E;
+            --accent-light: #E3EEF0;
+            --text: #152238;
+            --text-muted: #5A6472;
+            --border: #E4E2DC;
+            --shadow: 0 4px 24px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 32px rgba(0,0,0,0.1);
+            --radius: 16px;
+            /* New colour accents */
+            --gradient-start: #002050;
+            --gradient-mid: #186090;
+            --gradient-end: #187878;
+            --blue: #186090;
+            --purple: #00565E;
+            --green: #187878;
+            --red: #A81818;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            min-height: 100vh;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        nav { background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+        .nav-brand img { width: 40px; height: 40px; border-radius: 10px; }
+        .nav-brand span { font-weight: 700; font-size: 1.1rem; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); text-decoration: none; }
+
+        .section { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
+        .section-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .section-title-gradient {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-subtitle { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2.5rem; }
+
+        /* Quiz shell + interaction styles (task 9.2) — tokens only */
+        .quiz-shell { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 2rem; }
+        .quiz-shell .quiz-loading { color: var(--text-muted); }
+
+        .quiz-progress { color: var(--text-muted); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .quiz-question { font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text); }
+        .quiz-options { list-style: none; display: grid; gap: 0.75rem; margin: 0 0 1.75rem; padding: 0; }
+        .quiz-option {
+            display: block;
+            width: 100%;
+            text-align: left;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.9rem 1.2rem;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s, transform 0.1s;
+        }
+        .quiz-option:hover { border-color: var(--accent); background: var(--accent-light); }
+        .quiz-option:focus-visible { outline: 2px solid var(--accent-hover); outline-offset: 2px; }
+        .quiz-option[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-light); color: var(--accent-hover); }
+        .quiz-option:active { transform: translateY(1px); }
+
+        .quiz-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .quiz-btn {
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            background: var(--accent);
+            border: none;
+            border-radius: var(--radius);
+            padding: 0.75rem 1.6rem;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .quiz-btn:hover { background: var(--accent-hover); }
+        .quiz-btn:focus-visible { outline: 2px solid var(--accent-hover); outline-offset: 2px; }
+        .quiz-btn:active { transform: translateY(1px); }
+        .quiz-btn-secondary { background: var(--card-bg); color: var(--accent); border: 2px solid var(--accent); }
+        .quiz-btn-secondary:hover { background: var(--accent-light); color: var(--accent-hover); }
+
+        .quiz-alert { color: var(--red); font-weight: 700; margin-top: 0.25rem; }
+
+        .quiz-result { text-align: center; }
+        .quiz-result-eyebrow { color: var(--text-muted); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+        .quiz-result-name {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .quiz-result-img { max-width: 260px; width: 100%; border-radius: var(--radius); box-shadow: var(--shadow); margin: 0 auto 1.25rem; display: block; }
+        .quiz-result-desc { color: var(--text); font-size: 1.05rem; max-width: 480px; margin: 0 auto 1.75rem; }
+
+        footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; }
+        footer .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+        footer a { color: var(--accent); }
+        footer .footer-social { display: flex; justify-content: center; margin-bottom: 1.5rem; }
+
+        /* ── LinkedIn badge (tokens only; copied verbatim from assets/linkedin-badge.html) ── */
+        .linkedin-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            padding: 4px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            line-height: 0;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            text-decoration: none;
+        }
+        .linkedin-badge img {
+            width: 32px;
+            height: 32px;
+            display: block;
+        }
+        .linkedin-badge:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-hover);
+            text-decoration: none;
+        }
+        .linkedin-badge:focus-visible {
+            outline: 2px solid var(--accent-hover);
+            outline-offset: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; }
+        }
+        @media (max-width: 480px) {
+            .nav-links { display: none; }
+        }
+
+        /* ===== Red gradient nav (Maltese red palette) ===== */
+        :root { --nav-red-start: #A81818; --nav-red-mid: #900000; --nav-red-end: #C03018; }
+        nav { background: linear-gradient(135deg, var(--nav-red-start) 0%, var(--nav-red-mid) 55%, var(--nav-red-end) 100%); border-bottom: none; box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
+        .nav-brand { color: #fff; }
+        .nav-brand img { background: #fff; padding: 3px; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+        .nav-links a { color: rgba(255,255,255,0.85); }
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/logo.png" alt="Camilleri Creations logo">
+                <span>Camilleri Creations</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="glass.html">Glass</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="necklace-quiz.html" class="active">Quiz</a></li>
+                <li><a href="questionnaire.html">Questionnaire</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section">
+        <h1 class="section-title"><span class="section-title-gradient">What Necklace Am I?</span></h1>
+        <p class="section-subtitle">Answer a few playful questions and discover which handmade glass necklace matches you.</p>
+
+        <!--
+          Quiz mount point. Task 9.2 wires the interaction here:
+          present questions + selectable options, record + advance, block
+          advance when nothing is selected, render the necklace result on the
+          final selection, and provide a restart control (all client-side, no
+          network). This shell only supplies the container + chrome + scripts.
+        -->
+        <div id="quiz-app" class="quiz-shell">
+            <p class="quiz-loading">Loading the necklace quiz&hellip;</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-social">
+            <!-- LinkedIn badge (markup copied verbatim from assets/linkedin-badge.html) -->
+            <a class="linkedin-badge"
+               href="https://www.linkedin.com/company/camilleri-creations"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Camilleri Creations on LinkedIn (opens in a new tab)">
+                <img src="assets/linkedin-badge.svg" alt="" aria-hidden="true">
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="apps.html">Apps</a>
+            <a href="about.html">About</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms</a>
+            <a href="support.html">Support</a>
+            <a href="https://github.com/camillerimichel-cell">GitHub</a>
+        </div>
+        <p>&copy; 2026 Camilleri Creations. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">Glass Art &bull; Smart Apps &bull; Family Focused</p>
+    </footer>
+
+    <!-- namespace.js MUST load before feature modules (establishes window.CC) -->
+    <script src="assets/js/namespace.js"></script>
+    <script src="assets/js/quiz.js"></script>
+
+    <!--
+      Task 9.2 — Quiz interaction + result rendering.
+      Pure client-side. Zero network: no fetch/XHR here; all data comes from
+      window.CC.quiz (QUESTIONS / RESULTS) and the pure state helpers.
+    -->
+    <script>
+    (function () {
+        var quiz = window.CC && window.CC.quiz;
+        var mount = document.getElementById("quiz-app");
+        if (!quiz || !mount) {
+            if (mount) mount.innerHTML =
+                '<p class="quiz-alert">The quiz could not be loaded. Please refresh the page.</p>';
+            return;
+        }
+
+        // Local view state (Req 4.7 restart resets this to a fresh state).
+        var state = quiz.initialState();
+        var alertMessage = "";
+
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#39;");
+        }
+
+        var total = quiz.QUESTIONS.length;
+
+        // ---- rendering ----
+        function render() {
+            var question = quiz.QUESTIONS[state.index];
+            if (!question) { renderResult(); return; }
+            var selected = state.answers ? state.answers[question.id] : undefined;
+            var isFinal = quiz.isFinalQuestion(state);
+
+            var html = "";
+            html += '<p class="quiz-progress">Question ' + (state.index + 1) + " of " + total + "</p>";
+            html += '<h2 class="quiz-question">' + escapeHtml(question.text) + "</h2>";
+            html += '<ul class="quiz-options">';
+            question.options.forEach(function (opt) {
+                var pressed = opt.id === selected ? "true" : "false";
+                html += '<li>' +
+                    '<button type="button" class="quiz-option" data-option="' + escapeHtml(opt.id) + '"' +
+                    ' aria-pressed="' + pressed + '">' + escapeHtml(opt.label) + "</button>" +
+                    "</li>";
+            });
+            html += "</ul>";
+
+            html += '<div class="quiz-actions">';
+            html += '<button type="button" class="quiz-btn" data-action="advance">' +
+                (isFinal ? "See my necklace" : "Next question") + "</button>";
+            html += '<button type="button" class="quiz-btn quiz-btn-secondary" data-action="restart">Start over</button>';
+            html += "</div>";
+            if (alertMessage) {
+                html += '<p class="quiz-alert" role="alert">' + escapeHtml(alertMessage) + "</p>";
+            }
+            mount.innerHTML = html;
+        }
+
+        function renderResult() {
+            var resultId = quiz.computeResult(state.answers);
+            var result = quiz.RESULTS[resultId] || {};
+            var html = '<div class="quiz-result">';
+            html += '<p class="quiz-result-eyebrow">Your necklace match</p>';
+            html += '<h2 class="quiz-result-name">' + escapeHtml(result.name || "Your Necklace") + "</h2>";
+            if (result.image) {
+                html += '<img class="quiz-result-img" src="' + escapeHtml(result.image) +
+                    '" alt="' + escapeHtml(result.name || "Necklace result") + '">';
+            }
+            if (result.description) {
+                html += '<p class="quiz-result-desc">' + escapeHtml(result.description) + "</p>";
+            }
+            html += '<div class="quiz-actions" style="justify-content:center;">';
+            html += '<button type="button" class="quiz-btn" data-action="restart">Take the quiz again</button>';
+            html += "</div></div>";
+            mount.innerHTML = html;
+        }
+
+        // ---- interaction ----
+        // Selecting an option records it immediately (Req 4.3/4.4 record on select)
+        // and re-renders so the choice shows as pressed.
+        function selectOption(optionId) {
+            alertMessage = "";
+            state = quiz.recordAnswer(state, state.index, optionId);
+            render();
+        }
+
+        // Advancing validates a selection first (Req 4.5). On a non-final
+        // question it moves forward (Req 4.3); on the final question the result
+        // is shown (Req 4.4).
+        function tryAdvance() {
+            var wasFinal = quiz.isFinalQuestion(state);
+            var outcome = quiz.advance(state);
+            if (outcome.requireSelection) {
+                alertMessage = "Please select an answer";
+                render();
+                return;
+            }
+            alertMessage = "";
+            state = outcome.state;
+            if (wasFinal) {
+                renderResult();
+            } else {
+                render();
+            }
+        }
+
+        // Fresh start at the first question with no answers (Req 4.7).
+        function doRestart() {
+            state = quiz.restart(state);
+            alertMessage = "";
+            render();
+        }
+
+        // Single delegated listener — buttons are native so Enter/Space activate.
+        mount.addEventListener("click", function (event) {
+            var optionBtn = event.target.closest(".quiz-option");
+            if (optionBtn) { selectOption(optionBtn.getAttribute("data-option")); return; }
+            var actionBtn = event.target.closest("[data-action]");
+            if (!actionBtn) return;
+            var action = actionBtn.getAttribute("data-action");
+            if (action === "advance") tryAdvance();
+            else if (action === "restart") doRestart();
+        });
+
+        render();
+    })();
+    </script>
+</body>
+</html>

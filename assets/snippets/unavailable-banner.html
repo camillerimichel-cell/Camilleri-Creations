@@ -1,0 +1,115 @@
+<!--
+  ============================================================================
+  Camilleri Creations — CANONICAL "page/content unavailable" banner snippet
+  ============================================================================
+
+  Reusable, zero-build inline banner shown when a target/content is missing
+  while the page's nav + footer CHROME stays in place (never a blank page,
+  never a redirect). One shared pattern reused for:
+
+    - gallery-empty     (glass.html)      "No glass-art images are currently available"
+    - post-unavailable  (news.html)       "This post is unavailable"
+    - feed-empty        (news.html)       "No posts are available"
+    - broken-target     (any page)        "This page is unavailable"
+
+  Requirements covered: 8.4 (broken navigation target keeps nav/footer chrome
+  and shows an inline unavailable message), 6.1 (badge stays visible in the
+  footer alongside the banner — see linkedin-badge.html for the badge itself).
+
+  ZERO-BUILD / NO PARTIALS
+  ------------------------
+  This repo has no build step and no template partials, so page-building tasks
+  COPY the two blocks below VERBATIM:
+
+    1. the <style> rules (paste once inside a page's existing <style> block —
+       it uses ONLY existing :root design tokens, no new tokens), and
+    2. the <div class="unavailable-banner"> markup (paste inside the page's
+       main <section>, ABOVE or IN PLACE OF the content region).
+
+  HOW IT WORKS
+  ------------
+  The banner is HIDDEN BY DEFAULT (the `hidden` attribute). It never removes or
+  replaces the nav/footer — those stay rendered by the surrounding page. To show
+  a state, a page script either:
+    (a) removes the `hidden` attribute on an already-authored banner, and/or
+    (b) sets the message text via the `.unavailable-banner__message` element.
+
+  When there is NO script (progressive-enhancement / static fallback), a page
+  MAY author the banner WITHOUT the `hidden` attribute so the message is visible
+  as plain static markup.
+
+  Uses ONLY existing :root design tokens from index.html
+  (--card-bg, --accent, --accent-light, --text, --text-muted, --border,
+   --radius, --shadow) and the site body font (Nunito), so it matches the
+  existing site (Req 8.1).
+  ============================================================================
+-->
+
+<!-- ============================ 1. STYLES ============================ -->
+<!-- Paste inside the page's existing <style> block (once per page). -->
+<style>
+    /* Inline "unavailable" banner — chrome (nav/footer) is retained by the page. */
+    .unavailable-banner {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        max-width: 640px;
+        margin: 1.5rem 0;
+        padding: 1rem 1.25rem;
+        background: var(--accent-light);
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        color: var(--text);
+        font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    /* `hidden` attribute keeps it out of view until a page shows it. */
+    .unavailable-banner[hidden] { display: none; }
+    .unavailable-banner__icon {
+        flex: 0 0 auto;
+        font-size: 1.15rem;
+        line-height: 1.5;
+        color: var(--accent);
+    }
+    .unavailable-banner__body { flex: 1 1 auto; }
+    .unavailable-banner__title {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text);
+    }
+    .unavailable-banner__message {
+        margin: 0.15rem 0 0;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+    }
+</style>
+
+<!-- ============================ 2. MARKUP ============================ -->
+<!--
+  Paste inside the page's main <section>.
+  - Author WITH the `hidden` attribute when a script will reveal it.
+  - Author WITHOUT `hidden` when it should show as a static message.
+  - `role="status"` + `aria-live="polite"` announces the message when a
+    script reveals the banner without stealing focus.
+  - Replace the message text per state (see the four canonical states above).
+-->
+<div class="unavailable-banner" role="status" aria-live="polite" hidden>
+    <span class="unavailable-banner__icon" aria-hidden="true">&#9888;</span>
+    <div class="unavailable-banner__body">
+        <p class="unavailable-banner__title">This page is unavailable</p>
+        <p class="unavailable-banner__message">The item you were looking for could not be found. Use the navigation above to continue.</p>
+    </div>
+</div>
+
+<!--
+  STATE MESSAGE REFERENCE (swap the .unavailable-banner__message text):
+    gallery-empty    -> "No glass-art images are currently available."
+    feed-empty       -> "No posts are available."
+    post-unavailable -> "This post is unavailable." (title) / list stays visible
+    broken-target    -> "This page is unavailable." (title above)
+
+  The banner NEVER replaces the nav or footer — the surrounding page keeps both,
+  and the LinkedIn badge in the footer stays visible (Req 8.4, 6.1).
+-->

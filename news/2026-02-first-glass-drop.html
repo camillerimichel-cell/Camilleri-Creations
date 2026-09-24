@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our first glass-art drop is here — Camilleri Creations</title>
+    <meta name="description" content="Our first glass-art drop is here — a small collection of fused glass pieces from the Camilleri Creations studio.">
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+        :root {
+            --bg: #F7F6F3;
+            --card-bg: #ffffff;
+            --accent: #187878;
+            --accent-hover: #00565E;
+            --accent-light: #E3EEF0;
+            --text: #152238;
+            --text-muted: #5A6472;
+            --border: #E4E2DC;
+            --shadow: 0 4px 24px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 32px rgba(0,0,0,0.1);
+            --radius: 16px;
+            --gradient-start: #002050;
+            --gradient-mid: #186090;
+            --gradient-end: #187878;
+            --blue: #186090;
+            --purple: #00565E;
+            --green: #187878;
+            --red: #A81818;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            min-height: 100vh;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        nav { background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+        .nav-brand img { width: 40px; height: 40px; border-radius: 10px; }
+        .nav-brand span { font-weight: 700; font-size: 1.1rem; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); text-decoration: none; }
+
+        .section { max-width: 760px; margin: 0 auto; padding: 3rem 2rem; }
+        .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1.2; }
+        .section-title-gradient {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .post-date { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; }
+        .post-body p { margin-bottom: 1.25rem; }
+        .post-body h3 { font-size: 1.25rem; font-weight: 700; margin: 2rem 0 0.75rem; }
+
+        .back-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 1.5rem; font-weight: 600; color: var(--accent); }
+        .back-link:hover { color: var(--accent-hover); text-decoration: none; }
+
+        footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; }
+        footer .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+        footer a { color: var(--accent); }
+        footer .footer-badge { margin-bottom: 1.25rem; }
+
+        @media (max-width: 768px) {
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; }
+        }
+        @media (max-width: 480px) {
+            .nav-links { display: none; }
+        }
+
+        /* ===== Red gradient nav (Maltese red palette) ===== */
+        :root { --nav-red-start: #A81818; --nav-red-mid: #900000; --nav-red-end: #C03018; }
+        nav { background: linear-gradient(135deg, var(--nav-red-start) 0%, var(--nav-red-mid) 55%, var(--nav-red-end) 100%); border-bottom: none; box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
+        .nav-brand { color: #fff; }
+        .nav-brand img { background: #fff; padding: 3px; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+        .nav-links a { color: rgba(255,255,255,0.85); }
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+        /* ── LinkedIn badge (tokens only) ── */
+        .linkedin-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            padding: 4px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            line-height: 0;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            text-decoration: none;
+        }
+        .linkedin-badge img { width: 32px; height: 32px; display: block; }
+        .linkedin-badge:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-hover);
+            text-decoration: none;
+        }
+        .linkedin-badge:focus-visible { outline: 2px solid var(--accent-hover); outline-offset: 2px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-brand">
+                <img src="../assets/logo.png" alt="Camilleri Creations logo">
+                <span>Camilleri Creations</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../apps.html">Apps</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../privacy.html">Privacy</a></li>
+                <li><a href="../terms.html">Terms</a></li>
+                <li><a href="../support.html">Support</a></li>
+                <li><a href="../glass.html">Glass</a></li>
+                <li><a href="../news.html" class="active">News</a></li>
+                <li><a href="../necklace-quiz.html">Quiz</a></li>
+                <li><a href="../questionnaire.html">Questionnaire</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article class="section">
+        <a href="../news.html" class="back-link">&larr; Back to News</a>
+
+        <h1 class="section-title"><span class="section-title-gradient">Our first glass-art drop is here</span></h1>
+        <p class="post-date">14 February 2026</p>
+
+        <div class="post-body">
+            <p>After months of quiet evenings at the kiln, the first small collection of fused glass pieces is ready to share. This is a modest drop — a handful of pieces, each one made and finished by hand — but it marks the moment the studio side of Camilleri Creations steps out into the open.</p>
+
+            <p>Every piece in this first run started as sheets of coloured glass, cut and layered by eye, then fused over several hours in the kiln. No two come out identical. The colours shift depending on how the light lands, and the edges carry the soft rounding that only heat can give.</p>
+
+            <h3>What's in the drop</h3>
+            <p>The collection leans into Mediterranean colour — deep sea blues, warm turquoise, and the odd flash of Maltese red. You'll find small dishes, hanging pieces, and a few one-off experiments that didn't quite fit any category but were too good to melt back down.</p>
+
+            <p>Pricing isn't listed on the site by design. If a piece catches your eye, use the enquiry button on the <a href="../glass.html">glass gallery</a> and I'll get back to you with details on that specific piece, including whether it's still available.</p>
+
+            <h3>What comes next</h3>
+            <p>This is the first of what I hope becomes a regular rhythm — make a small batch, share it, learn from it, repeat. If you'd like to follow along as new pieces come out of the kiln, the <a href="../news.html">News &amp; Blog</a> is the place to check back.</p>
+
+            <p>Thank you for taking a look. It means a lot to finally share this part of the work.</p>
+        </div>
+    </article>
+
+    <footer>
+        <div class="footer-badge">
+            <a class="linkedin-badge"
+               href="https://www.linkedin.com/company/camilleri-creations"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Camilleri Creations on LinkedIn (opens in a new tab)">
+                <img src="../assets/linkedin-badge.svg" alt="" aria-hidden="true">
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="../apps.html">Apps</a>
+            <a href="../about.html">About</a>
+            <a href="../privacy.html">Privacy Policy</a>
+            <a href="../terms.html">Terms</a>
+            <a href="../support.html">Support</a>
+            <a href="https://github.com/camillerimichel-cell">GitHub</a>
+        </div>
+        <p>&copy; 2026 Camilleri Creations. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">Glass Art &bull; Smart Apps &bull; Family Focused</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News &amp; Blog — Camilleri Creations</title>
+    <meta name="description" content="News and blog updates from Camilleri Creations — glass art drops, app releases, and studio notes.">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+        :root {
+            --bg: #F7F6F3;
+            --card-bg: #ffffff;
+            --accent: #187878;
+            --accent-hover: #00565E;
+            --accent-light: #E3EEF0;
+            --text: #152238;
+            --text-muted: #5A6472;
+            --border: #E4E2DC;
+            --shadow: 0 4px 24px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 32px rgba(0,0,0,0.1);
+            --radius: 16px;
+            /* New colour accents */
+            --gradient-start: #002050;
+            --gradient-mid: #186090;
+            --gradient-end: #187878;
+            --blue: #186090;
+            --purple: #00565E;
+            --green: #187878;
+            --red: #A81818;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            min-height: 100vh;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        nav { background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+        .nav-brand img { width: 40px; height: 40px; border-radius: 10px; }
+        .nav-brand span { font-weight: 700; font-size: 1.1rem; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); text-decoration: none; }
+
+        .section { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
+        .section-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .section-title-gradient {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-subtitle { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2.5rem; }
+
+        /* Back to menu / Home link (Req 3.10) */
+        .back-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 1.5rem; font-weight: 600; color: var(--accent); }
+        .back-link:hover { color: var(--accent-hover); text-decoration: none; }
+
+        /* ── Combined feed list (Task 7.2, tokens only) ── */
+        .feed-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+        .feed-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+        .feed-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); border-color: var(--accent); }
+        .feed-link {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            padding: 1.25rem 1.5rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+        .feed-link:hover { text-decoration: none; }
+        .feed-link:focus-visible { outline: 2px solid var(--accent-hover); outline-offset: 2px; border-radius: var(--radius); }
+        .feed-item-title { font-size: 1.15rem; font-weight: 700; color: var(--text); }
+        .feed-item-date { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* Empty / unavailable messages (Req 3.5, 3.6) */
+        .feed-message {
+            background: var(--accent-light);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; }
+        footer .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+        footer a { color: var(--accent); }
+        footer .footer-badge { margin-bottom: 1.25rem; }
+
+        @media (max-width: 768px) {
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; }
+        }
+        @media (max-width: 480px) {
+            .nav-links { display: none; }
+        }
+
+        /* ===== Red gradient nav (Maltese red palette) ===== */
+        :root { --nav-red-start: #A81818; --nav-red-mid: #900000; --nav-red-end: #C03018; }
+        nav { background: linear-gradient(135deg, var(--nav-red-start) 0%, var(--nav-red-mid) 55%, var(--nav-red-end) 100%); border-bottom: none; box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
+        .nav-brand { color: #fff; }
+        .nav-brand img { background: #fff; padding: 3px; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+        .nav-links a { color: rgba(255,255,255,0.85); }
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+        /* ── LinkedIn badge (tokens only: --accent, --accent-hover, --card-bg, --border, --radius, --shadow) ── */
+        .linkedin-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            padding: 4px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            line-height: 0;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            text-decoration: none;
+        }
+        .linkedin-badge img {
+            width: 32px;
+            height: 32px;
+            display: block;
+        }
+        .linkedin-badge:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-hover);
+            text-decoration: none;
+        }
+        .linkedin-badge:focus-visible {
+            outline: 2px solid var(--accent-hover);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/logo.png" alt="Camilleri Creations logo">
+                <span>Camilleri Creations</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="glass.html">Glass</a></li>
+                <li><a href="news.html" class="active">News</a></li>
+                <li><a href="necklace-quiz.html">Quiz</a></li>
+                <li><a href="questionnaire.html">Questionnaire</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section">
+        <!-- Back to menu / Home link (Req 3.10) -->
+        <a href="index.html" class="back-link">&larr; Back to menu / Home</a>
+
+        <h2 class="section-title"><span class="section-title-gradient">News &amp; Blog</span></h2>
+        <p class="section-subtitle">Studio notes, glass-art drops, and app updates — all in one place.</p>
+
+        <!--
+          Feed render target.
+          Task 7.2 wires the combined list + detail selection here using
+          window.CC.feed (sortPosts / formatDate / selectPost) over the POSTS
+          array declared below. Empty POSTS -> "No posts are available";
+          unresolvable selection -> "This post is unavailable" (list retained).
+        -->
+        <div id="feed-root"></div>
+    </section>
+
+    <footer>
+        <div class="footer-badge">
+            <!-- LinkedIn badge (copied verbatim from assets/linkedin-badge.html) -->
+            <a class="linkedin-badge"
+               href="https://www.linkedin.com/company/camilleri-creations"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Camilleri Creations on LinkedIn (opens in a new tab)">
+                <img src="assets/linkedin-badge.svg" alt="" aria-hidden="true">
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="apps.html">Apps</a>
+            <a href="about.html">About</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms</a>
+            <a href="support.html">Support</a>
+            <a href="https://github.com/camillerimichel-cell">GitHub</a>
+        </div>
+        <p>&copy; 2026 Camilleri Creations. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">Glass Art &bull; Smart Apps &bull; Family Focused</p>
+    </footer>
+
+    <!--
+      News_Blog_Post metadata (Req 3.8). Declared inline so a script failure
+      still leaves the data readable. Shape: { id, title, date (ISO YYYY-MM-DD),
+      category, href }. Each href points at a static post page authored in
+      task 7.3 (website/news/<id>.html). category is informational only and is
+      NOT used to split the list (Req 3.1).
+    -->
+    <script>
+        const POSTS = [
+            {
+                id: "2026-02-first-glass-drop",
+                title: "Our first glass-art drop is here",
+                date: "2026-02-14",
+                category: "new-items",
+                href: "news/2026-02-first-glass-drop.html"
+            },
+            {
+                id: "2026-01-studio-notes",
+                title: "Studio notes: how a piece of fused glass comes together",
+                date: "2026-01-20",
+                category: "blog",
+                href: "news/2026-01-studio-notes.html"
+            },
+            {
+                id: "2025-12-adhdolist-update",
+                title: "ADHDOList winter update and what's next",
+                date: "2025-12-05",
+                category: "app-news",
+                href: "news/2025-12-adhdolist-update.html"
+            }
+        ];
+        window.POSTS = POSTS;
+    </script>
+
+    <!-- namespace.js first (establishes window.CC), then feed.js (attaches window.CC.feed) -->
+    <script src="assets/js/namespace.js"></script>
+    <script src="assets/js/feed.js"></script>
+
+    <!--
+      Task 7.2 — render the combined feed into #feed-root.
+      One combined list across ALL categories (Req 3.1) ordered by sortPosts
+      (Req 3.3), each item showing title + formatDate(date) (Req 3.2).
+      Selecting a post navigates to its href = news/<id>.html (Req 3.4).
+      Unresolvable selection (selectPost null / missing href) -> visible
+      "This post is unavailable" message, list retained (Req 3.5).
+      Zero valid posts -> "No posts are available" (Req 3.6).
+      Malformed entries are skipped defensively.
+    -->
+    <script>
+        (function () {
+            var root = document.getElementById("feed-root");
+            if (!root) return;
+
+            var feed = (window.CC && window.CC.feed) || null;
+            var posts = Array.isArray(window.POSTS) ? window.POSTS : [];
+
+            // Defensively keep only well-formed entries: object with a usable
+            // id, title, and date. category/href may be missing; href absence
+            // is handled at selection time (unavailable message).
+            var valid = posts.filter(function (p) {
+                return p && typeof p === "object" &&
+                    p.id != null && String(p.id) !== "" &&
+                    typeof p.title === "string" && p.title !== "" &&
+                    p.date != null && String(p.date) !== "";
+            });
+
+            function showMessage(text) {
+                var msg = document.createElement("p");
+                msg.className = "feed-message";
+                msg.setAttribute("role", "status");
+                msg.textContent = text;
+                return msg;
+            }
+
+            function formatDate(iso) {
+                if (feed && typeof feed.formatDate === "function") return feed.formatDate(iso);
+                return String(iso);
+            }
+
+            function sortPosts(list) {
+                if (feed && typeof feed.sortPosts === "function") return feed.sortPosts(list);
+                return list.slice();
+            }
+
+            root.innerHTML = "";
+
+            // Zero valid posts -> empty-state message (Req 3.6).
+            if (valid.length === 0) {
+                root.appendChild(showMessage("No posts are available"));
+                return;
+            }
+
+            // Container for an "unavailable" message that appears above the list
+            // without discarding it (Req 3.5).
+            var messageSlot = document.createElement("div");
+            messageSlot.id = "feed-message-slot";
+            root.appendChild(messageSlot);
+
+            function showUnavailable() {
+                messageSlot.innerHTML = "";
+                messageSlot.appendChild(showMessage("This post is unavailable"));
+            }
+
+            // One combined list across all categories (Req 3.1), newest first (Req 3.3).
+            var ordered = sortPosts(valid);
+            var list = document.createElement("ul");
+            list.className = "feed-list";
+
+            ordered.forEach(function (post) {
+                var li = document.createElement("li");
+                li.className = "feed-item";
+
+                var link = document.createElement("a");
+                link.className = "feed-link";
+                link.href = (post.href != null && String(post.href) !== "") ? String(post.href) : "#";
+
+                var title = document.createElement("span");
+                title.className = "feed-item-title";
+                title.textContent = post.title;
+
+                var date = document.createElement("span");
+                date.className = "feed-item-date";
+                date.textContent = formatDate(post.date);
+
+                link.appendChild(title);
+                link.appendChild(date);
+                li.appendChild(link);
+                list.appendChild(li);
+
+                link.addEventListener("click", function (e) {
+                    // Resolve the selected post via selectPost. A null result or a
+                    // missing/blank href means the full content cannot be displayed:
+                    // show the unavailable message and keep the list (Req 3.4, 3.5).
+                    var resolved = feed && typeof feed.selectPost === "function"
+                        ? feed.selectPost(valid, post.id)
+                        : post;
+
+                    if (!resolved || resolved.href == null || String(resolved.href) === "") {
+                        e.preventDefault();
+                        showUnavailable();
+                        return;
+                    }
+                    // Otherwise let the browser navigate to news/<id>.html (Req 3.4).
+                });
+            });
+
+            root.appendChild(list);
+        })();
+    </script>
+</body>
+</html>

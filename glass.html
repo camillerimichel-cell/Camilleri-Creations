@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass Art — Camilleri Creations</title>
+    <meta name="description" content="Browse handcrafted glass-art pieces by Camilleri Creations. Enquire about any piece by email.">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+        :root {
+            --bg: #F7F6F3;
+            --card-bg: #ffffff;
+            --accent: #187878;
+            --accent-hover: #00565E;
+            --accent-light: #E3EEF0;
+            --text: #152238;
+            --text-muted: #5A6472;
+            --border: #E4E2DC;
+            --shadow: 0 4px 24px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 32px rgba(0,0,0,0.1);
+            --radius: 16px;
+            /* New colour accents */
+            --gradient-start: #002050;
+            --gradient-mid: #186090;
+            --gradient-end: #187878;
+            --blue: #186090;
+            --purple: #00565E;
+            --green: #187878;
+            --red: #A81818;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            min-height: 100vh;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        nav { background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+        .nav-brand img { width: 40px; height: 40px; border-radius: 10px; }
+        .nav-brand span { font-weight: 700; font-size: 1.1rem; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); text-decoration: none; }
+
+        .section { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
+        .section-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .section-title-gradient {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-subtitle { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2.5rem; }
+
+        footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; }
+        footer .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+        footer a { color: var(--accent); }
+        footer .footer-badge { display: flex; justify-content: center; margin-bottom: 1.5rem; }
+
+        @media (max-width: 768px) {
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; }
+        }
+        @media (max-width: 480px) {
+            .nav-links { display: none; }
+        }
+
+        /* ===== Red gradient nav (Maltese red palette) ===== */
+        :root { --nav-red-start: #A81818; --nav-red-mid: #900000; --nav-red-end: #C03018; }
+        nav { background: linear-gradient(135deg, var(--nav-red-start) 0%, var(--nav-red-mid) 55%, var(--nav-red-end) 100%); border-bottom: none; box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
+        .nav-brand { color: #fff; }
+        .nav-brand img { background: #fff; padding: 3px; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+        .nav-links a { color: rgba(255,255,255,0.85); }
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+        /* ===== LinkedIn badge (canonical snippet — tokens only) ===== */
+        .linkedin-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            padding: 4px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            line-height: 0;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            text-decoration: none;
+        }
+        .linkedin-badge img { width: 32px; height: 32px; display: block; }
+        .linkedin-badge:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-hover);
+            text-decoration: none;
+        }
+        .linkedin-badge:focus-visible { outline: 2px solid var(--accent-hover); outline-offset: 2px; }
+
+        /* ===== Contact_Address fallback (canonical snippet — tokens only) ===== */
+        .contact-fallback-line {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.75rem;
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .contact-fallback {
+            user-select: all;
+            -webkit-user-select: all;
+            font-weight: 700;
+            color: var(--accent);
+            background: var(--accent-light);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.15rem 0.55rem;
+            word-break: break-all;
+        }
+        a.contact-fallback:hover { color: var(--accent-hover); text-decoration: none; }
+
+        /* ===== Glass carousel (task 4.3 — rendering + navigation; tokens only) ===== */
+        .carousel { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
+        .carousel-stage {
+            position: relative;
+            width: 100%;
+            max-width: 640px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .carousel-frame {
+            flex: 1 1 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 1rem;
+            min-height: 320px;
+        }
+        .carousel-frame img {
+            display: block;
+            max-width: 100%;
+            max-height: 420px;
+            height: auto;
+            border-radius: calc(var(--radius) - 6px);
+        }
+        .carousel-nav {
+            flex: 0 0 auto;
+            width: 48px;
+            height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            line-height: 1;
+            color: var(--card-bg);
+            background: var(--accent);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .carousel-nav:hover { background: var(--accent-hover); transform: translateY(-2px); }
+        .carousel-nav:focus-visible { outline: 2px solid var(--accent-hover); outline-offset: 2px; }
+        .carousel-dots { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            padding: 0;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            background: transparent;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .carousel-dot[aria-current="true"] { background: var(--accent); }
+        .carousel-dot:focus-visible { outline: 2px solid var(--accent-hover); outline-offset: 2px; }
+        .carousel-empty {
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            background: var(--card-bg);
+            border: 1px dashed var(--border);
+            border-radius: var(--radius);
+        }
+
+        /* ===== Per-image enquiry button (task 4.5 — Req 2.1–2.3; tokens only) ===== */
+        .carousel-enquire {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--card-bg);
+            background: var(--accent);
+            border: none;
+            border-radius: var(--radius);
+            padding: 0.6rem 1.4rem;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+        .carousel-enquire:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+        .carousel-enquire:focus-visible { outline: 2px solid var(--accent-hover); outline-offset: 2px; }
+
+        /* ===== Image load placeholder (task 4.4 — Req 1.6; tokens only) ===== */
+        .carousel-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: 100%;
+            max-width: 100%;
+            min-height: 280px;
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            background: var(--accent-light);
+            border: 1px dashed var(--border);
+            border-radius: calc(var(--radius) - 6px);
+        }
+        .carousel-placeholder svg { width: 64px; height: 64px; color: var(--accent); }
+        .carousel-placeholder span { font-size: 0.95rem; font-weight: 600; }
+
+        /* ===== Responsive gallery (task 4.4 — Req 1.5) ===== */
+        @media (max-width: 480px) {
+            html, body { overflow-x: hidden; }
+            .carousel-stage {
+                flex-direction: column;
+                max-width: 100%;
+                gap: 0.75rem;
+            }
+            .carousel-frame { width: 100%; max-width: 100%; min-height: 240px; }
+            .carousel-frame img { max-width: 100%; }
+            .carousel-placeholder { min-height: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/logo.png" alt="Camilleri Creations logo">
+                <span>Camilleri Creations</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="glass.html" class="active">Glass</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="necklace-quiz.html">Quiz</a></li>
+                <li><a href="questionnaire.html">Questionnaire</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section">
+        <h2 class="section-title"><span class="section-title-gradient">Glass Art</span></h2>
+        <p class="section-subtitle">Handcrafted fused-glass pieces. Browse the gallery and enquire about any piece by email.</p>
+
+        <!--
+          Carousel mount point. Shell only (task 4.2).
+          Later tasks target #glass-carousel:
+            - 4.3 fetches Glass_Images/manifest.json, runs sortImages, renders
+              the primary <img> + prev/next controls + optional dot indicators.
+            - 4.4 (done) adds the image load guard (IMAGE_LOAD_TIMEOUT_MS) + responsive layout.
+            - 4.5 (done) wires the per-image enquiry button (buildMailto/enquirySubject/openMailto).
+          Empty/malformed manifest handling also lands in 4.3.
+        -->
+        <div id="glass-carousel" data-carousel-placeholder="true"></div>
+
+        <!-- Persistent, selectable Contact_Address fallback (Req 2.4, 7.4). -->
+        <p class="contact-fallback-line">
+            No email app? Email us directly at
+            <a class="contact-fallback" href="mailto:camilleri.creations.uk@gmail.com">camilleri.creations.uk@gmail.com</a>
+        </p>
+    </section>
+
+    <footer>
+        <div class="footer-badge">
+            <a class="linkedin-badge"
+               href="https://www.linkedin.com/company/camilleri-creations"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Camilleri Creations on LinkedIn (opens in a new tab)">
+                <img src="assets/linkedin-badge.svg" alt="" aria-hidden="true">
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="apps.html">Apps</a>
+            <a href="about.html">About</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms</a>
+            <a href="support.html">Support</a>
+            <a href="https://github.com/camillerimichel-cell">GitHub</a>
+        </div>
+        <p>&copy; 2026 Camilleri Creations. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">Glass Art &bull; Smart Apps &bull; Family Focused</p>
+    </footer>
+
+    <!-- Shared client modules. namespace.js MUST load first (creates window.CC). -->
+    <script src="assets/js/namespace.js"></script>
+    <script src="assets/js/mailto.js"></script>
+    <script src="assets/js/gallery.js"></script>
+
+    <!--
+      Task 4.3 — carousel rendering + navigation ONLY.
+      Fetches Glass_Images/manifest.json, sorts via CC.gallery.sortImages,
+      renders one primary <img> (alt via altFor) + prev/next buttons + dot
+      indicators. Index managed via nextIndex/prevIndex (wrap).
+      Empty/malformed manifest -> visible empty-state message.
+
+      Task 4.4 (done here): IMAGE_LOAD_TIMEOUT_MS guard + onerror placeholder,
+      stale-navigation guard, and @media (max-width:480px) responsive layout.
+
+      Task 4.5 (done here): per-image enquiry <button> under the frame builds
+      a mailto via enquirySubject(entry.ref)/buildMailto and opens it via
+      openMailto, retargeting the visible piece on every show(). The persistent
+      selectable fallback address stays and the view is not cleared on action.
+    -->
+    <script>
+    (function () {
+        var EMPTY_MESSAGE = "No glass-art images are currently available";
+        var mount = document.getElementById("glass-carousel");
+        var gallery = window.CC && window.CC.gallery;
+        if (!mount || !gallery) return;
+
+        function showEmpty() {
+            mount.textContent = "";
+            var msg = document.createElement("p");
+            msg.className = "carousel-empty";
+            msg.setAttribute("role", "status");
+            msg.textContent = EMPTY_MESSAGE;
+            mount.appendChild(msg);
+        }
+
+        function render(images) {
+            // Defensive: malformed / non-array / empty -> empty-state (Req 1.7).
+            if (!Array.isArray(images) || images.length === 0) {
+                showEmpty();
+                return;
+            }
+
+            var items = gallery.sortImages(images);
+            var count = items.length;
+            var current = 0;
+
+            mount.textContent = "";
+            mount.removeAttribute("data-carousel-placeholder");
+
+            var carousel = document.createElement("div");
+            carousel.className = "carousel";
+
+            var stage = document.createElement("div");
+            stage.className = "carousel-stage";
+
+            var prevBtn = document.createElement("button");
+            prevBtn.type = "button";
+            prevBtn.className = "carousel-nav carousel-prev";
+            prevBtn.setAttribute("aria-label", "Previous image");
+            prevBtn.textContent = "\u2039"; // ‹
+
+            var frame = document.createElement("div");
+            frame.className = "carousel-frame";
+
+            // Primary image. Kept detached; swapped into `frame` only on
+            // successful load (task 4.4). A placeholder occupies the slot
+            // otherwise.
+            var img = document.createElement("img");
+
+            var TIMEOUT_MS = gallery.IMAGE_LOAD_TIMEOUT_MS || 10000;
+            // Per-show load token: increments on every show() so a stale async
+            // load/error/timeout that resolves after the user navigated away is
+            // ignored (guards against out-of-order swaps).
+            var loadToken = 0;
+
+            function buildPlaceholder(entry) {
+                var box = document.createElement("div");
+                box.className = "carousel-placeholder";
+                box.setAttribute("role", "img");
+                box.setAttribute("aria-label", gallery.altFor(entry) + " (image unavailable)");
+                // Inline SVG glyph (no network) + visible text.
+                var svgNS = "http://www.w3.org/2000/svg";
+                var svg = document.createElementNS(svgNS, "svg");
+                svg.setAttribute("viewBox", "0 0 24 24");
+                svg.setAttribute("fill", "none");
+                svg.setAttribute("stroke", "currentColor");
+                svg.setAttribute("stroke-width", "1.5");
+                svg.setAttribute("aria-hidden", "true");
+                var rect = document.createElementNS(svgNS, "rect");
+                rect.setAttribute("x", "3"); rect.setAttribute("y", "3");
+                rect.setAttribute("width", "18"); rect.setAttribute("height", "18");
+                rect.setAttribute("rx", "2");
+                var circle = document.createElementNS(svgNS, "circle");
+                circle.setAttribute("cx", "8.5"); circle.setAttribute("cy", "8.5");
+                circle.setAttribute("r", "1.5");
+                var poly = document.createElementNS(svgNS, "path");
+                poly.setAttribute("d", "M21 15l-5-5L5 21");
+                var slash = document.createElementNS(svgNS, "path");
+                slash.setAttribute("d", "M3 3l18 18");
+                svg.appendChild(rect);
+                svg.appendChild(circle);
+                svg.appendChild(poly);
+                svg.appendChild(slash);
+                var label = document.createElement("span");
+                label.textContent = "Image unavailable";
+                box.appendChild(svg);
+                box.appendChild(label);
+                return box;
+            }
+
+            function setFrame(node) {
+                frame.textContent = "";
+                frame.appendChild(node);
+            }
+
+            var nextBtn = document.createElement("button");
+            nextBtn.type = "button";
+            nextBtn.className = "carousel-nav carousel-next";
+            nextBtn.setAttribute("aria-label", "Next image");
+            nextBtn.textContent = "\u203A"; // ›
+
+            stage.appendChild(prevBtn);
+            stage.appendChild(frame);
+            stage.appendChild(nextBtn);
+
+            var dots = document.createElement("div");
+            dots.className = "carousel-dots";
+            var dotButtons = [];
+            for (var d = 0; d < count; d++) {
+                (function (index) {
+                    var dot = document.createElement("button");
+                    dot.type = "button";
+                    dot.className = "carousel-dot";
+                    dot.setAttribute("aria-label", "Go to image " + (index + 1));
+                    dot.addEventListener("click", function () { show(index); });
+                    dots.appendChild(dot);
+                    dotButtons.push(dot);
+                })(d);
+            }
+
+            // Per-image enquiry button (task 4.5 — Req 2.1). Built once; its
+            // target piece is updated on every show() so it always addresses
+            // the visible piece. Activation builds a mailto via
+            // enquirySubject(ref)/buildMailto and opens it via openMailto
+            // (Req 2.2, 2.3). The persistent selectable fallback address stays
+            // in the DOM and the carousel view/index is never cleared on
+            // activation (Req 2.4, 7.4).
+            var mailto = window.CC && window.CC.mailto;
+            var enquireBtn = document.createElement("button");
+            enquireBtn.type = "button";
+            enquireBtn.className = "carousel-enquire";
+            enquireBtn.textContent = "Enquire about this piece";
+            enquireBtn.addEventListener("click", function () {
+                var entry = items[current];
+                if (!mailto || !entry) return;
+                var url = mailto.buildMailto({ subject: gallery.enquirySubject(entry.ref) });
+                mailto.openMailto(url);
+            });
+
+            function show(i) {
+                current = i;
+                var entry = items[current];
+                // Keep the enquiry control aimed at the visible piece (Req 2.1).
+                enquireBtn.setAttribute(
+                    "aria-label",
+                    "Enquire by email about " + gallery.altFor(entry)
+                );
+                var token = ++loadToken;
+                var src = "Glass_Images/" + entry.file;
+                var alt = gallery.altFor(entry);
+
+                for (var k = 0; k < dotButtons.length; k++) {
+                    dotButtons[k].setAttribute("aria-current", k === current ? "true" : "false");
+                }
+
+                // Guarded load: probe via a detached Image() with a 10s timeout
+                // (Req 1.6). On success within the window swap in the real <img>;
+                // on error/timeout swap in a visible placeholder. Either way
+                // navigation is unaffected — nav handlers only call show().
+                var probe = new Image();
+                var timer = null;
+                var settled = false;
+
+                function cleanup() {
+                    if (timer !== null) { clearTimeout(timer); timer = null; }
+                    probe.onload = null;
+                    probe.onerror = null;
+                }
+
+                function onSuccess() {
+                    if (settled) return;
+                    settled = true;
+                    cleanup();
+                    if (token !== loadToken) return; // stale: user navigated away
+                    img.src = src;
+                    img.alt = alt;
+                    setFrame(img);
+                }
+
+                function onFailure() {
+                    if (settled) return;
+                    settled = true;
+                    cleanup();
+                    if (token !== loadToken) return; // stale: user navigated away
+                    setFrame(buildPlaceholder(entry));
+                }
+
+                probe.onload = onSuccess;
+                probe.onerror = onFailure;
+                timer = setTimeout(onFailure, TIMEOUT_MS);
+                probe.src = src;
+            }
+
+            // Native <button> => keyboard Enter/Space fire click (Req 1.8).
+            prevBtn.addEventListener("click", function () {
+                show(gallery.prevIndex(current, count));
+            });
+            nextBtn.addEventListener("click", function () {
+                show(gallery.nextIndex(current, count));
+            });
+
+            carousel.appendChild(stage);
+            if (count > 1) carousel.appendChild(dots);
+            carousel.appendChild(enquireBtn);
+            mount.appendChild(carousel);
+
+            show(0);
+        }
+
+        fetch("Glass_Images/manifest.json", { cache: "no-store" })
+            .then(function (res) {
+                if (!res.ok) throw new Error("manifest fetch failed");
+                return res.json();
+            })
+            .then(function (data) {
+                // Schema: { images: [{ file, alt, ref }] }.
+                var images = data && data.images;
+                render(images);
+            })
+            .catch(function () {
+                // Malformed / missing manifest -> empty-state, never throw (Req 1.7).
+                showEmpty();
+            });
+    })();
+    </script>
+</body>
+</html>

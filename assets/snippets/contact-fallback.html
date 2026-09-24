@@ -1,0 +1,80 @@
+<!--
+  ============================================================================
+  Camilleri Creations — canonical Contact_Address fallback snippet (Task 2.4)
+  Requirements: 2.4, 7.4
+  ============================================================================
+
+  WHAT THIS IS
+  ------------
+  A persistent, selectable fallback showing the Contact_Address
+  (camilleri.creations.uk@gmail.com) placed NEXT TO every enquiry / submit
+  control on the new pages (glass.html, questionnaire.html, ...).
+
+  WHY IT EXISTS
+  -------------
+  A `mailto:` link cannot report success/failure back to JS, so we cannot
+  detect a missing mail client. Instead the address is ALWAYS visible and
+  selectable so a visitor with no configured mail client can copy it manually.
+
+  Invoking an enquiry/submit action must NEVER clear the current view or the
+  visitor's current selections — the block below is plain static markup that no
+  script hides, removes, or resets, so the view is retained by construction.
+
+  ZERO-BUILD / NO PARTIALS
+  ------------------------
+  This repo has no build step and no template partials. COPY the two blocks
+  below VERBATIM into each page that has an enquiry/submit control:
+    1. the <style> rules (once per page, inside the page <head> <style>), and
+    2. the markup snippet (next to each enquiry/submit control).
+
+  Uses ONLY existing :root design tokens from index.html
+  (--accent, --accent-light, --accent-hover, --text-muted, --border, --radius)
+  and the site body font (Nunito), so it matches the existing site (Req 8.1).
+-->
+
+<!-- ============================ 1. STYLES ============================ -->
+<!-- Paste inside the page's existing <style> block (once per page). -->
+<style>
+  /* Contact_Address fallback — persistent, selectable manual-contact hint. */
+  .contact-fallback-line {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .contact-fallback {
+    /* selectable: never suppress selection so the visitor can copy it */
+    user-select: all;
+    -webkit-user-select: all;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.15rem 0.55rem;
+    word-break: break-all;
+  }
+  /* When rendered as a link it stays selectable and on-brand. */
+  a.contact-fallback:hover { color: var(--accent-hover); text-decoration: none; }
+</style>
+
+<!-- ============================ 2. MARKUP ============================ -->
+<!-- Paste next to EACH enquiry / submit control. -->
+<p class="contact-fallback-line">
+  No email app? Email us directly at
+  <a class="contact-fallback" href="mailto:camilleri.creations.uk@gmail.com">camilleri.creations.uk@gmail.com</a>
+</p>
+
+<!--
+  MINIMAL VARIANT (design-doc form, plain selectable span — no link):
+    <span class="contact-fallback">camilleri.creations.uk@gmail.com</span>
+
+  Both variants are selectable. The <a> variant adds a direct mailto for
+  convenience while the address text remains copyable; use whichever fits the
+  surrounding control. The recipient is ALWAYS exactly
+  camilleri.creations.uk@gmail.com and nothing else (Req 7.1).
+-->

@@ -1,0 +1,6 @@
+{
+  "images": [
+    { "file": "glass-001-vase.svg", "alt": "Teal fused-glass vase", "ref": "GL-001" },
+    { "file": "glass-002-bowl.svg", "alt": "", "ref": "GL-002" }
+  ]
+}

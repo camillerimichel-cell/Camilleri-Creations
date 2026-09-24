@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Would You Like to See More Of? — Camilleri Creations</title>
+    <meta name="description" content="Tell Camilleri Creations what content and products you'd like to see more of. A quick client-side questionnaire that sends your answers by email.">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+        :root {
+            --bg: #F7F6F3;
+            --card-bg: #ffffff;
+            --accent: #187878;
+            --accent-hover: #00565E;
+            --accent-light: #E3EEF0;
+            --text: #152238;
+            --text-muted: #5A6472;
+            --border: #E4E2DC;
+            --shadow: 0 4px 24px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 32px rgba(0,0,0,0.1);
+            --radius: 16px;
+            /* New colour accents */
+            --gradient-start: #002050;
+            --gradient-mid: #186090;
+            --gradient-end: #187878;
+            --blue: #186090;
+            --purple: #00565E;
+            --green: #187878;
+            --red: #A81818;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            min-height: 100vh;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        nav { background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+        .nav-brand img { width: 40px; height: 40px; border-radius: 10px; }
+        .nav-brand span { font-weight: 700; font-size: 1.1rem; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); text-decoration: none; }
+
+        .section { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
+        .section-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .section-title-gradient {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-subtitle { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2.5rem; }
+
+        footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; }
+        footer .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+        footer a { color: var(--accent); }
+        footer .footer-badge { margin-bottom: 1.25rem; }
+
+        @media (max-width: 768px) {
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; }
+        }
+        @media (max-width: 480px) {
+            .nav-links { display: none; }
+        }
+
+        /* ===== Red gradient nav (Maltese red palette) ===== */
+        :root { --nav-red-start: #A81818; --nav-red-mid: #900000; --nav-red-end: #C03018; }
+        nav { background: linear-gradient(135deg, var(--nav-red-start) 0%, var(--nav-red-mid) 55%, var(--nav-red-end) 100%); border-bottom: none; box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
+        .nav-brand { color: #fff; }
+        .nav-brand img { background: #fff; padding: 3px; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+        .nav-links a { color: rgba(255,255,255,0.85); }
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+        /* ===== LinkedIn badge (copied verbatim from assets/linkedin-badge.html; tokens only) ===== */
+        .linkedin-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            padding: 4px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            line-height: 0;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            text-decoration: none;
+        }
+        .linkedin-badge img {
+            width: 32px;
+            height: 32px;
+            display: block;
+        }
+        .linkedin-badge:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-hover);
+            text-decoration: none;
+        }
+        .linkedin-badge:focus-visible {
+            outline: 2px solid var(--accent-hover);
+            outline-offset: 2px;
+        }
+
+        /* ===== Contact_Address fallback (copied verbatim from assets/snippets/contact-fallback.html; tokens only) ===== */
+        .contact-fallback-line {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.75rem;
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .contact-fallback {
+            /* selectable: never suppress selection so the visitor can copy it */
+            user-select: all;
+            -webkit-user-select: all;
+            font-weight: 700;
+            color: var(--accent);
+            background: var(--accent-light);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.15rem 0.55rem;
+            word-break: break-all;
+        }
+        a.contact-fallback:hover { color: var(--accent-hover); text-decoration: none; }
+
+        /* ===== Questionnaire controls (tokens only) ===== */
+        .q-block {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .q-legend {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 0.35rem;
+            padding: 0;
+        }
+        .q-hint {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        .q-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .q-option {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.6rem 0.85rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--bg);
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .q-option:hover { border-color: var(--accent); }
+        .q-option:focus-within {
+            outline: 2px solid var(--accent-hover);
+            outline-offset: 2px;
+        }
+        .q-option.is-selected {
+            border-color: var(--accent);
+            background: var(--accent-light);
+        }
+        .q-option input { width: 18px; height: 18px; accent-color: var(--accent); flex: none; }
+        .q-option span { font-size: 0.98rem; color: var(--text); }
+
+        .q-submit {
+            display: inline-block;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #fff;
+            background: var(--accent);
+            border: none;
+            border-radius: var(--radius);
+            padding: 0.75rem 1.75rem;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .q-submit:hover { background: var(--accent-hover); transform: translateY(-1px); text-decoration: none; }
+        .q-submit:focus-visible { outline: 2px solid var(--accent-hover); outline-offset: 2px; }
+
+        .q-message {
+            margin-top: 1rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--red);
+        }
+        .q-message[hidden] { display: none; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/logo.png" alt="Camilleri Creations logo">
+                <span>Camilleri Creations</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="glass.html">Glass</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="necklace-quiz.html">Quiz</a></li>
+                <li><a href="questionnaire.html" class="active">Questionnaire</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section">
+        <h1 class="section-title"><span class="section-title-gradient">What Would You Like to See More Of?</span></h1>
+        <p class="section-subtitle">Tell us what content and products you'd like to see more of. Your answers are sent by email only &mdash; nothing is stored or transmitted anywhere else.</p>
+
+        <form id="questionnaire-root" novalidate>
+            <!-- Questionnaire controls render here (wired in task 12.2). -->
+        </form>
+
+        <!-- Persistent selectable fallback contact address (shown near the submit control). -->
+        <p class="contact-fallback-line">
+            No email app? Email us directly at
+            <a class="contact-fallback" href="mailto:camilleri.creations.uk@gmail.com">camilleri.creations.uk@gmail.com</a>
+        </p>
+    </section>
+
+    <footer>
+        <div class="footer-badge">
+            <a class="linkedin-badge"
+               href="https://www.linkedin.com/company/camilleri-creations"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Camilleri Creations on LinkedIn (opens in a new tab)">
+                <img src="assets/linkedin-badge.svg" alt="" aria-hidden="true">
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="apps.html">Apps</a>
+            <a href="about.html">About</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms</a>
+            <a href="support.html">Support</a>
+            <a href="https://github.com/camillerimichel-cell">GitHub</a>
+        </div>
+        <p>&copy; 2026 Camilleri Creations. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">Glass Art &bull; Smart Apps &bull; Family Focused</p>
+    </footer>
+
+    <!-- namespace.js MUST load first (establishes window.CC), then mailto.js, then questionnaire.js. -->
+    <script src="assets/js/namespace.js"></script>
+    <script src="assets/js/mailto.js"></script>
+    <script src="assets/js/questionnaire.js"></script>
+
+    <!--
+        Task 12.2: wire questionnaire interaction + submit.
+        - Renders labeled single/multi option controls into #questionnaire-root, wired to CC.questionnaire.toggle.
+        - Local State = { [qId]: Set<optionId> }; controls are reflected from State on every change.
+        - Submit builds the body via CC.questionnaire.buildBody and opens mailto via
+          CC.mailto.buildMailto/openMailto ONLY when CC.questionnaire.hasAnyAnswer(State) is true;
+          otherwise it blocks with "Answer at least one question" and RETAINS selections.
+        - No storage/transmission other than mailto; zero network during interaction
+          (no fetch/XHR/localStorage anywhere in this handler).
+    -->
+    <script>
+        (function () {
+            "use strict";
+
+            var Q = window.CC && window.CC.questionnaire;
+            var M = window.CC && window.CC.mailto;
+            var root = document.getElementById("questionnaire-root");
+            if (!Q || !M || !root) return;
+
+            var QUESTIONS = Q.QUESTIONS;
+            // Fixed literal subject line (no user-controlled data in the subject).
+            var SUBJECT = "Questionnaire: What would you like to see more of";
+
+            // Local selection state — the single source of truth. { [qId]: Set<optionId> }.
+            var State = {};
+
+            // Build the static control tree once; then reflect State on each change.
+            root.innerHTML = "";
+
+            QUESTIONS.forEach(function (q) {
+                var isSingle = q.type === "single";
+
+                var fieldset = document.createElement("fieldset");
+                fieldset.className = "q-block";
+                fieldset.setAttribute("data-qid", q.id);
+                // Remove default fieldset chrome; styling comes from tokens.
+                fieldset.style.border = "1px solid var(--border)";
+                fieldset.style.margin = "0 0 1.5rem 0";
+
+                var legend = document.createElement("legend");
+                legend.className = "q-legend";
+                legend.textContent = q.text;
+                fieldset.appendChild(legend);
+
+                var hint = document.createElement("p");
+                hint.className = "q-hint";
+                hint.textContent = isSingle
+                    ? "Choose one."
+                    : "Choose any that apply.";
+                fieldset.appendChild(hint);
+
+                var list = document.createElement("div");
+                list.className = "q-options";
+
+                var groupName = "q-" + q.id;
+
+                q.options.forEach(function (opt) {
+                    var label = document.createElement("label");
+                    label.className = "q-option";
+
+                    var input = document.createElement("input");
+                    input.type = isSingle ? "radio" : "checkbox";
+                    input.name = groupName;
+                    input.value = opt.id;
+                    input.setAttribute("data-qid", q.id);
+                    input.setAttribute("data-optid", opt.id);
+
+                    var text = document.createElement("span");
+                    text.textContent = opt.label;
+
+                    label.appendChild(input);
+                    label.appendChild(text);
+                    list.appendChild(label);
+
+                    input.addEventListener("change", function () {
+                        // Route every change through the pure toggle model so
+                        // single = replace and multi = add/remove stay consistent.
+                        State = Q.toggle(State, q.id, opt.id);
+                        reflect();
+                        hideMessage();
+                    });
+                });
+
+                fieldset.appendChild(list);
+                root.appendChild(fieldset);
+            });
+
+            // Submit + validation message.
+            var submit = document.createElement("button");
+            submit.type = "button";
+            submit.className = "q-submit";
+            submit.textContent = "Send my answers";
+            root.appendChild(submit);
+
+            var message = document.createElement("p");
+            message.className = "q-message";
+            message.setAttribute("role", "alert");
+            message.hidden = true;
+            root.appendChild(message);
+
+            submit.addEventListener("click", function () {
+                if (!Q.hasAnyAnswer(State)) {
+                    // Block submission and keep all current selections.
+                    showMessage("Answer at least one question");
+                    return;
+                }
+                hideMessage();
+                var body = Q.buildBody(QUESTIONS, State);
+                var url = M.buildMailto({ subject: SUBJECT, body: body });
+                M.openMailto(url); // mailto only — no other transmission.
+            });
+
+            // Reflect State onto the controls (checked + selected styling).
+            function reflect() {
+                var inputs = root.querySelectorAll("input[data-qid]");
+                for (var i = 0; i < inputs.length; i++) {
+                    var input = inputs[i];
+                    var set = State[input.getAttribute("data-qid")];
+                    var checked = !!(set && set.has(input.getAttribute("data-optid")));
+                    input.checked = checked;
+                    var label = input.closest(".q-option");
+                    if (label) label.classList.toggle("is-selected", checked);
+                }
+            }
+
+            function showMessage(text) {
+                message.textContent = text;
+                message.hidden = false;
+            }
+            function hideMessage() {
+                message.hidden = true;
+            }
+        })();
+    </script>
+</body>
+</html>

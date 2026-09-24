@@ -1,0 +1,71 @@
+<!--
+  ============================================================================
+  Camilleri Creations — CANONICAL LinkedIn badge snippet
+  ============================================================================
+
+  Reusable, zero-build LinkedIn badge for every page (nav/footer area).
+  There is no template/partial system on this static site, so page-building
+  tasks COPY the two blocks below VERBATIM:
+
+    1. the <style> rules (paste once inside a page's existing :root <style>
+       block — it uses ONLY existing design tokens, no new tokens), and
+    2. the <a class="linkedin-badge"> anchor (paste wherever the badge shows,
+       typically the footer and/or nav).
+
+  Requirements covered: 6.1 destination, 6.2 target+rel, 6.3 aria-label,
+  6.4 focusable native anchor (Enter-activates), 6.5 no script/API,
+  8.1 existing :root tokens only.
+
+  LINKEDIN_URL = https://www.linkedin.com/company/camilleri-creations
+
+  Accessibility notes:
+    - The <a> carries the accessible name via aria-label (announces the
+      Camilleri Creations LinkedIn page + that it opens in a new tab).
+    - The decorative <img> is hidden from assistive tech (alt="" aria-hidden),
+      so the label is not doubled.
+    - A native anchor is focusable and Enter-activates with no JavaScript.
+  ============================================================================
+-->
+
+<!-- ── 1. STYLES (tokens only: --accent, --accent-hover, --card-bg, --border, --radius, --shadow) ── -->
+<style>
+    .linkedin-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        padding: 4px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: var(--card-bg);
+        box-shadow: var(--shadow);
+        line-height: 0;
+        transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        text-decoration: none;
+    }
+    .linkedin-badge img {
+        width: 32px;
+        height: 32px;
+        display: block;
+    }
+    .linkedin-badge:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent);
+        box-shadow: var(--shadow-hover);
+        text-decoration: none;
+    }
+    .linkedin-badge:focus-visible {
+        outline: 2px solid var(--accent-hover);
+        outline-offset: 2px;
+    }
+</style>
+
+<!-- ── 2. MARKUP (copy verbatim; badge asset lives at assets/linkedin-badge.svg) ── -->
+<a class="linkedin-badge"
+   href="https://www.linkedin.com/company/camilleri-creations"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Camilleri Creations on LinkedIn (opens in a new tab)">
+    <img src="assets/linkedin-badge.svg" alt="" aria-hidden="true">
+</a>

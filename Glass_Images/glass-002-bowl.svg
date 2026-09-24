@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Seed glass-art placeholder GL-002">
+  <defs>
+    <linearGradient id="b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#186090"/>
+      <stop offset="1" stop-color="#002050"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#F7F6F3"/>
+  <ellipse cx="400" cy="430" rx="180" ry="40" fill="#152238" opacity="0.12"/>
+  <path d="M230 300 a170 120 0 0 0 340 0 z" fill="url(#b)"/>
+  <ellipse cx="400" cy="300" rx="170" ry="45" fill="#186090" opacity="0.85"/>
+  <text x="400" y="560" font-family="Nunito, sans-serif" font-size="28" fill="#5A6472" text-anchor="middle">Seed glass-art placeholder — GL-002</text>
+</svg>

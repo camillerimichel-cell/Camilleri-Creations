@@ -152,6 +152,32 @@
         .nav-brand img { background: #fff; padding: 3px; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
         .nav-links a { color: rgba(255,255,255,0.85); }
         .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+        /* ===== LinkedIn badge (canonical snippet — tokens only) ===== */
+        .linkedin-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            padding: 4px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            line-height: 0;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            text-decoration: none;
+        }
+        .linkedin-badge img { width: 32px; height: 32px; display: block; }
+        .linkedin-badge:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-hover);
+            text-decoration: none;
+        }
+        .linkedin-badge:focus-visible { outline: 2px solid var(--accent-hover); outline-offset: 2px; }
+        .footer-badge { display: flex; justify-content: center; margin-bottom: 1.5rem; }
         .info-card, .article-section { position: relative; overflow: hidden; background: linear-gradient(160deg, var(--accent-light) 0%, var(--card-bg) 45%); }
         .info-card::before, .article-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end)); }
     </style>
@@ -170,6 +196,10 @@
                 <li><a href="privacy.html">Privacy</a></li>
                 <li><a href="terms.html">Terms</a></li>
                 <li><a href="support.html">Support</a></li>
+                <li><a href="glass.html">Glass</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="necklace-quiz.html">Quiz</a></li>
+                <li><a href="questionnaire.html">Questionnaire</a></li>
             </ul>
         </div>
     </nav>
@@ -348,6 +378,15 @@
     </section>
 
     <footer>
+        <div class="footer-badge">
+            <a class="linkedin-badge"
+               href="https://www.linkedin.com/company/camilleri-creations"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Camilleri Creations on LinkedIn (opens in a new tab)">
+                <img src="assets/linkedin-badge.svg" alt="" aria-hidden="true">
+            </a>
+        </div>
         <div class="footer-links">
             <a href="index.html">Home</a>
             <a href="apps.html">Apps</a>
