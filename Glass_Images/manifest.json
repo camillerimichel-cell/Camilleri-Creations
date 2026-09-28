@@ -1,6 +1,119 @@
 {
   "images": [
-    { "file": "glass-001-vase.svg", "alt": "Teal fused-glass vase", "ref": "GL-001" },
-    { "file": "glass-002-bowl.svg", "alt": "", "ref": "GL-002" }
+    {
+      "file": "IMG_1224.JPEG",
+      "alt": "",
+      "ref": "GL-001"
+    },
+    {
+      "file": "IMG_1225.JPEG",
+      "alt": "",
+      "ref": "GL-002"
+    },
+    {
+      "file": "IMG_1226.JPEG",
+      "alt": "",
+      "ref": "GL-003"
+    },
+    {
+      "file": "IMG_6157.JPEG",
+      "alt": "",
+      "ref": "GL-004"
+    },
+    {
+      "file": "IMG_8904.JPEG",
+      "alt": "",
+      "ref": "GL-005"
+    },
+    {
+      "file": "IMG_8909.JPEG",
+      "alt": "",
+      "ref": "GL-006"
+    },
+    {
+      "file": "IMG_8915.JPEG",
+      "alt": "",
+      "ref": "GL-007"
+    },
+    {
+      "file": "IMG_8923.JPEG",
+      "alt": "",
+      "ref": "GL-008"
+    },
+    {
+      "file": "IMG_8924.JPEG",
+      "alt": "",
+      "ref": "GL-009"
+    },
+    {
+      "file": "IMG_8946.JPEG",
+      "alt": "",
+      "ref": "GL-010"
+    },
+    {
+      "file": "IMG_8947.JPEG",
+      "alt": "",
+      "ref": "GL-011"
+    },
+    {
+      "file": "IMG_8948.JPEG",
+      "alt": "",
+      "ref": "GL-012"
+    },
+    {
+      "file": "IMG_8955.JPEG",
+      "alt": "",
+      "ref": "GL-013"
+    },
+    {
+      "file": "IMG_9038.JPEG",
+      "alt": "",
+      "ref": "GL-014"
+    },
+    {
+      "file": "IMG_9040.JPEG",
+      "alt": "",
+      "ref": "GL-015"
+    },
+    {
+      "file": "IMG_9044.JPEG",
+      "alt": "",
+      "ref": "GL-016"
+    },
+    {
+      "file": "IMG_9045.JPEG",
+      "alt": "",
+      "ref": "GL-017"
+    },
+    {
+      "file": "IMG_9047.JPEG",
+      "alt": "",
+      "ref": "GL-018"
+    },
+    {
+      "file": "IMG_9053.JPEG",
+      "alt": "",
+      "ref": "GL-019"
+    },
+    {
+      "file": "IMG_9055.JPEG",
+      "alt": "",
+      "ref": "GL-020"
+    },
+    {
+      "file": "IMG_9097.JPEG",
+      "alt": "",
+      "ref": "GL-021"
+    },
+    {
+      "file": "IMG_9357.JPEG",
+      "alt": "",
+      "ref": "GL-022"
+    },
+    {
+      "file": "IMG_9358.JPEG",
+      "alt": "",
+      "ref": "GL-023"
+    }
   ]
 }
