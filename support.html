@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support — Camilleri Creations</title>
-    <meta name="description" content="Get help with Camilleri Creations apps. Report bugs, request features, or ask questions. We're here to help.">
+    <meta name="description"
+        content="Get help with Camilleri Creations apps. Report bugs, request features, or ask questions. We're here to help.">
     <link rel="icon" type="image/png" href="assets/logo.png">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
         :root {
             --bg: #F7F6F3;
             --card-bg: #ffffff;
@@ -18,10 +23,16 @@
             --text: #152238;
             --text-muted: #5A6472;
             --border: #E4E2DC;
-            --shadow: 0 4px 24px rgba(0,0,0,0.06);
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
             --radius: 16px;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.7;
@@ -29,8 +40,15 @@
             background: var(--bg);
             min-height: 100vh;
         }
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
 
         /* Navigation */
         nav {
@@ -41,6 +59,7 @@
             top: 0;
             z-index: 100;
         }
+
         .nav-inner {
             max-width: 1100px;
             margin: 0 auto;
@@ -48,6 +67,7 @@
             align-items: center;
             justify-content: space-between;
         }
+
         .nav-brand {
             display: flex;
             align-items: center;
@@ -55,20 +75,24 @@
             text-decoration: none;
             color: var(--text);
         }
+
         .nav-brand img {
             width: 40px;
             height: 40px;
             border-radius: 10px;
         }
+
         .nav-brand span {
             font-weight: 700;
             font-size: 1.1rem;
         }
+
         .nav-links {
             display: flex;
             gap: 2rem;
             list-style: none;
         }
+
         .nav-links a {
             color: var(--text-muted);
             font-size: 0.95rem;
@@ -76,7 +100,9 @@
             text-decoration: none;
             transition: color 0.2s;
         }
-        .nav-links a:hover, .nav-links a.active {
+
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--accent);
             text-decoration: none;
         }
@@ -87,6 +113,7 @@
             margin: 0 auto;
             padding: 4rem 2rem;
         }
+
         .content h1 {
             font-size: 2.5rem;
             font-weight: 800;
@@ -94,6 +121,7 @@
             margin-bottom: 0.5rem;
             text-align: center;
         }
+
         .content .subtitle {
             text-align: center;
             color: var(--text-muted);
@@ -110,16 +138,19 @@
             color: white;
             margin-bottom: 2.5rem;
         }
+
         .contact-card h2 {
             font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 0.75rem;
         }
+
         .contact-card p {
             font-size: 1rem;
             opacity: 0.9;
             margin-bottom: 1.5rem;
         }
+
         .contact-card .email-btn {
             display: inline-block;
             background: white;
@@ -131,10 +162,12 @@
             text-decoration: none;
             transition: transform 0.2s;
         }
+
         .contact-card .email-btn:hover {
             transform: translateY(-1px);
             text-decoration: none;
         }
+
         .contact-card .response-time {
             display: block;
             margin-top: 1rem;
@@ -149,6 +182,7 @@
             gap: 1.5rem;
             margin-bottom: 2.5rem;
         }
+
         .support-card {
             background: var(--card-bg);
             border-radius: var(--radius);
@@ -156,15 +190,18 @@
             border: 1px solid var(--border);
             box-shadow: var(--shadow);
         }
+
         .support-card .icon {
             font-size: 2rem;
             margin-bottom: 0.75rem;
         }
+
         .support-card h3 {
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
+
         .support-card p {
             color: var(--text-muted);
             font-size: 0.92rem;
@@ -180,26 +217,31 @@
             box-shadow: var(--shadow);
             margin-bottom: 2.5rem;
         }
+
         .faq-section h2 {
             font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
         }
+
         .faq-item {
             margin-bottom: 1.5rem;
             padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--border);
         }
+
         .faq-item:last-child {
             margin-bottom: 0;
             padding-bottom: 0;
             border-bottom: none;
         }
+
         .faq-item h3 {
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 0.4rem;
         }
+
         .faq-item p {
             color: var(--text-muted);
             font-size: 0.92rem;
@@ -214,29 +256,35 @@
             box-shadow: var(--shadow);
             margin-bottom: 2.5rem;
         }
+
         .data-deletion h2 {
             font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
+
         .data-deletion .section-intro {
             color: var(--text-muted);
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
         }
+
         .data-deletion h3 {
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
             margin-top: 1.5rem;
         }
+
         .data-deletion h3:first-of-type {
             margin-top: 0;
         }
+
         .deletion-steps {
             list-style: none;
             counter-reset: step-counter;
         }
+
         .deletion-steps li {
             counter-increment: step-counter;
             position: relative;
@@ -248,11 +296,13 @@
             color: var(--text-muted);
             line-height: 1.7;
         }
+
         .deletion-steps li:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
         }
+
         .deletion-steps li::before {
             content: counter(step-counter);
             position: absolute;
@@ -269,9 +319,11 @@
             align-items: center;
             justify-content: center;
         }
+
         .deletion-steps li strong {
             color: var(--text);
         }
+
         .in-app-note {
             background: var(--accent-light);
             border-radius: 12px;
@@ -283,10 +335,12 @@
             gap: 0.75rem;
             align-items: flex-start;
         }
+
         .in-app-note .note-icon {
             font-size: 1.3rem;
             flex-shrink: 0;
         }
+
         .in-app-note p {
             margin: 0;
             line-height: 1.6;
@@ -301,14 +355,17 @@
             box-shadow: var(--shadow);
             margin-bottom: 2.5rem;
         }
+
         .app-support h2 {
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 1.25rem;
         }
+
         .app-support-list {
             list-style: none;
         }
+
         .app-support-list li {
             display: flex;
             align-items: center;
@@ -316,18 +373,22 @@
             padding: 0.75rem 0;
             border-bottom: 1px solid var(--border);
         }
+
         .app-support-list li:last-child {
             border-bottom: none;
         }
+
         .app-support-list .app-icon-small {
             font-size: 1.5rem;
             width: 36px;
             text-align: center;
         }
+
         .app-support-list .app-name {
             font-weight: 600;
             font-size: 0.95rem;
         }
+
         .app-support-list .app-status {
             margin-left: auto;
             font-size: 0.75rem;
@@ -336,22 +397,27 @@
             border-radius: 6px;
             text-transform: uppercase;
         }
+
         .status-live {
             background: #e8f8e8;
             color: #1b873f;
         }
+
         .status-beta {
             background: #fef3c7;
             color: #92400e;
         }
+
         .status-dev {
             background: #e8f4fd;
             color: #0071e3;
         }
+
         .status-uat {
             background: #f3e8fd;
             color: #7c3aed;
         }
+
         .status-discontinued {
             background: #f0f0f0;
             color: #6b7280;
@@ -365,6 +431,7 @@
             color: var(--text-muted);
             font-size: 0.85rem;
         }
+
         footer .footer-links {
             display: flex;
             gap: 2rem;
@@ -372,30 +439,74 @@
             margin-bottom: 1rem;
             flex-wrap: wrap;
         }
-        footer a { color: var(--accent); }
+
+        footer a {
+            color: var(--accent);
+        }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .content h1 { font-size: 1.8rem; }
-            .content { padding: 3rem 1.5rem; }
-            .support-grid { grid-template-columns: 1fr; }
-            .nav-links { gap: 1rem; }
-            .nav-links a { font-size: 0.85rem; }
+            .content h1 {
+                font-size: 1.8rem;
+            }
+
+            .content {
+                padding: 3rem 1.5rem;
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+            }
         }
+
         @media (max-width: 480px) {
-            .nav-links { display: none; }
+            .nav-links {
+                display: none;
+            }
         }
 
         /* ===== Brand colour pass: red gradient nav + Mediterranean card accents ===== */
         :root {
-            --gradient-start: #002050; --gradient-mid: #186090; --gradient-end: #187878;
-            --nav-red-start: #A81818; --nav-red-mid: #900000; --nav-red-end: #C03018;
+            --gradient-start: #002050;
+            --gradient-mid: #186090;
+            --gradient-end: #187878;
+            --nav-red-start: #A81818;
+            --nav-red-mid: #900000;
+            --nav-red-end: #C03018;
         }
-        nav { background: linear-gradient(135deg, var(--nav-red-start) 0%, var(--nav-red-mid) 55%, var(--nav-red-end) 100%); border-bottom: none; box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
-        .nav-brand { color: #fff; }
-        .nav-brand img { background: #fff; padding: 3px; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
-        .nav-links a { color: rgba(255,255,255,0.85); }
-        .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+        nav {
+            background: linear-gradient(135deg, var(--nav-red-start) 0%, var(--nav-red-mid) 55%, var(--nav-red-end) 100%);
+            border-bottom: none;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-brand {
+            color: #fff;
+        }
+
+        .nav-brand img {
+            background: #fff;
+            padding: 3px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
+        }
 
         /* ===== LinkedIn badge (canonical snippet — tokens only) ===== */
         .linkedin-badge {
@@ -413,19 +524,55 @@
             transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
             text-decoration: none;
         }
-        .linkedin-badge img { width: 32px; height: 32px; display: block; }
+
+        .linkedin-badge img {
+            width: 32px;
+            height: 32px;
+            display: block;
+        }
+
         .linkedin-badge:hover {
             transform: translateY(-2px);
             border-color: var(--accent);
             box-shadow: var(--shadow-hover);
             text-decoration: none;
         }
-        .linkedin-badge:focus-visible { outline: 2px solid var(--accent-hover); outline-offset: 2px; }
-        .footer-badge { display: flex; justify-content: center; margin-bottom: 1.5rem; }
-        .support-card, .faq-section, .app-support, .data-deletion { position: relative; overflow: hidden; background: linear-gradient(160deg, var(--accent-light) 0%, var(--card-bg) 45%); }
-        .support-card::before, .faq-section::before, .app-support::before, .data-deletion::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end)); }
+
+        .linkedin-badge:focus-visible {
+            outline: 2px solid var(--accent-hover);
+            outline-offset: 2px;
+        }
+
+        .footer-badge {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .support-card,
+        .faq-section,
+        .app-support,
+        .data-deletion {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(160deg, var(--accent-light) 0%, var(--card-bg) 45%);
+        }
+
+        .support-card::before,
+        .faq-section::before,
+        .app-support::before,
+        .data-deletion::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+        }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -467,32 +614,39 @@
             <div class="support-card">
                 <div class="icon">&#128027;</div>
                 <h3>Report a Bug</h3>
-                <p>Found something broken? Let us know what happened, which app and version you're using, and your device model. Screenshots help a lot.</p>
+                <p>Found something broken? Let us know what happened, which app and version you're using, and your
+                    device model. Screenshots help a lot.</p>
             </div>
             <div class="support-card">
                 <div class="icon">&#128161;</div>
                 <h3>Request a Feature</h3>
-                <p>Have an idea that would make an app better? We love hearing from users. Every suggestion goes into the hopper and the best ones make it into future releases.</p>
+                <p>Have an idea that would make an app better? We love hearing from users. Every suggestion goes into
+                    the hopper and the best ones make it into future releases.</p>
             </div>
             <div class="support-card">
                 <div class="icon">&#128274;</div>
                 <h3>Account &amp; Data</h3>
-                <p>Need to delete your account, export your data, or change your subscription? We'll sort it out. Just tell us which app and what you need.</p>
+                <p>Need to delete your account, export your data, or change your subscription? We'll sort it out. Just
+                    tell us which app and what you need.</p>
             </div>
             <div class="support-card">
                 <div class="icon">&#128588;</div>
                 <h3>General Questions</h3>
-                <p>Not sure which category fits? Just send us a message. We're happy to help with anything — no question is too small.</p>
+                <p>Not sure which category fits? Just send us a message. We're happy to help with anything — no question
+                    is too small.</p>
             </div>
         </div>
 
         <!-- Data Deletion -->
         <div class="data-deletion" id="data-deletion">
             <h2>&#128465;&#65039; Request Data Deletion</h2>
-            <p class="section-intro">You have the right to request that your personal data be deleted at any time. There are two ways to do this:</p>
+            <p class="section-intro">You have the right to request that your personal data be deleted at any time. There
+                are two ways to do this:</p>
 
             <h3>Option 1: Delete from Within the App</h3>
-            <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 0.75rem;">All our apps that require an account provide a built-in data deletion option. You can delete your account and all associated data directly from the app without needing to contact us:</p>
+            <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 0.75rem;">All our apps that require
+                an account provide a built-in data deletion option. You can delete your account and all associated data
+                directly from the app without needing to contact us:</p>
             <ol class="deletion-steps">
                 <li><strong>Open the app</strong> and navigate to <strong>Settings</strong></li>
                 <li>Tap <strong>Account</strong> (or <strong>Profile</strong>)</li>
@@ -501,27 +655,37 @@
             </ol>
             <div class="in-app-note">
                 <span class="note-icon">&#9989;</span>
-                <p>This is the fastest method. Your account and all stored data will be permanently removed immediately. This action cannot be undone.</p>
+                <p>This is the fastest method. Your account and all stored data will be permanently removed immediately.
+                    This action cannot be undone.</p>
             </div>
 
             <h3>Option 2: Request Deletion by Email</h3>
-            <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 0.75rem;">If you're unable to access the app or prefer to make the request manually, you can email us directly:</p>
+            <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 0.75rem;">If you're unable to access
+                the app or prefer to make the request manually, you can email us directly:</p>
             <ol class="deletion-steps">
-                <li><strong>Send an email</strong> to <a href="mailto:camilleri.creations.uk@gmail.com">camilleri.creations.uk@gmail.com</a> with the subject line: <strong>"Data Deletion Request"</strong></li>
-                <li><strong>Include in your email:</strong> your full name, the email address associated with your account, and which app(s) you want data deleted from</li>
-                <li><strong>We will verify your identity</strong> by responding to the email address on file, or asking a follow-up question to confirm ownership</li>
-                <li><strong>Your data will be deleted within 30 days</strong> of a verified request. You will receive a confirmation email once deletion is complete</li>
+                <li><strong>Send an email</strong> to <a
+                        href="mailto:camilleri.creations.uk@gmail.com">camilleri.creations.uk@gmail.com</a> with the
+                    subject line: <strong>"Data Deletion Request"</strong></li>
+                <li><strong>Include in your email:</strong> your full name, the email address associated with your
+                    account, and which app(s) you want data deleted from</li>
+                <li><strong>We will verify your identity</strong> by responding to the email address on file, or asking
+                    a follow-up question to confirm ownership</li>
+                <li><strong>Your data will be deleted within 30 days</strong> of a verified request. You will receive a
+                    confirmation email once deletion is complete</li>
             </ol>
 
             <h3>What Gets Deleted</h3>
-            <p style="color: var(--text-muted); font-size: 0.92rem;">When you request data deletion — either from within the app or by email — the following data is permanently removed:</p>
+            <p style="color: var(--text-muted); font-size: 0.92rem;">When you request data deletion — either from within
+                the app or by email — the following data is permanently removed:</p>
             <ul style="color: var(--text-muted); font-size: 0.92rem; margin-top: 0.5rem; padding-left: 1.25rem;">
                 <li>Your user account and profile information</li>
                 <li>All content you have created within the app (entries, routines, preferences, etc.)</li>
                 <li>Any cloud-synced data stored in Firebase</li>
                 <li>Analytics data linked to your account</li>
             </ul>
-            <p style="color: var(--text-muted); font-size: 0.92rem; margin-top: 0.75rem;"><strong>Note:</strong> Subscription billing records held by Apple or Google are not affected, as we do not control those. You may also need to cancel your subscription separately through the App Store or Play Store.</p>
+            <p style="color: var(--text-muted); font-size: 0.92rem; margin-top: 0.75rem;"><strong>Note:</strong>
+                Subscription billing records held by Apple or Google are not affected, as we do not control those. You
+                may also need to cancel your subscription separately through the App Store or Play Store.</p>
         </div>
 
         <!-- App Status -->
@@ -538,75 +702,158 @@
                 <tbody>
                     <tr style="border-bottom: 1px solid var(--border);">
                         <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
-                            <span style="font-size: 1.5rem;">&#9200;</span>
+                            <img src="assets/ADHDOList.png" alt="ADHDOList icon"
+                                style="width: 32px; height: 32px; border-radius: 8px; object-fit: cover;"
+                                onerror="this.onerror=null;this.src='assets/logo.png';">
                             <span style="font-weight: 600;">ADHDOList</span>
                         </td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-live">Live</span></td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-live">Live</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span
+                                class="app-status status-live">Live</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span
+                                class="app-status status-live">Live</span></td>
                     </tr>
                     <tr style="border-bottom: 1px solid var(--border);">
                         <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
-                            <span style="font-size: 1.5rem;">&#9917;</span>
+                            <img src="assets/LionTrack.jpeg" alt="LionTrack icon"
+                                style="width: 32px; height: 32px; border-radius: 8px; object-fit: cover;"
+                                onerror="this.onerror=null;this.src='assets/logo.png';">
                             <span style="font-weight: 600;">LionTrack</span>
                         </td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-live">Live</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span
+                                class="app-status status-live">Live</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span
+                                class="app-status status-live">Live</span></td>
                     </tr>
                     <tr style="border-bottom: 1px solid var(--border);">
                         <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
-                            <span style="font-size: 1.5rem;">&#128106;</span>
+                            <img src="assets/FamilyHub.png" alt="FamilyHub icon"
+                                style="width: 32px; height: 32px; border-radius: 8px; object-fit: cover;"
+                                onerror="this.onerror=null;this.src='assets/logo.png';">
                             <span style="font-weight: 600;">FamilyHub</span>
                         </td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span
+                                class="app-status status-uat">UAT</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span
+                                class="app-status status-uat">UAT</span></td>
                     </tr>
                     <tr style="border-bottom: 1px solid var(--border);">
                         <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
-                            <span style="font-size: 1.5rem;">&#128218;</span>
+                            <img src="assets/StudyTrack.jpeg" alt="StudyTrack icon"
+                                style="width: 32px; height: 32px; border-radius: 8px; object-fit: cover;"
+                                onerror="this.onerror=null;this.src='assets/logo.png';">
                             <span style="font-weight: 600;">StudyTrack</span>
                         </td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-live">Live</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span
+                                class="app-status status-uat">UAT</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span
+                                class="app-status status-live">Live</span></td>
                     </tr>
                     <tr style="border-bottom: 1px solid var(--border);">
                         <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
-                            <span style="font-size: 1.5rem;">&#127939;</span>
+                            <img src="assets/Odyssey.jpeg" alt="Odyssey icon"
+                                style="width: 32px; height: 32px; border-radius: 8px; object-fit: cover;"
+                                onerror="this.onerror=null;this.src='assets/logo.png';">
                             <span style="font-weight: 600;">Odyssey</span>
                         </td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span
+                                class="app-status status-uat">UAT</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span
+                                class="app-status status-uat">UAT</span></td>
                     </tr>
                     <tr style="border-bottom: 1px solid var(--border);">
                         <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
-                            <span style="font-size: 1.5rem;">&#129525;</span>
+                            <img src="assets/Ariadne.png" alt="Ariadne icon"
+                                style="width: 32px; height: 32px; border-radius: 8px; object-fit: cover;"
+                                onerror="this.onerror=null;this.src='assets/logo.png';">
                             <span style="font-weight: 600;">Ariadne</span>
                         </td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-uat">UAT</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span
+                                class="app-status status-uat">UAT</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span
+                                class="app-status status-live">Live</span></td>
                     </tr>
                     <tr style="border-bottom: 1px solid var(--border);">
                         <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
-                            <span style="font-size: 1.5rem;">&#9992;&#65039;</span>
+                            <img src="assets/FirstSolo.png" alt="FirstSolo icon"
+                                style="width: 32px; height: 32px; border-radius: 8px; object-fit: cover;"
+                                onerror="this.onerror=null;this.src='assets/logo.png';">
                             <span style="font-weight: 600;">FirstSolo</span>
                         </td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In Development</span></td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In Development</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In
+                                Development</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In
+                                Development</span></td>
                     </tr>
                     <tr style="border-bottom: 1px solid var(--border);">
                         <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
-                            <span style="font-size: 1.5rem;">&#128200;</span>
+                            <img src="assets/Provenance.png" alt="Provenance icon"
+                                style="width: 32px; height: 32px; border-radius: 8px; object-fit: cover;"
+                                onerror="this.onerror=null;this.src='assets/logo.png';">
                             <span style="font-weight: 600;">Provenance</span>
                         </td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-discontinued">Discontinued</span></td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-discontinued">Discontinued</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span
+                                class="app-status status-discontinued">Discontinued</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span
+                                class="app-status status-discontinued">Discontinued</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                            <img src="assets/logo.png" alt="Fancy That icon"
+                                style="width: 32px; height: 32px; border-radius: 8px; object-fit: cover;">
+                            <span style="font-weight: 600;">Fancy That</span>
+                        </td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In
+                                Development</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In
+                                Development</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                            <img src="assets/Bastion1565.png" alt="Bastion 1565 icon"
+                                style="width: 32px; height: 32px; border-radius: 8px; object-fit: cover;"
+                                onerror="this.onerror=null;this.src='assets/logo.png';">
+                            <span style="font-weight: 600;">Bastion 1565</span>
+                        </td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In
+                                Development</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In
+                                Development</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                            <img src="assets/LastCypher.png" alt="The Last Cypher icon"
+                                style="width: 32px; height: 32px; border-radius: 8px; object-fit: cover;"
+                                onerror="this.onerror=null;this.src='assets/logo.png';">
+                            <span style="font-weight: 600;">The Last Cypher</span>
+                        </td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In
+                                Development</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In
+                                Development</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                            <img src="assets/FighterScramble.png" alt="Fighter Scramble icon"
+                                style="width: 32px; height: 32px; border-radius: 8px; object-fit: cover;"
+                                onerror="this.onerror=null;this.src='assets/logo.png';">
+                            <span style="font-weight: 600;">Fighter Scramble: Island Defence</span>
+                        </td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In
+                                Development</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In
+                                Development</span></td>
                     </tr>
                     <tr>
                         <td style="padding: 0.75rem 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
-                            <span style="font-size: 1.5rem;">&#128149;</span>
-                            <span style="font-weight: 600;">Fancy That</span>
+                            <img src="assets/StElmo.png" alt="The Might of Saint Elmo icon"
+                                style="width: 32px; height: 32px; border-radius: 8px; object-fit: cover;"
+                                onerror="this.onerror=null;this.src='assets/logo.png';">
+                            <span style="font-weight: 600;">The Might of Saint Elmo</span>
                         </td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In Development</span></td>
-                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In Development</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In
+                                Development</span></td>
+                        <td style="text-align: center; padding: 0.75rem 0.5rem;"><span class="app-status status-dev">In
+                                Development</span></td>
                     </tr>
                 </tbody>
             </table>
@@ -618,52 +865,67 @@
 
             <div class="faq-item">
                 <h3>How do I restore my subscription on a new device?</h3>
-                <p>Open the app, go to Settings, and tap "Restore Purchases." This will check your Apple ID or Google Play account for existing subscriptions and re-activate them.</p>
+                <p>Open the app, go to Settings, and tap "Restore Purchases." This will check your Apple ID or Google
+                    Play account for existing subscriptions and re-activate them.</p>
             </div>
 
             <div class="faq-item">
                 <h3>How do I delete my account and data?</h3>
-                <p>You can delete your account directly from within any of our apps (Settings &gt; Account &gt; Delete Account), or by emailing us. See the full <a href="#data-deletion">Data Deletion</a> section above for a step-by-step guide.</p>
+                <p>You can delete your account directly from within any of our apps (Settings &gt; Account &gt; Delete
+                    Account), or by emailing us. See the full <a href="#data-deletion">Data Deletion</a> section above
+                    for a step-by-step guide.</p>
             </div>
 
             <div class="faq-item">
                 <h3>Which devices are supported?</h3>
-                <p>Our iOS apps require iOS 17 or later and work on iPhone. Some apps (FirstSolo, FamilyHub) have optimised iPad layouts. Android apps require Android 10 or later.</p>
+                <p>Our iOS apps require iOS 17 or later and work on iPhone. Some apps (FirstSolo, FamilyHub) have
+                    optimised iPad layouts. Android apps require Android 10 or later.</p>
             </div>
 
             <div class="faq-item">
                 <h3>How do I cancel my subscription?</h3>
-                <p>Subscriptions are managed through the App Store or Google Play Store — not through our apps directly. Go to your device Settings &gt; Apple ID &gt; Subscriptions (iOS) or Google Play &gt; Payments &amp; subscriptions (Android).</p>
+                <p>Subscriptions are managed through the App Store or Google Play Store — not through our apps directly.
+                    Go to your device Settings &gt; Apple ID &gt; Subscriptions (iOS) or Google Play &gt; Payments &amp;
+                    subscriptions (Android).</p>
             </div>
 
             <div class="faq-item">
                 <h3>Is my data backed up?</h3>
-                <p>Apps that use Firebase (LionTrack, FamilyHub, StudyTrack, Odyssey, FirstSolo, Fancy That) sync data to the cloud automatically. Your data is available on any device you sign into. ADHD Morning Routine stores data locally with optional iCloud/Firebase sync for family features. Ariadne is fully on-device — your data is stored privately on your device and is never uploaded to the cloud.</p>
+                <p>Apps that use Firebase (LionTrack, FamilyHub, StudyTrack, Odyssey, FirstSolo, Fancy That) sync data
+                    to the cloud automatically. Your data is available on any device you sign into. ADHD Morning Routine
+                    stores data locally with optional iCloud/Firebase sync for family features. Ariadne is fully
+                    on-device — your data is stored privately on your device and is never uploaded to the cloud.</p>
             </div>
 
             <div class="faq-item">
                 <h3>Can I use the app offline?</h3>
-                <p>Yes. All our apps work offline for core functionality. Data will sync when you reconnect to the internet. Some features (family race, team sync, AI-generated content) require an active connection.</p>
+                <p>Yes. All our apps work offline for core functionality. Data will sync when you reconnect to the
+                    internet. Some features (family race, team sync, AI-generated content) require an active connection.
+                </p>
             </div>
 
             <div class="faq-item">
                 <h3>I have a billing issue. Who do I contact?</h3>
-                <p>All billing is handled by Apple (App Store) or Google (Play Store). For refunds or payment issues, contact <a href="https://reportaproblem.apple.com">Apple Support</a> or <a href="https://support.google.com/googleplay/answer/2479637">Google Play Support</a> directly. We don't have access to payment information.</p>
+                <p>All billing is handled by Apple (App Store) or Google (Play Store). For refunds or payment issues,
+                    contact <a href="https://reportaproblem.apple.com">Apple Support</a> or <a
+                        href="https://support.google.com/googleplay/answer/2479637">Google Play Support</a> directly. We
+                    don't have access to payment information.</p>
             </div>
         </div>
 
         <!-- Helpful Tips -->
         <div class="faq-section">
             <h2>Tips for Reporting Bugs</h2>
-            <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.25rem;">The more detail you include, the faster we can fix the issue. Here's what helps:</p>
+            <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.25rem;">The more detail you
+                include, the faster we can fix the issue. Here's what helps:</p>
 
             <div class="faq-item">
                 <h3>Include in your email:</h3>
                 <p>1. Which app and version (found in Settings &gt; About)<br>
-                2. Your device model and OS version (e.g., iPhone 15, iOS 17.5)<br>
-                3. What you were doing when the problem occurred<br>
-                4. What you expected to happen vs what actually happened<br>
-                5. Screenshots or screen recordings if possible</p>
+                    2. Your device model and OS version (e.g., iPhone 15, iOS 17.5)<br>
+                    3. What you were doing when the problem occurred<br>
+                    4. What you expected to happen vs what actually happened<br>
+                    5. Screenshots or screen recordings if possible</p>
             </div>
         </div>
     </section>
@@ -671,11 +933,8 @@
     <!-- Footer -->
     <footer>
         <div class="footer-badge">
-            <a class="linkedin-badge"
-               href="https://www.linkedin.com/company/camilleri-creations"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Camilleri Creations on LinkedIn (opens in a new tab)">
+            <a class="linkedin-badge" href="https://www.linkedin.com/company/camilleri-creations" target="_blank"
+                rel="noopener noreferrer" aria-label="Camilleri Creations on LinkedIn (opens in a new tab)">
                 <img src="assets/linkedin-badge.svg" alt="" aria-hidden="true">
             </a>
         </div>
@@ -691,4 +950,5 @@
         <p>&copy; 2026 Camilleri Creations. All rights reserved.</p>
     </footer>
 </body>
+
 </html>
