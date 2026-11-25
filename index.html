@@ -549,6 +549,14 @@
         .badge-book { background: #fbefe2; color: #9a4a12; }
         .book-card-icon { width: 56px; height: 56px; border-radius: 14px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; background: linear-gradient(135deg, #3a2a1a, #7a1a12); box-shadow: 0 2px 8px rgba(0,0,0,0.18); }
     </style>
+    <style>
+        /* ===== Mobile nav: wrap the links instead of hiding them ===== */
+        @media (max-width: 768px) {
+            .nav-inner { flex-direction: column; gap: 0.6rem; }
+            .nav-links { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 0.35rem 1rem; padding: 0; }
+            .nav-links a { font-size: 0.85rem; }
+        }
+    </style>
 </head>
 
 <body>
@@ -834,37 +842,77 @@
 
     <section class="section">
         <h2 class="section-title"><span class="section-title-gradient">Our Novels</span></h2>
-        <p class="section-subtitle">Two historical series in progress — each with a companion game.</p>
+        <p class="section-subtitle">Five stories in progress &mdash; most with a graphic novel edition, and some with a companion game.</p>
 
         <div class="app-grid">
+            <a href="books.html#wayfinder" class="app-card">
+                <div class="app-card-header">
+                    <div class="book-card-icon" aria-hidden="true">&#129517;</div>
+                    <div>
+                        <h3>The Wayfinder Chronicles</h3>
+                        <div class="platforms">
+                            <span class="badge badge-book">Fantasy</span>
+                            <span class="badge badge-book">5-book series</span>
+                        </div>
+                    </div>
+                </div>
+                <p>Paris, 1994. A shy teenager discovers a hidden civilisation beneath the city, and that he is one of the rare few who can find the paths between worlds.</p>
+            </a>
+
+            <a href="books.html#apprentice" class="app-card">
+                <div class="app-card-header">
+                    <div class="book-card-icon" aria-hidden="true">&#9874;&#65039;</div>
+                    <div>
+                        <h3>The Apprentice</h3>
+                        <div class="platforms">
+                            <span class="badge badge-book">Medieval adventure</span>
+                            <span class="badge badge-book">Series</span>
+                        </div>
+                    </div>
+                </div>
+                <p>York, 1299. A blacksmith's apprentice is sold to a drunken fighter who turns out to be a legendary knight, and learns what it means to stand between danger and the helpless.</p>
+            </a>
+
+            <a href="books.html#echoes-books" class="app-card">
+                <div class="app-card-header">
+                    <div class="book-card-icon" aria-hidden="true">&#9876;&#65039;</div>
+                    <div>
+                        <h3>Echoes of a Knight's Crusade</h3>
+                        <div class="platforms">
+                            <span class="badge badge-book">Historical mystery</span>
+                            <span class="badge badge-book">2-book series</span>
+                        </div>
+                    </div>
+                </div>
+                <p>An Edwardian mystery. In 1908 a band of unlikely investigators follows a killer across Europe on the trail of the Knights of St John and a corsair's lost treasure.</p>
+            </a>
+
             <a href="books.html#crimson-hornet" class="app-card">
                 <div class="app-card-header">
                     <div class="book-card-icon" aria-hidden="true">&#128251;</div>
                     <div>
                         <h3>The Crimson Hornet</h3>
                         <div class="platforms">
+                            <span class="badge badge-book">Spy thriller</span>
                             <span class="badge badge-book">4-book series</span>
-                            <span class="badge badge-book">Writing</span>
                         </div>
                     </div>
                 </div>
-                <p>A Second World War spy thriller from Bletchley Park to besieged Malta. A codebreaker and a Free
-                    French officer race the clock to expose an enemy network leaking Allied secrets.</p>
+                <p>A Second World War spy thriller from Bletchley Park to besieged Malta. A codebreaker and a French officer race the clock to expose an enemy network leaking Allied secrets.</p>
             </a>
 
-            <a href="books.html#turguts-legacy" class="app-card">
+            <a href="books.html#lives-the-guns-stole" class="app-card">
                 <div class="app-card-header">
-                    <div class="book-card-icon" aria-hidden="true">&#9876;&#65039;</div>
+                    <div class="book-card-icon" aria-hidden="true">&#9993;&#65039;</div>
                     <div>
-                        <h3>Turgut's Legacy</h3>
+                        <h3>The Lives the Guns Stole</h3>
                         <div class="platforms">
-                            <span class="badge badge-book">2-book series</span>
-                            <span class="badge badge-book">Writing</span>
+                            <span class="badge badge-book">Historical fiction</span>
+                            <span class="badge badge-book">Novel</span>
                         </div>
                     </div>
                 </div>
-                <p>An Edwardian mystery adventure. In 1908, five unlikely sleuths follow a killer across Europe on the
-                    trail of the Knights of St John and a corsair's lost treasure.</p>
+                <p>1914&ndash;1918. A Staffordshire farm hand in the trenches and a Wolverhampton nurse on the wards, kept together across four years of war by their letters.</p>
             </a>
         </div>
     </section>

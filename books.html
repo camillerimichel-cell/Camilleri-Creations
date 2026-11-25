@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Books — Camilleri Creations</title>
-    <meta name="description" content="The novels in progress at Camilleri Creations: The Crimson Hornet, a Second World War spy thriller series, and Turgut's Legacy, an Edwardian mystery adventure — each with a companion game.">
+    <meta name="description" content="The novels in progress at Camilleri Creations: The Wayfinder Chronicles, The Apprentice, Echoes of a Knight's Crusade, The Crimson Hornet and The Lives the Guns Stole.">
     <link rel="icon" type="image/png" href="assets/logo.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -131,7 +131,16 @@
         .book-list li::before { content: "Book " counter(book); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); min-width: 4.2rem; }
         .book-list .book-title { font-weight: 700; color: var(--text); }
         .book-list .book-note { font-size: 0.85rem; color: var(--text-muted); }
+        .book-list.single li::before { content: none; }
         .companion { margin-top: 1.25rem; font-size: 0.9rem; color: var(--text-muted); }
+    </style>
+    <style>
+        /* ===== Mobile nav: wrap the links instead of hiding them ===== */
+        @media (max-width: 768px) {
+            .nav-inner { flex-direction: column; gap: 0.6rem; }
+            .nav-links { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 0.35rem 1rem; padding: 0; }
+            .nav-links a { font-size: 0.85rem; }
+        }
     </style>
 </head>
 <body>
@@ -159,10 +168,123 @@
 
     <section class="page-header">
         <h1>Our Books</h1>
-        <p>Historical fiction in progress — rooted in real events, written for readers who love a puzzle, and each paired with a companion game.</p>
+        <p>Five stories in progress &mdash; from medieval Yorkshire and the Western Front to Bletchley Park, Edwardian Europe and a hidden world beneath Paris.</p>
     </section>
 
     <section class="apps-container">
+
+        <!-- The Wayfinder Chronicles -->
+        <article class="app-detail" id="wayfinder">
+            <div class="app-detail-header">
+                <div class="book-cover" aria-hidden="true">&#129517;</div>
+                <div>
+                    <h2>The Wayfinder Chronicles</h2>
+                    <p class="tagline">Some people find their way. A few find the way between worlds.</p>
+                    <div class="platforms">
+                        <span class="badge badge-book">Contemporary fantasy</span>
+                        <span class="badge badge-book">Coming of age</span>
+                        <span class="badge badge-book">Concept &amp; story bible</span>
+                    </div>
+                </div>
+            </div>
+            <div class="book-meta">
+                <span><strong>Setting:</strong> Paris, 1994 &mdash; and the world beneath it</span>
+                <span><strong>Places:</strong> Paris and a hidden underground civilisation</span>
+            </div>
+            <div class="description">
+                <p>Paris, 1994. A shy fifteen-year-old who would rather be lost in video games, history books and fantasy novels than at a party knows his city's streets, Metro lines and short cuts better than anyone. Then a discovery opens a door beneath the familiar city &mdash; not just catacombs and tunnels, but a vast inhabited world of kingdoms, guilds, forests, lakes, fortresses, ancient orders and strange creatures.</p>
+                <p>He learns that he is a Wayfinder, one of the rare few who can sense hidden routes and cross boundaries no one else can. Drawn into an ancient conflict with a manipulative enemy whose power was once held in check by a fragile alliance, he has to earn trust, build friendships and discover that finding a way is not the same as knowing what to do when you get there.</p>
+            </div>
+            <p class="features-heading">The Series <span style="text-transform:none; font-weight:600; color:var(--text-muted);">(provisional)</span></p>
+            <ol class="book-list single">
+                <li><span><span class="book-title">A five-book adventure</span> <span class="book-note">&mdash; titles to be announced</span></span></li>
+            </ol>
+            <p class="features-heading">What to Expect</p>
+            <ul class="features-grid">
+                <li>&#128506;&#65039; A hidden world beneath Paris</li>
+                <li>&#128220; Kingdoms, guilds &amp; ancient orders</li>
+                <li>&#128377;&#65039; 1994: payphones, floppy disks &amp; arcades</li>
+                <li>&#129309; Friendship, trust &amp; alliances</li>
+                <li>&#128009; Strange creatures &amp; lost technology</li>
+                <li>&#127793; An unlikely hero growing up</li>
+            </ul>
+        </article>
+
+        <!-- The Apprentice -->
+        <article class="app-detail" id="apprentice">
+            <div class="app-detail-header">
+                <div class="book-cover" aria-hidden="true">&#9874;&#65039;</div>
+                <div>
+                    <h2>The Apprentice</h2>
+                    <p class="tagline">From the forge to the front line &mdash; the making of a warrior.</p>
+                    <div class="platforms">
+                        <span class="badge badge-book">Medieval historical adventure</span>
+                        <span class="badge badge-book">Concept &amp; story bible</span>
+                    </div>
+                </div>
+            </div>
+            <div class="book-meta">
+                <span><strong>Setting:</strong> 1299&ndash;1301</span>
+                <span><strong>Places:</strong> York, Northallerton and the North York Moors</span>
+            </div>
+            <div class="description">
+                <p>York, 1299. Matthew, a fifteen-year-old blacksmith's apprentice, expects nothing grander than a forge of his own one day &mdash; until his master, short of money, sells him into the service of a rough, hard-drinking fighter to tend his horse and carry his gear. The drunk is not what he seems. He is a commander of a military order and a survivor of the Holy Land's last great sieges, a man who has lost his way but not his sword arm.</p>
+                <p>Trained by him and by a fierce young archer from the Yorkshire Dales, Matthew learns that mastery comes from practice, judgement and hard lessons, not destiny. When a remote settlement on the North York Moors begs for protection from a doomsday sect whose men seem to rise from the dead, the three of them have to stand between the village and the dark.</p>
+            </div>
+            <p class="features-heading">The Series</p>
+            <ol class="book-list">
+                <li><span><span class="book-title">Book One</span> <span class="book-note">&mdash; in development</span></span></li>
+            </ol>
+            <p class="features-heading">What to Expect</p>
+            <ul class="features-grid">
+                <li>&#9876;&#65039; Swordcraft &amp; archery</li>
+                <li>&#128293; A blacksmith's eye for steel</li>
+                <li>&#127956;&#65039; The North York Moors</li>
+                <li>&#128367;&#65039; A doomsday sect</li>
+                <li>&#127984; A secretive military order</li>
+                <li>&#128023; Mud, weather, faith &amp; class</li>
+            </ul>
+        </article>
+
+        <!-- Echoes of a Knight's Crusade -->
+        <article class="app-detail" id="echoes-books">
+            <div class="app-detail-header">
+                <div class="book-cover" aria-hidden="true">&#9876;&#65039;</div>
+                <div>
+                    <h2>Echoes of a Knight's Crusade</h2>
+                    <p class="tagline">A killer, a trail of relics, and a siege that never really ended.</p>
+                    <div class="platforms">
+                        <span class="badge badge-book">Historical mystery</span>
+                        <span class="badge badge-book">Novel &amp; graphic novel</span>
+                        <span class="badge badge-book">Writing in progress</span>
+                    </div>
+                </div>
+            </div>
+            <div class="book-meta">
+                <span><strong>Setting:</strong> 1908&ndash;1909, with scenes from the Great Siege of 1565</span>
+                <span><strong>Places:</strong> England, Germany, Italy, France, Spain, Venice, Malta</span>
+            </div>
+            <div class="description">
+                <p>Late 1908. A childhood friend who keeps the archives at St Albans Cathedral writes to a Wolverhampton analytical chemist for help &mdash; and she arrives too late. With a linguist from the French embassy in London, she follows a trail of murders and thefts that leads far beyond England.</p>
+                <p>Someone is gathering the belongings of the corsair Dragut, Turgut Reis, and the descendants of the knights who defended Malta in 1565 are dying for them. From Frankfurt, Turin, Bourges, Limoges and Toulouse to Zaragoza, Toledo, Carnival-season Venice and Malta, the pair are joined by a painter with a gift for ciphers, a bibliophile who would rather be in a library and a horsewoman who never refuses a rooftop &mdash; and each death forces them to ask what is owed to the dead.</p>
+                <p>Scenes from 1565 run through both books, as Dragut sails for Malta and the Knights of St John brace for the siege that will decide the Mediterranean.</p>
+            </div>
+            <p class="features-heading">The Series</p>
+            <ol class="book-list">
+                <li><span><span class="book-title">The Seal of Eight</span> <span class="book-note">&mdash; St Albans to Toulouse</span></span></li>
+                <li><span><span class="book-title">The Eleventh Riddle</span> <span class="book-note">&mdash; Zaragoza to Malta</span></span></li>
+            </ol>
+            <p class="features-heading">What to Expect</p>
+            <ul class="features-grid">
+                <li>&#128373;&#65039; A team of Edwardian investigators</li>
+                <li>&#127984; The Knights of St John</li>
+                <li>&#127988;&#8205;&#9760;&#65039; The corsair Dragut &amp; the Great Siege</li>
+                <li>&#128642; Europe by rail, motor car and horse</li>
+                <li>&#128273; Ciphers &amp; riddles</li>
+                <li>&#127912; Graphic novel edition</li>
+            </ul>
+            <p class="companion">Companion game: <a href="apps.html#echoes">Echoes of a Knight's Crusade</a> &mdash; solve the ciphers and riddles yourself along the same route.</p>
+        </article>
 
         <!-- The Crimson Hornet -->
         <article class="app-detail" id="crimson-hornet">
@@ -180,18 +302,18 @@
             </div>
             <div class="book-meta">
                 <span><strong>Setting:</strong> 1941&ndash;1944</span>
-                <span><strong>Places:</strong> Bletchley Park, London, Malta, Cairo, Dieppe</span>
+                <span><strong>Places:</strong> Bletchley Park, London, Malta, Cairo</span>
             </div>
             <div class="description">
                 <p>May 1941. As the battleship Bismarck slips out into the Atlantic, a young codebreaker at Bletchley Park notices a fragment of enemy signal traffic that should not exist &mdash; and, against orders, refuses to let it go. With a French intelligence officer attached to the Park, she comes to suspect that someone inside the Allied signals world is feeding convoy secrets to the enemy.</p>
-                <p>The Crimson Hornet follows the hunt for that network from the huts of Bletchley to besieged Malta, the officers' clubs of Cairo and the raid on Dieppe &mdash; a cat-and-mouse thriller against a hidden architect who always seems to be one move ahead, and a clock that never stops running.</p>
+                <p>The Crimson Hornet follows the hunt for that network from the huts of Bletchley to besieged Malta, the officers' clubs of Cairo and back again for the days before D-Day &mdash; a cat-and-mouse thriller against a hidden architect who always seems to be one move ahead, and a clock that never stops running.</p>
             </div>
             <p class="features-heading">The Series</p>
             <ol class="book-list">
-                <li><span><span class="book-title">The Silent Frequency</span> <span class="book-note">&mdash; outlined</span></span></li>
-                <li><span class="book-title">The Malta Gambit</span></li>
-                <li><span class="book-title">The False Objective</span></li>
-                <li><span class="book-title">The Last Cypher</span></li>
+                <li><span><span class="book-title">The Silent Frequency</span> <span class="book-note">&mdash; 1941 &middot; outlined</span></span></li>
+                <li><span><span class="book-title">The Malta Gambit</span> <span class="book-note">&mdash; 1942</span></span></li>
+                <li><span><span class="book-title">The False Objective</span> <span class="book-note">&mdash; 1943</span></span></li>
+                <li><span><span class="book-title">The Last Cypher</span> <span class="book-note">&mdash; 1944</span></span></li>
             </ol>
             <p class="features-heading">What to Expect</p>
             <ul class="features-grid">
@@ -205,44 +327,42 @@
             <p class="companion">Companion game: <a href="apps.html#lastcypher">The Last Cypher</a> &mdash; intercept, decrypt and deduce in the Lascaris War Rooms, Valletta, 1942.</p>
         </article>
 
-        <!-- Turgut's Legacy -->
-        <article class="app-detail" id="turguts-legacy">
+        <!-- The Lives the Guns Stole -->
+        <article class="app-detail" id="lives-the-guns-stole">
             <div class="app-detail-header">
-                <div class="book-cover" aria-hidden="true">&#9876;&#65039;</div>
+                <div class="book-cover" aria-hidden="true">&#9993;&#65039;</div>
                 <div>
-                    <h2>Turgut's Legacy</h2>
-                    <p class="tagline">A killer, a trail of relics, and a siege that never really ended.</p>
+                    <h2>The Lives the Guns Stole</h2>
+                    <p class="tagline">Four years of war. A bundle of letters. One promise to come home.</p>
                     <div class="platforms">
-                        <span class="badge badge-book">Historical mystery</span>
+                        <span class="badge badge-book">Historical fiction</span>
+                        <span class="badge badge-book">Wartime love story</span>
                         <span class="badge badge-book">Novel &amp; graphic novel</span>
                         <span class="badge badge-book">Writing in progress</span>
                     </div>
                 </div>
             </div>
             <div class="book-meta">
-                <span><strong>Setting:</strong> 1908&ndash;1909, with interludes from 1565</span>
-                <span><strong>Places:</strong> England, Germany, Italy, France, Spain, Venice, Malta</span>
+                <span><strong>Setting:</strong> 1912&ndash;1918</span>
+                <span><strong>Places:</strong> Codsall, Wolverhampton, Flanders, France, Malta</span>
             </div>
             <div class="description">
-                <p>Late 1908. When a childhood friend who keeps the archives at St Albans Cathedral writes to her for help, a Wolverhampton analytical chemist arrives too late. She ropes in a linguist from the French embassy in London, and together they find a trail that leads far beyond England.</p>
-                <p>Someone is killing the descendants of the knights who defended Malta in the Great Siege of 1565 &mdash; and collecting the relics of the corsair Dragut, Turgut Reis, as they go. From Frankfurt and Turin through Avignon, Limoges, Toulouse, Zaragoza, Toledo and Carnival-season Venice to Malta, the pair are joined by a bibliophile aristocrat, a painter with a gift for ciphers and an adventurer raised on the Argentine plains, with a fast car and no fear of rooftops.</p>
-                <p>Interludes return to 1565, as Dragut sails for Malta and the Knights of St John brace for the siege that will decide the Mediterranean.</p>
+                <p>Summer 1914. A twenty-year-old farm hand from Codsall meets a trainee nurse in Wolverhampton, and the war interrupts them almost at once. He goes to the trenches with the South Staffords; she rises through the nursing ranks at the other end of the casualty lists, where his battles end up.</p>
+                <p>Across four years from Ypres to Cambrai, their letters are the one place each can still be the person they were in 1914, while the war takes friends, certainties and innocence. Told through his battles, her wards, their letters and the newspapers, orders and telegrams of the time, it is a story of growing up too fast &mdash; and of the lives the war kept from them.</p>
             </div>
-            <p class="features-heading">The Series <span style="text-transform:none; font-weight:600; color:var(--text-muted);">(working title)</span></p>
-            <ol class="book-list">
-                <li><span><span class="book-title">St Albans to Toulouse</span> <span class="book-note">&mdash; outlined &middot; title to be announced</span></span></li>
-                <li><span><span class="book-title">Zaragoza to Malta</span> <span class="book-note">&mdash; title to be announced</span></span></li>
+            <p class="features-heading">The Book</p>
+            <ol class="book-list single">
+                <li><span><span class="book-title">The Lives the Guns Stole</span> <span class="book-note">&mdash; a single novel in seven parts &middot; outlined</span></span></li>
             </ol>
             <p class="features-heading">What to Expect</p>
             <ul class="features-grid">
-                <li>&#128373;&#65039; Five sleuths, five specialisms</li>
-                <li>&#127984; The Knights of St John</li>
-                <li>&#127988;&#8205;&#9760;&#65039; The corsair Dragut &amp; the Great Siege</li>
-                <li>&#128642; Edwardian Europe by rail and motor car</li>
-                <li>&#128220; Period books as chapter epigraphs</li>
+                <li>&#9993;&#65039; A love story told in letters</li>
+                <li>&#129686; Trench life &amp; the Western Front</li>
+                <li>&#127973; Hospitals, convoys &amp; casualty clearing stations</li>
+                <li>&#127793; Two young people growing up in a war</li>
+                <li>&#128240; Newspapers, orders &amp; telegrams</li>
                 <li>&#127912; Graphic novel edition</li>
             </ul>
-            <p class="companion">Companion game: <a href="apps.html#echoes">Echoes of a Knight's Crusade</a> &mdash; solve the ciphers and riddles yourself along the same route.</p>
         </article>
 
     </section>

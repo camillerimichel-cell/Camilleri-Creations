@@ -120,6 +120,14 @@
         .linkedin-badge:focus-visible { outline: 2px solid var(--accent-hover); outline-offset: 2px; }
         .footer-badge { display: flex; justify-content: center; margin-bottom: 1.5rem; }
     </style>
+    <style>
+        /* ===== Mobile nav: wrap the links instead of hiding them ===== */
+        @media (max-width: 768px) {
+            .nav-inner { flex-direction: column; gap: 0.6rem; }
+            .nav-links { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 0.35rem 1rem; padding: 0; }
+            .nav-links a { font-size: 0.85rem; }
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -621,7 +629,7 @@
                 <li>&#9876;&#65039; Rhodes 1522 &amp; Malta 1565 relics</li>
             </ul>
             <p class="tech-stack"><strong>Built with:</strong> Unity (iOS &amp; Android) &bull; engine-free core with chapter data in JSON</p>
-            <p class="tech-stack">Companion to the <a href="books.html#turguts-legacy">Turgut's Legacy</a> novels.</p>
+            <p class="tech-stack">Companion to the <a href="books.html#echoes-books">Echoes of a Knight's Crusade</a> novels.</p>
         </article>
 
         <!-- Fancy That -->

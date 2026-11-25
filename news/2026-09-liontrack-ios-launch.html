@@ -348,6 +348,14 @@
             outline-offset: 2px;
         }
     </style>
+    <style>
+        /* ===== Mobile nav: wrap the links instead of hiding them ===== */
+        @media (max-width: 768px) {
+            .nav-inner { flex-direction: column; gap: 0.6rem; }
+            .nav-links { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 0.35rem 1rem; padding: 0; }
+            .nav-links a { font-size: 0.85rem; }
+        }
+    </style>
 </head>
 
 <body>
