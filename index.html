@@ -546,6 +546,8 @@
             justify-content: center;
             margin-bottom: 1.5rem;
         }
+        .badge-book { background: #fbefe2; color: #9a4a12; }
+        .book-card-icon { width: 56px; height: 56px; border-radius: 14px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; background: linear-gradient(135deg, #3a2a1a, #7a1a12); box-shadow: 0 2px 8px rgba(0,0,0,0.18); }
     </style>
 </head>
 
@@ -559,6 +561,7 @@
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="apps.html">Apps</a></li>
+                <li><a href="books.html">Books</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="privacy.html">Privacy</a></li>
                 <li><a href="terms.html">Terms</a></li>
@@ -796,6 +799,22 @@
                     Malta — ration supplies, hold a fragile alliance, and survive until relief arrives.</p>
             </a>
 
+            <a href="apps.html#echoes" class="app-card">
+                <div class="app-card-header">
+                    <img src="assets/Echoes.png" alt="Echoes of a Knight's Crusade icon" class="app-card-icon"
+                        onerror="this.onerror=null;this.src='assets/logo.png';">
+                    <div>
+                        <h3>Echoes of a Knight's Crusade</h3>
+                        <div class="platforms">
+                            <span class="badge badge-ios">iOS</span>
+                            <span class="badge badge-android">Android</span>
+                        </div>
+                    </div>
+                </div>
+                <p>A 1908 deduction and puzzle adventure. Lead five Edwardian sleuths from St Albans to Malta, solving
+                    ciphers and riddles hidden in period books to stop a killer hunting the knights' descendants.</p>
+            </a>
+
             <a href="apps.html#fancythat" class="app-card">
                 <div class="app-card-header">
                     <img src="assets/logo.png" alt="Fancy That icon" class="app-card-icon">
@@ -809,6 +828,43 @@
                 </div>
                 <p>A private, AI-powered comedy-romance couples app. Unexpected delight, playful affirmation, and quiet
                     intimacy delivered throughout an ordinary day.</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title"><span class="section-title-gradient">Our Novels</span></h2>
+        <p class="section-subtitle">Two historical series in progress — each with a companion game.</p>
+
+        <div class="app-grid">
+            <a href="books.html#crimson-hornet" class="app-card">
+                <div class="app-card-header">
+                    <div class="book-card-icon" aria-hidden="true">&#128251;</div>
+                    <div>
+                        <h3>The Crimson Hornet</h3>
+                        <div class="platforms">
+                            <span class="badge badge-book">4-book series</span>
+                            <span class="badge badge-book">Writing</span>
+                        </div>
+                    </div>
+                </div>
+                <p>A Second World War spy thriller from Bletchley Park to besieged Malta. A codebreaker and a Free
+                    French officer race the clock to expose an enemy network leaking Allied secrets.</p>
+            </a>
+
+            <a href="books.html#turguts-legacy" class="app-card">
+                <div class="app-card-header">
+                    <div class="book-card-icon" aria-hidden="true">&#9876;&#65039;</div>
+                    <div>
+                        <h3>Turgut's Legacy</h3>
+                        <div class="platforms">
+                            <span class="badge badge-book">2-book series</span>
+                            <span class="badge badge-book">Writing</span>
+                        </div>
+                    </div>
+                </div>
+                <p>An Edwardian mystery adventure. In 1908, five unlikely sleuths follow a killer across Europe on the
+                    trail of the Knights of St John and a corsair's lost treasure.</p>
             </a>
         </div>
     </section>
@@ -850,6 +906,7 @@
         <div class="footer-links">
             <a href="index.html">Home</a>
             <a href="apps.html">Apps</a>
+            <a href="books.html">Books</a>
             <a href="about.html">About</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms</a>
